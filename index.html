@@ -226,6 +226,218 @@
             
               
                 
+                <a class="post-title-link" href="/2016/03/30/读书笔记：JavaScript作用域原型/" itemprop="url">
+                  读书笔记(一)：JavaScript作用域原型
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-03-30T16:04:01+08:00" content="2016-03-30">
+              2016-03-30
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/03/30/读书笔记：JavaScript作用域原型/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/30/读书笔记：JavaScript作用域原型/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <pre><code>javascript中的的函数运行在他们被定义的作用域里，而不是他们被执行的作用域里。
+</code></pre><h2 id="问题的提出"><a href="#问题的提出" class="headerlink" title="问题的提出"></a>问题的提出</h2><p>首先看一个例子:</p>
+<pre><code>var name = &apos;laruence&apos;;
+    function echo() {
+     alert(name);
+     var name = &apos;eve&apos;;
+     alert(name);
+     alert(age);
+  }
+     echo();
+</code></pre><p>运行结果是什么呢?<br>上面的问题, 我相信会有很多人会认为是:</p>
+<pre><code>laruence   eve   [脚本出错]
+</code></pre><p>因为会以为在echo中, 第一次alert的时候, 会取到全局变量name的值, 而第二次值被局部变量name覆盖, 所以第二次alert是’eve’. 而age属性没有定义, 所以脚本会出错.<br>但其实, 运行结果应该是:      </p>
+<pre><code>undefined
+eve
+[脚本出错]      
+</code></pre><p> 为什么呢?</p>
+<h2 id="JavaScript的作用域链"><a href="#JavaScript的作用域链" class="headerlink" title="JavaScript的作用域链"></a>JavaScript的作用域链</h2><p>首先让让我们来看看Javasript(简称JS, 不完全代表JScript)的作用域的原理: JS权威指南中有一句很精辟的描述:　”JavaScript中的函数运行在它们被定义的作用域里,而不是它们被执行的作用域里.”　<br>为了接下来的知识, 你能顺利理解, 我再提醒一下, 在JS中:”一切皆是对象, 函数也是”.<br>在JS中，作用域的概念和其他语言差不多， 在每次调用一个函数的时候 ，就会进入一个函数内的作用域，当从函数返回以后，就返回调用前的作用域.<br>JS的语法风格和C/C++类似, 但作用域的实现却和C/C++不同，并非用“堆栈”方式，而是使用列表，具体过程如下(ECMA262中所述):<br>任何执行上下文时刻的作用域, 都是由作用域链(scope chain, 后面介绍)来实现.<br>在一个函数被定义的时候, 会将它定义时刻的scope chain链接到这个函数对象的[[scope]]属性.<br>在一个函数对象被调用的时候，会创建一个活动对象(也就是一个对象), 然后对于每一个函数的形参，都命名为该活动对象的命名属性, 然后将这个活动对象做为此时的作用域链(scope chain)最前端, 并将这个函数对象的[[scope]]加入到scope chain中.<br>看个例子:</p>
+<pre><code>var func = function(lps, rps){
+          var name = &apos;laruence&apos;;
+          ........
+     }
+     func();
+</code></pre><p>在执行func的定义语句的时候, 会创建一个这个函数对象的[[scope]]属性(内部属性,只有JS引擎可以访问, 但FireFox的几个引擎(SpiderMonkey和Rhino)提供了私有属性<strong>parent</strong>来访问它), 并将这个[[scope]]属性, 链接到定义它的作用域链上(后面会详细介绍), 此时因为func定义在全局环境, 所以此时的[[scope]]只是指向全局活动对象window active object.<br>在调用func的时候, 会创建一个活动对象(假设为aObj, 由JS引擎预编译时刻创建, 后面会介绍)，并创建arguments属性, 然后会给这个对象添加俩个命名属性aObj.lps, aObj.rps; 对于每一个在这个函数中申明的局部变量和函数定义, 都作为该活动对象的同名命名属性.<br>然后将调用参数赋值给形参数，对于缺少的调用参数，赋值为undefined。<br>然后将这个活动对象做为scope chain的最前端, 并将func的[[scope]]属性所指向的,定义func时候的顶级活动对象, 加入到scope chain.<br>有了上面的作用域链, 在发生标识符解析的时候, 就会逆向查询当前scope chain列表的每一个活动对象的属性，如果找到同名的就返回。找不到，那就是这个标识符没有被定义。<br>注意到, 因为函数对象的[[scope]]属性是在定义一个函数的时候决定的, 而非调用的时候, 所以如下面的例子:</p>
+<pre><code>var name = &apos;laruence&apos;;
+    function echo() {
+         alert(name);
+    }
+
+    function env() {
+         var name = &apos;eve&apos;;
+         echo();
+    }
+
+    env();
+</code></pre><p>运行结果是:</p>
+<pre><code>laruence
+</code></pre><p>结合上面的知识, 我们来看看下面这个例子:</p>
+<pre><code>function factory() {
+     var name = &apos;laruence&apos;;
+     var intro = function(){
+          alert(&apos;I am &apos; + name);
+     }
+     return intro;
+}
+
+function app(para){
+     var name = para;
+     var func = factory();
+     func();
+}
+
+app(&apos;eve&apos;);
+</code></pre><p>当调用app的时候, scope chain是由: {window活动对象(全局)}-&gt;{app的活动对象} 组成.  在刚进入app函数体时, app的活动对象有一个arguments属性, 俩个值为undefined的属性: name和func.    和一个值为’eve’的属性para;<br>此时的scope chain如下: </p>
+<pre><code>[[scope chain]] = [
+{
+     para : &apos;eve&apos;,
+     name : undefined,
+     func : undefined,
+     arguments : []
+}, {
+     window call object
+}
+]   
+</code></pre><p>当调用进入factory的函数体的时候, 此时的factory的scope chain为:</p>
+<pre><code>[[scope chain]] = [
+{
+     name : undefined,
+     intor : undefined
+}, {
+     window call object
+}
+]
+</code></pre><p>注意到, 此时的作用域链中, 并不包含app的活动对象.<br>在定义intro函数的时候, intro函数的[[scope]]为:</p>
+<pre><code>[[scope chain]] = [
+{
+     name : &apos;laruence&apos;,
+     intor : undefined
+}, {
+     window call object
+}
+]
+</code></pre><p>从factory函数返回以后,在app体内调用intor的时候, 发生了标识符解析, 而此时的sope chain是:</p>
+<pre><code>[[scope chain]] = [
+{
+     intro call object
+}, {
+     name : &apos;laruence&apos;,
+     intor : undefined
+}, {
+     window call object
+}
+]
+</code></pre><p>因为scope chain中,并不包含factory活动对象. 所以, name标识符解析的结果应该是factory活动对象中的name属性, 也就是’laruence’.</p>
+<p>所以运行结果是:</p>
+<pre><code>I am laruence
+</code></pre><p>现在, 大家对”JavaScript中的函数运行在它们被定义的作用域里,而不是它们被执行的作用域里.”这句话, 应该有了个全面的认识了吧?</p>
+<p>JavaScript中没有块级作用域，例如：</p>
+<pre><code>if(true){
+    var color=&quot;blue&quot;;
+}
+alert(color);          //&quot;blue&quot;
+</code></pre><p>这里的实在一个if语句中定义了变量color。如果在别的语言中color会在if语句执行完毕后被销毁。但是在JavaScript中，if语句中的变量声明会被添加到当前的执行环境中去（这里是全局的执行环境）类似的还有for</p>
+<h2 id="声明变量"><a href="#声明变量" class="headerlink" title="声明变量"></a>声明变量</h2><p> 使用Var声明的变量会被自动被添加到最近的执行环境中。如果初始化变量时没有使用Var声明，该变量会被自动添加到全局环境中。例如：</p>
+<pre><code>function add(num1,mum2){
+    var sum=num1+num2;
+    return sum;
+}
+var result=add(10,20); //30
+alert(sum);            //由于sum不是有效的变量，因此会导致错误。
+</code></pre><p>如果省略这个Var关键字</p>
+<pre><code>function add(sum1,sum2){
+    sum=num1+num2;
+    return sum;
+}
+var result=add(10,20); //30
+alert(sum);    //30
+</code></pre>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/03/28/初入前端/" itemprop="url">
                   初入前端
                 </a>
@@ -276,9 +488,11 @@
       
         
           
-            <p><img src="http://xiaodongtongxue.github.io/uploads/logo.png" alt="logo"><br>        每个人都有一个梦,即使彼此不相同,能够与你分享,无论失败成功都会感动。<br>决定进军前端也是这个月初的事情,之前算是一直找方向,也尝试过去了解andorid,java web,或者现在被安利许久的大数据,习惯或者说追求吧,不太愿意去敲基于命令行系统的Linux黑白界面,从初学java,oracle,android,Hadoop web-ssh 也算是浑浑噩噩什么都学了大半年,都没有提起我的兴趣,在做ssh项目的时候,老师讲到了前端,认识了bootstrap,看到了老师花了一个晚上基于bootstrap的JS插件做出的项目Demo我惊呆了,以前在大学大一,大二的时候做过一些类似静态网站的东西,稍微接触过html和css,才发现现在前端真的翻天覆地的变了,也出现了框架,JavaScript不仅仅是用来做控制和轮播图,年过后来到学校就开始在网上各种搜罗前端的消息,也开始关注了一些前端的“风云人物”<strong> 尤小右</strong> ,<strong>大城小胖</strong>,<strong>月影</strong>,<strong>前端农民工</strong>,<strong>寒冬winter</strong>,<strong>阿当</strong>（这个人我觉得很怪,崇尚旧东西）也出现了,知乎前端大战。对就是此时,我决定跳坑了,之所以不用更积极的词汇“探索”,因为现在前端视野太模糊,框架多,前端技术一直革命的特别快,新技术、新技巧在不断地被发明出来。门槛低的学习几天都可以称自己入门了,不过经过我慎重考虑自身兴趣所在后,毅然跳了。感谢前面提到的几位大牛让我认识了现在的前端需要的技术和需要前进的方向。  </p>
-<p>正好现在有几个月比较静心学习的时间,我决定系统的去学习。就像 winter说的：应该建立自己的知识体系,做自己的职业发展责任人。能力是三大块：编程能力、架构能力、工程能力。编程能力,就是用代码解决问题的能力,你编程能力越强,就能解决越复杂的问题,细分又有调试、算法、数据结构、OS原理等这些的支撑,你才能解决各种麻烦的问题。架构能力,则是解决代码规模的问题,当一个系统足够复杂,你会写每一块,能解决每一个问题,你能搞定整个系统,这就需要架构能力,架构能力包含了一些意识,比如解耦、接口隔离,也包含认识业务建立抽象模型,也有一些常见的模式,比如经典的MVC,还有设计层面,面向对象、设计模式等等。最后工程能力,则是解决协作的问题,当系统规模更大,光靠一个人,是没办法完成的,如何保证几个高手互相能够配合好？如何保证项目里面水平最差的人不拖后腿？这个工程化建设,往往会跨越多个业务,以汇报关系上的团队为单位来做。包括前后端解耦,模块化,质量保证,代码风格,等等。其实不难看出来,这三项,其实是有顺序的,低等级、小团队,编程能力一项就能应付,越资深的前端,越大的公司和团队,越是需要后面的技能,但是这里我要强调一点,其实资深前端,大团队,对能力的需求,是既要还要——不是说资深的前端,编程能力就可以变差。社区总会有一些声音,对工程能力,对架构能力持有一种抵触的态度,觉得比较虚,觉得不需要。实际上以某些人所在的岗位来说,也没错,毕竟公司、团队的状态确实可能用不到,但是以个人成长的角度来看,就是大错特错。架构能力和工程能力是在以后工作中去锻炼的,现在处于学习阶段,应该培养自己的编程能力,准确,全面的系统去学习。  </p>
-<p>技术圈里流行一个笑话,说的是一个人,工作了三年,却只有一年的经验,因为后面两年都在重复第一年的工作。所以我们要做的事,就是永远不要做对自己学习成长无用的重复劳动,当你觉得现在的工作,越来越舒适,越来越缺少风险的时候,就应该引起警惕了,也不去啃那些很多年前人玩剩下的,身在前端有些特殊必须掌握最前沿,最新的技术才能混迹在”圈内”,JavaScript无需多言是贯彻整个前端技术的语言,原生JS是一切前端编程技术的起源,买了C.Zalas的高级程序设计和犀牛书（javascript权威指南）便开始了漫长的陪伴,没事去逛稀土掘金,极客头条,前端博客等一些社区,对自己认知和成长提供了很大的帮助。也了解到前端技术食物链顶端叫全栈工程师 。</p>
+            <p><img src="http://xiaodongtongxue.github.io/uploads/logo.png" alt="logo"></p>
+<pre><code>每个人都有一个梦,即使彼此不相同,能够与你分享,无论失败成功都会感动。
+</code></pre><p>决定进军前端也是这个月初的事情,之前算是一直找方向,也尝试过去了解andorid,java web,或者现在被安利许久的大数据,习惯或者说追求吧,不太愿意去敲基于命令行系统的Linux黑白界面,从初学java,oracle,android,Hadoop web-ssh 也算是浑浑噩噩什么都学了大半年,都没有提起我的兴趣,在做ssh项目的时候,老师讲到了前端,认识了bootstrap,看到了老师花了一个晚上基于bootstrap的JS插件做出的项目Demo我惊呆了,以前在大学大一,大二的时候做过一些类似静态网站的东西,稍微接触过html和css,才发现现在前端真的翻天覆地的变了,也出现了框架,JavaScript不仅仅是用来做控制和轮播图,年过后来到学校就开始在网上各种搜罗前端的消息,也开始关注了一些前端的“风云人物” <strong>尤小右</strong> ,<strong>大城小胖</strong>,<strong>月影</strong>,<strong>前端农民工</strong>,<strong>寒冬winter</strong>,<strong>阿当</strong>（这个人我觉得很怪,崇尚旧东西）也出现了,知乎前端大战。对就是此时,我决定跳坑了,之所以不用更积极的词汇“探索”,因为现在前端视野太模糊,框架多,前端技术一直革命的特别快,新技术、新技巧在不断地被发明出来。门槛低的学习几天都可以称自己入门了,不过经过我慎重考虑自身兴趣所在后,毅然跳了。感谢前面提到的几位大牛让我认识了现在的前端需要的技术和需要前进的方向。  </p>
+<p>  正好现在有几个月比较静心学习的时间,我决定系统的去学习。就像 winter说的：应该建立自己的知识体系,做自己的职业发展责任人。能力是三大块：编程能力、架构能力、工程能力。编程能力,就是用代码解决问题的能力,你编程能力越强,就能解决越复杂的问题,细分又有调试、算法、数据结构、OS原理等这些的支撑,你才能解决各种麻烦的问题。架构能力,则是解决代码规模的问题,当一个系统足够复杂,你会写每一块,能解决每一个问题,你能搞定整个系统,这就需要架构能力,架构能力包含了一些意识,比如解耦、接口隔离,也包含认识业务建立抽象模型,也有一些常见的模式,比如经典的MVC,还有设计层面,面向对象、设计模式等等。最后工程能力,则是解决协作的问题,当系统规模更大,光靠一个人,是没办法完成的,如何保证几个高手互相能够配合好？如何保证项目里面水平最差的人不拖后腿？这个工程化建设,往往会跨越多个业务,以汇报关系上的团队为单位来做。包括前后端解耦,模块化,质量保证,代码风格,等等。其实不难看出来,这三项,其实是有顺序的,低等级、小团队,编程能力一项就能应付,越资深的前端,越大的公司和团队,越是需要后面的技能,但是这里我要强调一点,其实资深前端,大团队,对能力的需求,是既要还要——不是说资深的前端,编程能力就可以变差。社区总会有一些声音,对工程能力,对架构能力持有一种抵触的态度,觉得比较虚,觉得不需要。实际上以某些人所在的岗位来说,也没错,毕竟公司、团队的状态确实可能用不到,但是以个人成长的角度来看,就是大错特错。架构能力和工程能力是在以后工作中去锻炼的,现在处于学习阶段,应该培养自己的编程能力,准确,全面的系统去学习。  </p>
+<p>   技术圈里流行一个笑话,说的是一个人,工作了三年,却只有一年的经验,因为后面两年都在重复第一年的工作。所以我们要做的事,就是永远不要做对自己学习成长无用的重复劳动,当你觉得现在的工作,越来越舒适,越来越缺少风险的时候,就应该引起警惕了,也不去啃那些很多年前人玩剩下的,身在前端有些特殊必须掌握最前沿,最新的技术才能混迹在”圈内”,JavaScript无需多言是贯彻整个前端技术的语言,原生JS是一切前端编程技术的起源,买了C.Zalas的高级程序设计和犀牛书（javascript权威指南）便开始了漫长的陪伴,没事去逛稀土掘金,极客头条,前端博客等一些社区,对自己认知和成长提供了很大的帮助。也了解到前端技术食物链顶端叫全栈工程师 。</p>
 
           
         
@@ -344,7 +558,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">1</span>
+              <span class="site-state-item-count">2</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -354,7 +568,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
