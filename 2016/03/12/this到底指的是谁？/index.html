@@ -41,7 +41,7 @@
 <link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="《JavaScript高级程序设计》," />
+  <meta name="keywords" content="普渡众生," />
 
 
 
@@ -57,37 +57,16 @@
 
 
 
-<meta name="description" content="javascript中的的函数运行在他们被定义的作用域里，而不是他们被执行的作用域里。
-问题的提出首先看一个例子:
-var name = &amp;apos;laruence&amp;apos;;
-    function echo() {
-     alert(name);
-     var name = &amp;apos;eve&amp;apos;;
-     alert(name);
-     alert(age);">
+<meta name="description" content="初学java和javascript肯定对这个this很是苦恼，他到底指的是谁啊？经过我多方查证终于搞懂了，顺便“普渡众生”,你可能经常看到这样的用法：object.call(this,x,y,z)那么这个call和this是什么关系呢？接下来：">
 <meta property="og:type" content="article">
-<meta property="og:title" content="读书笔记(一)：JavaScript作用域原型">
-<meta property="og:url" content="http://yoursite.com/2016/03/30/读书笔记：JavaScript作用域原型/index.html">
-<meta property="og:site_name" content="修炼 信仰 时光">
-<meta property="og:description" content="javascript中的的函数运行在他们被定义的作用域里，而不是他们被执行的作用域里。
-问题的提出首先看一个例子:
-var name = &amp;apos;laruence&amp;apos;;
-    function echo() {
-     alert(name);
-     var name = &amp;apos;eve&amp;apos;;
-     alert(name);
-     alert(age);">
-<meta property="og:updated_time" content="2016-03-30T11:01:56.424Z">
+<meta property="og:title" content="this到底指的是谁？">
+<meta property="og:url" content="http://yoursite.com/2016/03/12/this到底指的是谁？/index.html">
+<meta property="og:site_name" content="时光 漫步">
+<meta property="og:description" content="初学java和javascript肯定对这个this很是苦恼，他到底指的是谁啊？经过我多方查证终于搞懂了，顺便“普渡众生”,你可能经常看到这样的用法：object.call(this,x,y,z)那么这个call和this是什么关系呢？接下来：">
+<meta property="og:updated_time" content="2016-03-31T05:59:59.805Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="读书笔记(一)：JavaScript作用域原型">
-<meta name="twitter:description" content="javascript中的的函数运行在他们被定义的作用域里，而不是他们被执行的作用域里。
-问题的提出首先看一个例子:
-var name = &amp;apos;laruence&amp;apos;;
-    function echo() {
-     alert(name);
-     var name = &amp;apos;eve&amp;apos;;
-     alert(name);
-     alert(age);">
+<meta name="twitter:title" content="this到底指的是谁？">
+<meta name="twitter:description" content="初学java和javascript肯定对这个this很是苦恼，他到底指的是谁啊？经过我多方查证终于搞懂了，顺便“普渡众生”,你可能经常看到这样的用法：object.call(this,x,y,z)那么这个call和this是什么关系呢？接下来：">
 
 
 
@@ -105,7 +84,7 @@ var name = &amp;apos;laruence&amp;apos;;
   };
 </script>
 
-  <title> 读书笔记(一)：JavaScript作用域原型 | 修炼 信仰 时光 </title>
+  <title> this到底指的是谁？ | 时光 漫步 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -146,11 +125,11 @@ var name = &amp;apos;laruence&amp;apos;;
   <div class="custom-logo-site-title">
     <a href="/"  class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
-      <span class="site-title">修炼 信仰 时光</span>
+      <span class="site-title">时光 漫步</span>
       <span class="logo-line-after"><i></i></span>
     </a>
   </div>
-  <p class="site-subtitle">Because Of You.</p>
+  <p class="site-subtitle">让她自然的来吧，让她悄然的去吧，就这样微笑的看着自己。</p>
 </div>
 
 <div class="site-nav-toggle">
@@ -219,6 +198,8 @@ var name = &amp;apos;laruence&amp;apos;;
       
 
       
+      
+      
     </ul>
   
 
@@ -255,7 +236,7 @@ var name = &amp;apos;laruence&amp;apos;;
             
             
               
-                读书笔记(一)：JavaScript作用域原型
+                this到底指的是谁？
               
             
           </h1>
@@ -267,8 +248,8 @@ var name = &amp;apos;laruence&amp;apos;;
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-03-30T16:04:01+08:00" content="2016-03-30">
-              2016-03-30
+            <time itemprop="dateCreated" datetime="2016-03-12T20:09:24+08:00" content="2016-03-12">
+              2016-03-12
             </time>
           </span>
 
@@ -278,8 +259,8 @@ var name = &amp;apos;laruence&amp;apos;;
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/03/30/读书笔记：JavaScript作用域原型/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/30/读书笔记：JavaScript作用域原型/" itemprop="commentsCount"></span>
+                <a href="/2016/03/12/this到底指的是谁？/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/12/this到底指的是谁？/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -301,124 +282,45 @@ var name = &amp;apos;laruence&amp;apos;;
       
 
       
-        <pre><code>javascript中的的函数运行在他们被定义的作用域里，而不是他们被执行的作用域里。
-</code></pre><h2 id="问题的提出"><a href="#问题的提出" class="headerlink" title="问题的提出"></a>问题的提出</h2><p>首先看一个例子:</p>
-<pre><code>var name = &apos;laruence&apos;;
-    function echo() {
-     alert(name);
-     var name = &apos;eve&apos;;
-     alert(name);
-     alert(age);
-  }
-     echo();
-</code></pre><p>运行结果是什么呢?<br>上面的问题, 我相信会有很多人会认为是:</p>
-<pre><code>laruence   eve   [脚本出错]
-</code></pre><p>因为会以为在echo中, 第一次alert的时候, 会取到全局变量name的值, 而第二次值被局部变量name覆盖, 所以第二次alert是’eve’. 而age属性没有定义, 所以脚本会出错.<br>但其实, 运行结果应该是:      </p>
-<pre><code>undefined
-eve
-[脚本出错]      
-</code></pre><p> 为什么呢?</p>
-<h2 id="JavaScript的作用域链"><a href="#JavaScript的作用域链" class="headerlink" title="JavaScript的作用域链"></a>JavaScript的作用域链</h2><p>首先让让我们来看看Javasript(简称JS, 不完全代表JScript)的作用域的原理: JS权威指南中有一句很精辟的描述:　”JavaScript中的函数运行在它们被定义的作用域里,而不是它们被执行的作用域里.”　<br>为了接下来的知识, 你能顺利理解, 我再提醒一下, 在JS中:”一切皆是对象, 函数也是”.<br>在JS中，作用域的概念和其他语言差不多， 在每次调用一个函数的时候 ，就会进入一个函数内的作用域，当从函数返回以后，就返回调用前的作用域.<br>JS的语法风格和C/C++类似, 但作用域的实现却和C/C++不同，并非用“堆栈”方式，而是使用列表，具体过程如下(ECMA262中所述):<br>任何执行上下文时刻的作用域, 都是由作用域链(scope chain, 后面介绍)来实现.<br>在一个函数被定义的时候, 会将它定义时刻的scope chain链接到这个函数对象的[[scope]]属性.<br>在一个函数对象被调用的时候，会创建一个活动对象(也就是一个对象), 然后对于每一个函数的形参，都命名为该活动对象的命名属性, 然后将这个活动对象做为此时的作用域链(scope chain)最前端, 并将这个函数对象的[[scope]]加入到scope chain中.<br>看个例子:</p>
-<pre><code>var func = function(lps, rps){
-          var name = &apos;laruence&apos;;
-          ........
-     }
-     func();
-</code></pre><p>在执行func的定义语句的时候, 会创建一个这个函数对象的[[scope]]属性(内部属性,只有JS引擎可以访问, 但FireFox的几个引擎(SpiderMonkey和Rhino)提供了私有属性<strong>parent</strong>来访问它), 并将这个[[scope]]属性, 链接到定义它的作用域链上(后面会详细介绍), 此时因为func定义在全局环境, 所以此时的[[scope]]只是指向全局活动对象window active object.<br>在调用func的时候, 会创建一个活动对象(假设为aObj, 由JS引擎预编译时刻创建, 后面会介绍)，并创建arguments属性, 然后会给这个对象添加俩个命名属性aObj.lps, aObj.rps; 对于每一个在这个函数中申明的局部变量和函数定义, 都作为该活动对象的同名命名属性.<br>然后将调用参数赋值给形参数，对于缺少的调用参数，赋值为undefined。<br>然后将这个活动对象做为scope chain的最前端, 并将func的[[scope]]属性所指向的,定义func时候的顶级活动对象, 加入到scope chain.<br>有了上面的作用域链, 在发生标识符解析的时候, 就会逆向查询当前scope chain列表的每一个活动对象的属性，如果找到同名的就返回。找不到，那就是这个标识符没有被定义。<br>注意到, 因为函数对象的[[scope]]属性是在定义一个函数的时候决定的, 而非调用的时候, 所以如下面的例子:</p>
-<pre><code>var name = &apos;laruence&apos;;
-    function echo() {
-         alert(name);
+        <p>初学java和javascript肯定对这个<strong>this</strong>很是苦恼，他到底指的是谁啊？经过我多方查证终于搞懂了，顺便“普渡众生”,你可能经常看到这样的用法：<strong>object.call(this,x,y,z)</strong>那么这个call和this是什么关系呢？接下来：<br><a id="more"></a><br>Js 里函数调用有4种模式：方法调用、正常函数调用、构造器函数调用、apply/call 调用<br>同时，无论哪种函数调用除了你声明时定义的形参外，还会自动添加2个形参，分别是： this 和 arguments。<br>这里就只谈 this。this 的值，在上面4中调用模式下，分别会绑定不同的值。分别来说一说：<br>方法调用：<br>这个很好理解，函数是一个对象的属性，比如：</p>
+<pre><code>var a = {
+    v : 0,
+    f : function(xx) {
+        this.v = xx;
     }
+}
+a.f(5);
+</code></pre><p>这个时候，上面函数里的 this 就绑定的是这个对象 a。所以 this.v 可以取到对象 a 的属性 v。<br>正常函数调用：<br>依然看代码：</p>
+<pre><code>function f(xx) {
+    this.x = xx;
+}
+f(5);
+</code></pre><p>这个时候，函数 f 里的 this 绑定的是全局对象，如果是在浏览器运行的解释器中，一般来说是楼上说的 window 对象。所以这里 this.x 访问的其实是 window.x ，当然，如果 window 没有 x 属性，那么你这么一写，按照 js 的坑爹语法，就是给 window 对象添加了一个 x 属性，同时赋值。</p>
+<p>构造器函数调用：<br>构造函数一直是我认为是 js 里最坑爹的部分，因为它和 js 最初设计的基于原型的面向对象实现方式格格不入，就好像是特意为了迎合大家已经被其他基于类的面相对象实现给惯坏了的习惯。<br>如果你在一个函数前面带上 new 关键字来调用，那么 js 会创建一个 prototype 属性是此函数的一个新对象，同时在调用这个函数的时候，把 this 绑定到这个新对象上。当然 new 关键字也会改变 return 语句的行为，不过这里就不谈了。看代码：</p>
+<pre><code>function a(xx) {
+    this.m = xx;
+}
+var b = new a(5);
+</code></pre><p>上面这个函数和正常调用的函数写法上没什么区别，只不过在调用的时候函数名前面加了关键字 new 罢了，这么一来，this 绑定的就不再是前面讲到的全局对象了，而是这里说的创建的新对象，所以说这种方式其实很危险，因为光看函数，你不会知道这个函数到底是准备拿来当构造函数用的，还是一般函数用的，所以我们可以看到，在 <strong>jslint</strong> 里，它会要求你写的所有构造函数，也就是一旦它发现你用了 new 关键字，那么后面那个函数的首字母必须大写，这样通过函数首字母大写的方式来区分，我个人只有一个看法：坑爹：）<br><strong>apply/call</strong> 调用：<br>我们知道，在 js 里，函数其实也是一个对象，那么函数自然也可以拥有它自己的方法，有点绕，就好像函数可以自己有属性也是一个函数。其中每个函数都拥有 apply() 这个方法，让我们构造一个参数数组传递给函数，同时可以自己来设置 this 的值，这就是它最强大的地方，上面的3种函数调用方法，你可以看到，this 都是自动绑定的，没办法由你来设，当你想设的时候，就可以用 apply() 了。apply 接收2个参数，第一个是将传递给这个函数的 this 的值，第二个是参数数组。看代码：</p>
+<pre><code>function a(xx) {
+    this.b = xx;
+}
+var o = {};
+a.apply(o, [5]);
+alert(a.b);    // undefined
+alert(o.b);    // 5
+</code></pre><p>是不是很神奇，函数 a 居然可以给 o 加属性值。当然，如果你 apply 的第一个参数传递null，那么在函数a里面this指针依然会绑定全局对象。你可能要问了，apply函数是哪来的，因为在 js 里所有的函数都有一个共同的 prototype，也就是传说中的 Function.prototype, 这个原型里有两个神奇的方法，一个就是这里的apply，另一个就是让题主疑惑的 call。</p>
+<p>说了这么一大堆，终于来到 call 了。<br>call() 方法和 apply() 方法很类似，它们的存在都是为了改变 this 的绑定，那 </p>
+<h2 id="call-和-apply"><a href="#call-和-apply" class="headerlink" title="call() 和 apply()"></a>call() 和 apply()</h2><p>有什么区别呢？就我个人看来，没啥鸟区别。。。开玩笑！刚刚说了，上面 apply() 接收两个参数，第一个是你想要 this 绑定的对象，第二个是一个参数数组，注意是一个数组，你想传递给这个函数的所有内容都放在数组里，然后 apply() 函数会在传递形参时自动帮你展开，同时加入我上面提到的另一个神奇形参arguments。而 call()呢，它的第一个参数也是你想要 this 绑定的对象，但是后面可以接受不定参数，而不再是一个数组，也就是你可以像平时给函数传参那样把这些参数一个一个传递，当然，神奇形参arguments还是不会少的。所以如果一定要说有什么区别的话，看起来是这样的：</p>
+<pre><code>function a(xx, yy) {
+    alert(xx, yy);
+    alert(this);
+    alert(arguments);
+}
+a.apply(null, [5, 55]);
+a.call(null, 5, 55);
+</code></pre><p>在正常模式下，js 函数里那些你没有声明就使用的变量，其实是访问的全局对象的属性，比如说上面正常函数调用的时候，函数里的 this ，就访问的是全局对象。但是在严格模式下，不允许这种语法，所有变量都必须要显示声明，所以如果你不用 call() 传递 this 给这个函数，那么就会报错了。因为你在函数里面有一个 return 语句，访问了 this 变量。</p>
 
-    function env() {
-         var name = &apos;eve&apos;;
-         echo();
-    }
-
-    env();
-</code></pre><p>运行结果是:</p>
-<pre><code>laruence
-</code></pre><p>结合上面的知识, 我们来看看下面这个例子:</p>
-<pre><code>function factory() {
-     var name = &apos;laruence&apos;;
-     var intro = function(){
-          alert(&apos;I am &apos; + name);
-     }
-     return intro;
-}
-
-function app(para){
-     var name = para;
-     var func = factory();
-     func();
-}
-
-app(&apos;eve&apos;);
-</code></pre><p>当调用app的时候, scope chain是由: {window活动对象(全局)}-&gt;{app的活动对象} 组成.  在刚进入app函数体时, app的活动对象有一个arguments属性, 俩个值为undefined的属性: name和func.    和一个值为’eve’的属性para;<br>此时的scope chain如下: </p>
-<pre><code>[[scope chain]] = [
-{
-     para : &apos;eve&apos;,
-     name : undefined,
-     func : undefined,
-     arguments : []
-}, {
-     window call object
-}
-]   
-</code></pre><p>当调用进入factory的函数体的时候, 此时的factory的scope chain为:</p>
-<pre><code>[[scope chain]] = [
-{
-     name : undefined,
-     intor : undefined
-}, {
-     window call object
-}
-]
-</code></pre><p>注意到, 此时的作用域链中, 并不包含app的活动对象.<br>在定义intro函数的时候, intro函数的[[scope]]为:</p>
-<pre><code>[[scope chain]] = [
-{
-     name : &apos;laruence&apos;,
-     intor : undefined
-}, {
-     window call object
-}
-]
-</code></pre><p>从factory函数返回以后,在app体内调用intor的时候, 发生了标识符解析, 而此时的sope chain是:</p>
-<pre><code>[[scope chain]] = [
-{
-     intro call object
-}, {
-     name : &apos;laruence&apos;,
-     intor : undefined
-}, {
-     window call object
-}
-]
-</code></pre><p>因为scope chain中,并不包含factory活动对象. 所以, name标识符解析的结果应该是factory活动对象中的name属性, 也就是’laruence’.</p>
-<p>所以运行结果是:</p>
-<pre><code>I am laruence
-</code></pre><p>现在, 大家对”JavaScript中的函数运行在它们被定义的作用域里,而不是它们被执行的作用域里.”这句话, 应该有了个全面的认识了吧?</p>
-<p>JavaScript中没有块级作用域，例如：</p>
-<pre><code>if(true){
-    var color=&quot;blue&quot;;
-}
-alert(color);          //&quot;blue&quot;
-</code></pre><p>这里的实在一个if语句中定义了变量color。如果在别的语言中color会在if语句执行完毕后被销毁。但是在JavaScript中，if语句中的变量声明会被添加到当前的执行环境中去（这里是全局的执行环境）类似的还有for</p>
-<h2 id="声明变量"><a href="#声明变量" class="headerlink" title="声明变量"></a>声明变量</h2><p> 使用Var声明的变量会被自动被添加到最近的执行环境中。如果初始化变量时没有使用Var声明，该变量会被自动添加到全局环境中。例如：</p>
-<pre><code>function add(num1,mum2){
-    var sum=num1+num2;
-    return sum;
-}
-var result=add(10,20); //30
-alert(sum);            //由于sum不是有效的变量，因此会导致错误。
-</code></pre><p>如果省略这个Var关键字</p>
-<pre><code>function add(sum1,sum2){
-    sum=num1+num2;
-    return sum;
-}
-var result=add(10,20); //30
-alert(sum);    //30
-</code></pre>
       
     </div>
 
@@ -432,7 +334,7 @@ alert(sum);    //30
       
         <div class="post-tags">
           
-            <a href="/tags/《JavaScript高级程序设计》/" rel="tag">#《JavaScript高级程序设计》</a>
+            <a href="/tags/普渡众生/" rel="tag">#普渡众生</a>
           
         </div>
       
@@ -441,16 +343,16 @@ alert(sum);    //30
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/03/28/初入前端/" rel="next" title="初入前端">
-                <i class="fa fa-chevron-left"></i> 初入前端
+              <a href="/2016/03/10/读书笔记：JavaScript作用域原型/" rel="next" title="读书笔记(一)：JavaScript作用域原型">
+                <i class="fa fa-chevron-left"></i> 读书笔记(一)：JavaScript作用域原型
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/03/30/this到底指的是谁？/" rel="prev" title="this到底指的是谁？">
-                this到底指的是谁？ <i class="fa fa-chevron-right"></i>
+              <a href="/2016/03/15/读书笔记(二)JavaScript中的面向对象/" rel="prev" title="读书笔记(二)JavaScript中的面向对象">
+                读书笔记(二)JavaScript中的面向对象 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -477,8 +379,8 @@ alert(sum);    //30
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/03/30/读书笔记：JavaScript作用域原型/"
-           data-title="读书笔记(一)：JavaScript作用域原型" data-url="http://yoursite.com/2016/03/30/读书笔记：JavaScript作用域原型/">
+      <div class="ds-thread" data-thread-key="2016/03/12/this到底指的是谁？/"
+           data-title="this到底指的是谁？" data-url="http://yoursite.com/2016/03/12/this到底指的是谁？/">
       </div>
     
   </div>
@@ -523,7 +425,7 @@ alert(sum);    //30
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">5</span>
+              <span class="site-state-item-count">4</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -585,7 +487,7 @@ alert(sum);    //30
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#问题的提出"><span class="nav-number">1.</span> <span class="nav-text">问题的提出</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JavaScript的作用域链"><span class="nav-number">2.</span> <span class="nav-text">JavaScript的作用域链</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#声明变量"><span class="nav-number">3.</span> <span class="nav-text">声明变量</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#call-和-apply"><span class="nav-number">1.</span> <span class="nav-text">call() 和 apply()</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
