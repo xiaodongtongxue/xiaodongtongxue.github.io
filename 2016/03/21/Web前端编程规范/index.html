@@ -1,0 +1,1348 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="知识点," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.5.0" />
+
+
+
+
+
+
+<meta name="description" content="如何才能写出高质量的代码，一定要熟悉各个编程语言的规范。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HTML5、CSS3、ES6编程规范">
+<meta property="og:url" content="http://yoursite.com/2016/03/21/Web前端编程规范/index.html">
+<meta property="og:site_name" content="时光 漫步">
+<meta property="og:description" content="如何才能写出高质量的代码，一定要熟悉各个编程语言的规范。">
+<meta property="og:updated_time" content="2016-03-31T15:01:10.591Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="HTML5、CSS3、ES6编程规范">
+<meta name="twitter:description" content="如何才能写出高质量的代码，一定要熟悉各个编程语言的规范。">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"right","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> HTML5、CSS3、ES6编程规范 | 时光 漫步 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?1bb8cb9144e28da63279255dadca25ce";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">时光 漫步</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">让她自然的来吧，让她悄然的去吧，就这样微笑的看着自己。</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-heartbeat fa-fw"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-guestbook">
+          <a href="/guestbook" rel="section">
+            
+              <i class="menu-item-icon fa fa-question-circle fa-fw"></i> <br />
+            
+            留言
+          </a>
+        </li>
+      
+
+      
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                HTML5、CSS3、ES6编程规范
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-03-21T20:09:24+08:00" content="2016-03-21">
+              2016-03-21
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/03/21/Web前端编程规范/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/21/Web前端编程规范/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <pre><code>如何才能写出高质量的代码，一定要熟悉各个编程语言的规范。
+</code></pre><a id="more"></a>
+<h2 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h2><h3 id="Semantics-语义化"><a href="#Semantics-语义化" class="headerlink" title="Semantics 语义化"></a>Semantics 语义化</h3><p>HTML5为我们提供了大量的语义元素用来更准确的描述内容。你可以借助这些丰富的语义化的元素来组织你的网站：</p>
+<pre><code>&lt;!-- bad --&gt;
+&lt;div id=&quot;main&quot;&gt;
+  &lt;div class=&quot;article&quot;&gt;
+    &lt;div class=&quot;header&quot;&gt;
+      &lt;h1&gt;Blog post&lt;/h1&gt;
+      &lt;p&gt;Published: &lt;span&gt;21st Feb, 2015&lt;/span&gt;&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;p&gt;…&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- good --&gt;
+&lt;main&gt;
+  &lt;article&gt;
+    &lt;header&gt;
+      &lt;h1&gt;Blog post&lt;/h1&gt;
+      &lt;p&gt;Published: &lt;time datetime=&quot;2015-02-21&quot;&gt;21st Feb, 2015&lt;/time&gt;&lt;/p&gt;
+    &lt;/header&gt;
+    &lt;p&gt;…&lt;/p&gt;
+  &lt;/article&gt;
+&lt;/main&gt;
+</code></pre><p>Make sure you understand the semantic of the elements you’re using. It’s worse to use a semantic element in a wrong way than staying neutral.</p>
+<pre><code>&lt;!-- bad --&gt;
+&lt;h1&gt;
+  &lt;figure&gt;
+    &lt;img alt=Company src=logo.png&gt;
+  &lt;/figure&gt;
+&lt;/h1&gt;
+
+&lt;!-- good --&gt;
+&lt;h1&gt;
+  &lt;img alt=Company src=logo.png&gt;
+&lt;/h1&gt;
+</code></pre><h3 id="Brevity-简洁"><a href="#Brevity-简洁" class="headerlink" title="Brevity 简洁"></a>Brevity 简洁</h3><p>遵循HTML5新的代码规则，忘记XHTML中那些繁杂的习惯。</p>
+<pre><code>&lt;!-- bad --&gt;
+&lt;!doctype html&gt;
+&lt;html lang=en&gt;
+  &lt;head&gt;
+    &lt;meta http-equiv=Content-Type content=&quot;text/html; charset=utf-8&quot; /&gt;
+    &lt;title&gt;Contact&lt;/title&gt;
+    &lt;link rel=stylesheet href=style.css type=text/css /&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Contact me&lt;/h1&gt;
+    &lt;label&gt;
+      Email address:
+      &lt;input type=email placeholder=you@email.com required=required /&gt;
+    &lt;/label&gt;
+    &lt;script src=main.js type=text/javascript&gt;&lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+
+&lt;!-- good --&gt;
+&lt;!doctype html&gt;
+&lt;html lang=en&gt;
+  &lt;meta charset=utf-8&gt;
+  &lt;title&gt;Contact&lt;/title&gt;
+  &lt;link rel=stylesheet href=style.css&gt;
+
+  &lt;h1&gt;Contact me&lt;/h1&gt;
+  &lt;label&gt;
+    Email address:
+    &lt;input type=email placeholder=you@email.com required&gt;
+  &lt;/label&gt;
+  &lt;script src=main.js&gt;&lt;/script&gt;
+&lt;/html&gt;
+</code></pre><h3 id="Accessibility-可访问性"><a href="#Accessibility-可访问性" class="headerlink" title="Accessibility 可访问性"></a>Accessibility 可访问性</h3><p>Accessibility shouldn’t be an afterthought. You don’t have to be a WCAG expert to improve your<br>website, you can start immediately by fixing the little things that make a huge difference, such as:</p>
+<ul>
+<li>learning to use the <code>alt</code> attribute properly</li>
+<li>making sure your links and buttons are marked as such (no <code>&lt;div class=button&gt;</code> atrocities)</li>
+<li>not relying exclusively on colors to communicate information</li>
+<li>explicitly labelling form controls</li>
+</ul>
+<pre><code>&lt;!-- bad --&gt;
+&lt;h1&gt;&lt;img alt=&quot;Logo&quot; src=&quot;logo.png&quot;&gt;&lt;/h1&gt;
+
+&lt;!-- good --&gt;
+&lt;h1&gt;&lt;img alt=&quot;My Company, Inc.&quot; src=&quot;logo.png&quot;&gt;&lt;/h1&gt;
+</code></pre><h3 id="Language-语言"><a href="#Language-语言" class="headerlink" title="Language 语言"></a>Language 语言</h3><p>虽然定义语言和字符编码方式是可选的，但还是推荐你始终在文档级别声明它们。</p>
+<pre><code>&lt;!-- bad --&gt;
+&lt;!doctype html&gt;
+&lt;title&gt;Hello, world.&lt;/title&gt;
+
+&lt;!-- good --&gt;
+&lt;!doctype html&gt;
+&lt;html lang=en&gt;
+  &lt;meta charset=utf-8&gt;
+  &lt;title&gt;Hello, world.&lt;/title&gt;
+&lt;/html&gt;
+</code></pre><h3 id="Performance-性能"><a href="#Performance-性能" class="headerlink" title="Performance 性能"></a>Performance 性能</h3><p>先文档后脚本，尽量不要把脚本代码放在顶部。</p>
+<p>Unless there’s a valid reason for loading your scripts before your content, don’t block the<br>rendering of your page. If your style sheet is heavy, isolate the styles that are absolutely<br>required initially and defer the loading of the secondary declarations in a separate style sheet.</p>
+<p>Two HTTP requests is significantly slower than one, but the perception of speed is the most<br>important factor.</p>
+<pre><code>&lt;!-- bad --&gt;
+&lt;!doctype html&gt;
+&lt;meta charset=utf-8&gt;
+&lt;script src=analytics.js&gt;&lt;/script&gt;
+&lt;title&gt;Hello, world.&lt;/title&gt;
+&lt;p&gt;...&lt;/p&gt;
+
+&lt;!-- good --&gt;
+&lt;!doctype html&gt;
+&lt;meta charset=utf-8&gt;
+&lt;title&gt;Hello, world.&lt;/title&gt;
+&lt;p&gt;...&lt;/p&gt;
+&lt;script src=analytics.js&gt;&lt;/script&gt;
+</code></pre><h2 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h2><h3 id="Semicolons-始终用分号作为结束符"><a href="#Semicolons-始终用分号作为结束符" class="headerlink" title="Semicolons 始终用分号作为结束符"></a>Semicolons 始终用分号作为结束符</h3><p>While the semicolon is technically a separator in CSS, always treat it as a terminator.</p>
+<pre><code>/* bad */
+div {
+  color: red
+}
+
+/* good */
+div {
+  color: red;
+}
+</code></pre><h3 id="Box-model-盒模型"><a href="#Box-model-盒模型" class="headerlink" title="Box model 盒模型"></a>Box model 盒模型</h3><p>The box model should ideally be the same for the entire document. A global<br><code>* { box-sizing: border-box; }</code> is fine, but don’t change the default box model<br>on specific elements if you can avoid it.</p>
+<pre><code>/* bad */
+div {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+/* good */
+div {
+  padding: 10px;
+}
+</code></pre><h3 id="Flow-流"><a href="#Flow-流" class="headerlink" title="Flow 流"></a>Flow 流</h3><p>Don’t change the default behavior of an element if you can avoid it. Keep elements in the<br>natural document flow as much as you can. For example, removing the white-space below an<br>image shouldn’t make you change its default display:</p>
+<pre><code>/* bad */
+img {
+  display: block;
+}
+
+/* good */
+img {
+  vertical-align: middle;
+}
+</code></pre><p>Similarly, don’t take an element off the flow if you can avoid it.</p>
+<pre><code>/* bad */
+div {
+  width: 100px;
+  position: absolute;
+  right: 0;
+}
+
+/* good */
+div {
+  width: 100px;
+  margin-left: auto;
+}
+</code></pre><h3 id="Positioning-定位方式"><a href="#Positioning-定位方式" class="headerlink" title="Positioning 定位方式"></a>Positioning 定位方式</h3><p>There are many ways to position elements in CSS but try to restrict yourself to the<br>properties/values below. By order of preference:</p>
+<pre><code>display: block;
+display: flex;
+position: relative;
+position: sticky;
+position: absolute;
+position: fixed;
+</code></pre><h3 id="Selectors-选择器"><a href="#Selectors-选择器" class="headerlink" title="Selectors 选择器"></a>Selectors 选择器</h3><p>Minimize selectors tightly coupled to the DOM. Consider adding a class to the elements<br>you want to match when your selector exceeds 3 structural pseudo-classes, descendant or<br>sibling combinators.</p>
+<pre><code>/* bad */
+div:first-of-type :last-child &gt; p ~ *
+
+/* good */
+div:first-of-type .info
+</code></pre><p>Avoid overloading your selectors when you don’t need to.</p>
+<pre><code>/* bad */
+img[src$=svg], ul &gt; li:first-child {
+  opacity: 0;
+}
+
+/* good */
+[src$=svg], ul &gt; :first-child {
+  opacity: 0;
+}
+</code></pre><h3 id="Specificity"><a href="#Specificity" class="headerlink" title="Specificity"></a>Specificity</h3><p>Don’t make values and selectors hard to override. Minimize the use of <code>id</code>‘s<br>and avoid <code>!important</code>.</p>
+<pre><code>/* bad */
+.bar {
+  color: green !important;
+}
+.foo {
+  color: red;
+}
+
+/* good */
+.foo.bar {
+  color: green;
+}
+.foo {
+  color: red;
+}
+</code></pre><h3 id="Overriding-覆盖"><a href="#Overriding-覆盖" class="headerlink" title="Overriding 覆盖"></a>Overriding 覆盖</h3><p>Overriding styles makes selectors and debugging harder. Avoid it when possible.</p>
+<pre><code>/* bad */
+li {
+  visibility: hidden;
+}
+li:first-child {
+  visibility: visible;
+}
+
+/* good */
+li + li {
+  visibility: hidden;
+}
+</code></pre><h3 id="Inheritance-继承"><a href="#Inheritance-继承" class="headerlink" title="Inheritance 继承"></a>Inheritance 继承</h3><p>Don’t duplicate style declarations that can be inherited.</p>
+<pre><code>/* bad */
+div h1, div p {
+  text-shadow: 0 1px 0 #fff;
+}
+
+/* good */
+div {
+  text-shadow: 0 1px 0 #fff;
+}
+</code></pre><h3 id="Brevity-代码简写"><a href="#Brevity-代码简写" class="headerlink" title="Brevity 代码简写"></a>Brevity 代码简写</h3><p>Keep your code terse. Use shorthand properties and avoid using multiple properties when<br>it’s not needed.</p>
+<pre><code>/* bad */
+div {
+  transition: all 1s;
+  top: 50%;
+  margin-top: -10px;
+  padding-top: 5px;
+  padding-right: 10px;
+  padding-bottom: 20px;
+  padding-left: 10px;
+}
+
+/* good */
+div {
+  transition: 1s;
+  top: calc(50% - 10px);
+  padding: 5px 10px 20px;
+}
+</code></pre><h3 id="Language-语言-1"><a href="#Language-语言-1" class="headerlink" title="Language 语言"></a>Language 语言</h3><p>使用单词而不是数学表达式。</p>
+<pre><code>/* bad */
+:nth-child(2n + 1) {
+  transform: rotate(360deg);
+}
+
+/* good */
+:nth-child(odd) {
+  transform: rotate(1turn);
+}
+</code></pre><h3 id="Vendor-prefixes-厂商前缀"><a href="#Vendor-prefixes-厂商前缀" class="headerlink" title="Vendor prefixes 厂商前缀"></a>Vendor prefixes 厂商前缀</h3><p>Kill obsolete vendor prefixes aggressively. If you need to use them, insert them before the<br>standard property.</p>
+<pre><code>/* bad */
+div {
+  transform: scale(2);
+  -webkit-transform: scale(2);
+  -moz-transform: scale(2);
+  -ms-transform: scale(2);
+  transition: 1s;
+  -webkit-transition: 1s;
+  -moz-transition: 1s;
+  -ms-transition: 1s;
+}
+
+/* good */
+div {
+  -webkit-transform: scale(2);
+  transform: scale(2);
+  transition: 1s;
+}
+</code></pre><h3 id="Animations-动画"><a href="#Animations-动画" class="headerlink" title="Animations 动画"></a>Animations 动画</h3><p>Favor transitions over animations. Avoid animating other properties than<br><code>opacity</code> and <code>transform</code>.</p>
+<pre><code>/* bad */
+div:hover {
+  animation: move 1s forwards;
+}
+@keyframes move {
+  100% {
+    margin-left: 100px;
+  }
+}
+
+/* good */
+div:hover {
+  transition: 1s;
+  transform: translateX(100px);
+}
+</code></pre><h3 id="Units-单位"><a href="#Units-单位" class="headerlink" title="Units 单位"></a>Units 单位</h3><p>Use unitless values when you can. Favor <code>rem</code> if you use relative units. Prefer seconds over<br>milliseconds.</p>
+<pre><code>/* bad */
+div {
+  margin: 0px;
+  font-size: .9em;
+  line-height: 22px;
+  transition: 500ms;
+}
+
+/* good */
+div {
+  margin: 0;
+  font-size: .9rem;
+  line-height: 1.5;
+  transition: .5s;
+}
+</code></pre><h3 id="Colors-使用16进制颜色"><a href="#Colors-使用16进制颜色" class="headerlink" title="Colors 使用16进制颜色"></a>Colors 使用16进制颜色</h3><p>If you need transparency, use <code>rgba</code>. Otherwise, always use the hexadecimal format.</p>
+<pre><code>/* bad */
+div {
+  color: hsl(103, 54%, 43%);
+}
+
+/* good */
+div {
+  color: #5a3;
+}
+</code></pre><h3 id="Drawing-绘图"><a href="#Drawing-绘图" class="headerlink" title="Drawing 绘图"></a>Drawing 绘图</h3><p>Avoid HTTP requests when the resources are easily replicable with CSS.</p>
+<pre><code>/* bad */
+div::before {
+  content: url(white-circle.svg);
+}
+
+/* good */
+div::before {
+  content: &quot;&quot;;
+  display: block;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #fff;
+}
+</code></pre><h3 id="Hacks"><a href="#Hacks" class="headerlink" title="Hacks"></a>Hacks</h3><p>Don’t use them.</p>
+<pre><code>/* bad */
+div {
+  // position: relative;
+  transform: translateZ(0);
+}
+
+/* good */
+div {
+  /* position: relative; */
+  will-change: transform;
+}
+</code></pre><h2 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h2><h3 id="Performance-性能-1"><a href="#Performance-性能-1" class="headerlink" title="Performance 性能"></a>Performance 性能</h3><p>Favor readability, correctness and expressiveness over performance. JavaScript will basically never be your performance bottleneck. Optimize things like image compression, network access and DOM reflows instead. If you remember just one guideline from this document, choose this one.</p>
+<pre><code>// bad (albeit way faster)
+const arr = [1, 2, 3, 4];
+const len = arr.length;
+var i = -1;
+var result = [];
+while (++i &lt; len) {
+  var n = arr[i];
+  if (n % 2 &gt; 0) continue;
+  result.push(n * n);
+}
+
+// good
+const arr = [1, 2, 3, 4];
+const isEven = n =&gt; n % 2 == 0;
+const square = n =&gt; n * n;
+
+const result = arr.filter(isEven).map(square);
+</code></pre><h3 id="Statelessness"><a href="#Statelessness" class="headerlink" title="Statelessness"></a>Statelessness</h3><p>努力让你的函数更加纯净。所有的函数都应该是没有边际效应的，不要使用外部数据，返回新的对象。</p>
+<p>Try to keep your functions pure. All functions should ideally produce no side-effects, use no outside data and return new objects instead of mutating existing ones.</p>
+<pre><code>// bad
+const merge = (target, ...sources) =&gt; Object.assign(target, ...sources);
+merge({ foo: &quot;foo&quot; }, { bar: &quot;bar&quot; }); // =&gt; { foo: &quot;foo&quot;, bar: &quot;bar&quot; }
+
+// good
+const merge = (...sources) =&gt; Object.assign({}, ...sources);
+merge({ foo: &quot;foo&quot; }, { bar: &quot;bar&quot; }); // =&gt; { foo: &quot;foo&quot;, bar: &quot;bar&quot; }
+</code></pre><h3 id="Natives"><a href="#Natives" class="headerlink" title="Natives"></a>Natives</h3><p>尽可能使用原生的方法。</p>
+<pre><code>// bad
+const toArray = obj =&gt; [].slice.call(obj);
+
+// good
+const toArray = (() =&gt;
+  Array.from ? Array.from : obj =&gt; [].slice.call(obj)
+)();
+</code></pre><h3 id="Coercion"><a href="#Coercion" class="headerlink" title="Coercion"></a>Coercion</h3><p>Embrace implicit coercion when it makes sense. Avoid it otherwise. Don’t cargo-cult.</p>
+<pre><code>// bad
+if (x === undefined || x === null) { ... }
+
+// good
+if (x == undefined) { ... }
+</code></pre><h3 id="Loops-循环"><a href="#Loops-循环" class="headerlink" title="Loops 循环"></a>Loops 循环</h3><p>Don’t use loops as they force you to use mutable objects. Rely on <code>array.prototype</code> methods.</p>
+<pre><code>// bad
+const sum = arr =&gt; {
+  var sum = 0;
+  var i = -1;
+  for (;arr[++i];) {
+    sum += arr[i];
+  }
+  return sum;
+};
+
+sum([1, 2, 3]); // =&gt; 6
+
+// good
+const sum = arr =&gt;
+  arr.reduce((x, y) =&gt; x + y);
+
+sum([1, 2, 3]); // =&gt; 6
+</code></pre><p>If you can’t, or if using <code>array.prototype</code> methods is arguably abusive, use recursion.</p>
+<pre><code>// bad
+const createDivs = howMany =&gt; {
+  while (howMany--) {
+    document.body.insertAdjacentHTML(&quot;beforeend&quot;, &quot;&lt;div&gt;&lt;/div&gt;&quot;);
+  }
+};
+createDivs(5);
+
+// bad
+const createDivs = howMany =&gt;
+  [...Array(howMany)].forEach(() =&gt;
+    document.body.insertAdjacentHTML(&quot;beforeend&quot;, &quot;&lt;div&gt;&lt;/div&gt;&quot;)
+  );
+createDivs(5);
+
+// good
+const createDivs = howMany =&gt; {
+  if (!howMany) return;
+  document.body.insertAdjacentHTML(&quot;beforeend&quot;, &quot;&lt;div&gt;&lt;/div&gt;&quot;);
+  return createDivs(howMany - 1);
+};
+createDivs(5);
+</code></pre><h3 id="Arguments-参数"><a href="#Arguments-参数" class="headerlink" title="Arguments 参数"></a>Arguments 参数</h3><p>Forget about the <code>arguments</code> object. The rest parameter is always a better option because:</p>
+<ol>
+<li>it’s named, so it gives you a better idea of the arguments the function is expecting</li>
+<li><p>it’s a real array, which makes it easier to use.</p>
+<p> // bad<br> const sortNumbers = () =&gt;<br>   Array.prototype.slice.call(arguments).sort();</p>
+<p> // good<br> const sortNumbers = (…numbers) =&gt; numbers.sort();</p>
+</li>
+</ol>
+<h3 id="Apply-忘记Apply"><a href="#Apply-忘记Apply" class="headerlink" title="Apply 忘记Apply"></a>Apply 忘记Apply</h3><p>Forget about <code>apply()</code>. Use the spread operator instead.</p>
+<pre><code>const greet = (first, last) =&gt; `Hi ${first} ${last}`;
+const person = [&quot;John&quot;, &quot;Doe&quot;];
+
+// bad
+greet.apply(null, person);
+
+// good
+greet(...person);
+</code></pre><h3 id="Bind-绑定"><a href="#Bind-绑定" class="headerlink" title="Bind 绑定"></a>Bind 绑定</h3><p>Don’t <code>bind()</code> when there’s a more idiomatic approach.</p>
+<pre><code>// bad
+[&quot;foo&quot;, &quot;bar&quot;].forEach(func.bind(this));
+
+// good
+[&quot;foo&quot;, &quot;bar&quot;].forEach(func, this);
+
+
+// bad
+const person = {
+  first: &quot;John&quot;,
+  last: &quot;Doe&quot;,
+  greet() {
+    const full = function() {
+      return `${this.first} ${this.last}`;
+    }.bind(this);
+    return `Hello ${full()}`;
+  }
+}
+
+// good
+const person = {
+  first: &quot;John&quot;,
+  last: &quot;Doe&quot;,
+  greet() {
+    const full = () =&gt; `${this.first} ${this.last}`;
+    return `Hello ${full()}`;
+  }
+}
+</code></pre><h3 id="Higher-order-functions-高阶函数"><a href="#Higher-order-functions-高阶函数" class="headerlink" title="Higher-order functions 高阶函数"></a>Higher-order functions 高阶函数</h3><p>当你没必要使用嵌套函数的时候一定不要使用。</p>
+<pre><code>// bad
+[1, 2, 3].map(num =&gt; String(num));
+
+// good
+[1, 2, 3].map(String);
+</code></pre><h3 id="Composition"><a href="#Composition" class="headerlink" title="Composition"></a>Composition</h3><p>Avoid multiple nested function calls. Use composition instead.</p>
+<pre><code>const plus1 = a =&gt; a + 1;
+const mult2 = a =&gt; a * 2;
+
+// bad
+mult2(plus1(5)); // =&gt; 12
+
+// good
+const pipeline = (...funcs) =&gt; val =&gt; funcs.reduce((a, b) =&gt; b(a), val);
+const addThenMult = pipeline(plus1, mult2);
+addThenMult(5); // =&gt; 12
+</code></pre><h3 id="Caching-缓存"><a href="#Caching-缓存" class="headerlink" title="Caching 缓存"></a>Caching 缓存</h3><p>Cache feature tests, large data structures and any expensive operation.</p>
+<pre><code>// bad
+const contains = (arr, value) =&gt;
+  Array.prototype.includes
+    ? arr.includes(value)
+    : arr.some(el =&gt; el === value);
+contains([&quot;foo&quot;, &quot;bar&quot;], &quot;baz&quot;); // =&gt; false
+
+// good
+const contains = (() =&gt;
+  Array.prototype.includes
+    ? (arr, value) =&gt; arr.includes(value)
+    : (arr, value) =&gt; arr.some(el =&gt; el === value)
+)();
+contains([&quot;foo&quot;, &quot;bar&quot;], &quot;baz&quot;); // =&gt; false
+</code></pre><h3 id="Variables-变量"><a href="#Variables-变量" class="headerlink" title="Variables 变量"></a>Variables 变量</h3><p>Favor <code>const</code> over <code>let</code> and <code>let</code> over <code>var</code>.</p>
+<pre><code>// bad
+var obj = {};
+obj[&quot;foo&quot; + &quot;bar&quot;] = &quot;baz&quot;;
+
+// good
+const obj = {
+  [&quot;foo&quot; + &quot;bar&quot;]: &quot;baz&quot;
+};
+</code></pre><h3 id="Conditions-条件"><a href="#Conditions-条件" class="headerlink" title="Conditions 条件"></a>Conditions 条件</h3><p>Favor IIFE’s and return statements over if, else if, else and switch statements.</p>
+<pre><code>// bad
+var grade;
+if (result &lt; 50)
+  grade = &quot;bad&quot;;
+else if (result &lt; 90)
+  grade = &quot;good&quot;;
+else
+  grade = &quot;excellent&quot;;
+
+// good
+const grade = (() =&gt; {
+  if (result &lt; 50)
+    return &quot;bad&quot;;
+  if (result &lt; 90)
+    return &quot;good&quot;;
+  return &quot;excellent&quot;;
+})();
+</code></pre><h3 id="Object-iteration-对象迭代"><a href="#Object-iteration-对象迭代" class="headerlink" title="Object iteration 对象迭代"></a>Object iteration 对象迭代</h3><p>尽量避免使用 <code>for...in</code></p>
+<pre><code>const shared = { foo: &quot;foo&quot; };
+const obj = Object.create(shared, {
+  bar: {
+    value: &quot;bar&quot;,
+    enumerable: true
+  }
+});
+
+// bad
+for (var prop in obj) {
+  if (obj.hasOwnProperty(prop))
+    console.log(prop);
+}
+
+// good
+Object.keys(obj).forEach(prop =&gt; console.log(prop));
+</code></pre><h3 id="Objects-as-Maps"><a href="#Objects-as-Maps" class="headerlink" title="Objects as Maps"></a>Objects as Maps</h3><p>While objects have legitimate use cases, maps are usually a better, more powerful choice. When in doubt, use a <code>Map</code>.</p>
+<pre><code>// bad
+const me = {
+  name: &quot;Ben&quot;,
+  age: 30
+};
+var meSize = Object.keys(me).length;
+meSize; // =&gt; 2
+me.country = &quot;Belgium&quot;;
+meSize++;
+meSize; // =&gt; 3
+
+// good
+const me = Map();
+me.set(&quot;name&quot;, &quot;Ben&quot;);
+me.set(&quot;age&quot;, 30);
+me.size; // =&gt; 2
+me.set(&quot;country&quot;, &quot;Belgium&quot;);
+me.size; // =&gt; 3
+</code></pre><h3 id="Curry"><a href="#Curry" class="headerlink" title="Curry"></a>Curry</h3><p>Currying might have its place in other languages, but avoid it in JavaScript. It makes your code harder to read by introducing a foreign paradigm while the appropriate use cases are extremely unusual.</p>
+<pre><code>// bad
+const sum = a =&gt; b =&gt; a + b;
+sum(5)(3); // =&gt; 8
+
+// good
+const sum = (a, b) =&gt; a + b;
+sum(5, 3); // =&gt; 8
+</code></pre><h3 id="Readability-可读性"><a href="#Readability-可读性" class="headerlink" title="Readability 可读性"></a>Readability 可读性</h3><p>Don’t obfuscate the intent of your code by using seemingly smart tricks.</p>
+<pre><code>// bad
+foo || doSomething();
+
+// good
+if (!foo) doSomething();
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">```javascript</span><br><span class="line">// bad</span><br><span class="line">void function() &#123; /* IIFE */ &#125;();</span><br><span class="line"></span><br><span class="line">// good</span><br><span class="line">(function() &#123; /* IIFE */ &#125;());</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">	// bad</span><br><span class="line">	const n = ~~3.14;</span><br><span class="line"></span><br><span class="line">	// good</span><br><span class="line">	const n = Math.floor(3.14);</span><br><span class="line"></span><br><span class="line">### Code reuse 代码重用</span><br><span class="line"></span><br><span class="line">Don't be afraid of creating lots of small, highly composable and reusable functions.</span><br><span class="line"></span><br><span class="line">	// bad</span><br><span class="line">	arr[arr.length - 1];</span><br><span class="line"></span><br><span class="line">	// good</span><br><span class="line">	const first = arr =&gt; arr[0];</span><br><span class="line">	const last = arr =&gt; first(arr.slice(-1));</span><br><span class="line">	last(arr);</span><br></pre></td></tr></table></figure>
+
+```javascript
+// bad
+const product = (a, b) =&gt; a * b;
+const triple = n =&gt; n * 3;
+
+// good
+const product = (a, b) =&gt; a * b;
+const triple = product.bind(null, 3);
+</code></pre><h3 id="Dependencies-最小化依赖"><a href="#Dependencies-最小化依赖" class="headerlink" title="Dependencies 最小化依赖"></a>Dependencies 最小化依赖</h3><p>Minimize dependencies. Third-party is code you don’t know. Don’t load an entire library for just a couple of methods easily replicable:</p>
+<pre><code>// bad
+var _ = require(&quot;underscore&quot;);
+_.compact([&quot;foo&quot;, 0]));
+_.unique([&quot;foo&quot;, &quot;foo&quot;]);
+_.union([&quot;foo&quot;], [&quot;bar&quot;], [&quot;foo&quot;]);
+
+// good
+const compact = arr =&gt; arr.filter(el =&gt; el);
+const unique = arr =&gt; [...Set(arr)];
+const union = (...arr) =&gt; unique([].concat(...arr));
+
+compact([&quot;foo&quot;, 0]);
+unique([&quot;foo&quot;, &quot;foo&quot;]);
+union([&quot;foo&quot;], [&quot;bar&quot;], [&quot;foo&quot;]);
+</code></pre><p>##Other resources</p>
+<ol>
+<li>前端代码规范及最佳实践： <a href="http://coderlmn.github.io/code-standards/" target="_blank" rel="external">http://coderlmn.github.io/code-standards/</a></li>
+<li>前端代码规范： <a href="http://materliu.github.io/code-guide/" target="_blank" rel="external">http://materliu.github.io/code-guide/</a></li>
+</ol>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/知识点/" rel="tag">#知识点</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/03/18/this到底指的是谁？/" rel="next" title="this到底指的是谁？">
+                <i class="fa fa-chevron-left"></i> this到底指的是谁？
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/03/27/call()、apply()、bind()的用法/" rel="prev" title="call()、apply()、bind()的用法">
+                call()、apply()、bind()的用法 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/03/21/Web前端编程规范/"
+           data-title="HTML5、CSS3、ES6编程规范" data-url="http://yoursite.com/2016/03/21/Web前端编程规范/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/touxiang.png"
+               alt="小栋同学" />
+          <p class="site-author-name" itemprop="name">小栋同学</p>
+          <p class="site-description motion-element" itemprop="description">You are the owner of your career.</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">9</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/Pillar-Zhang" target="_blank">
+                  
+                    <i class="fa fa-github"></i> GitHub
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/henuxiaodong/profile" target="_blank">
+                  
+                    <i class="fa fa-weibo"></i> Weibo
+                  
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        <div class="links-of-blogroll motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#HTML"><span class="nav-number">1.</span> <span class="nav-text">HTML</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Semantics-语义化"><span class="nav-number">1.1.</span> <span class="nav-text">Semantics 语义化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Brevity-简洁"><span class="nav-number">1.2.</span> <span class="nav-text">Brevity 简洁</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Accessibility-可访问性"><span class="nav-number">1.3.</span> <span class="nav-text">Accessibility 可访问性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Language-语言"><span class="nav-number">1.4.</span> <span class="nav-text">Language 语言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Performance-性能"><span class="nav-number">1.5.</span> <span class="nav-text">Performance 性能</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS"><span class="nav-number">2.</span> <span class="nav-text">CSS</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Semicolons-始终用分号作为结束符"><span class="nav-number">2.1.</span> <span class="nav-text">Semicolons 始终用分号作为结束符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Box-model-盒模型"><span class="nav-number">2.2.</span> <span class="nav-text">Box model 盒模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Flow-流"><span class="nav-number">2.3.</span> <span class="nav-text">Flow 流</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Positioning-定位方式"><span class="nav-number">2.4.</span> <span class="nav-text">Positioning 定位方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Selectors-选择器"><span class="nav-number">2.5.</span> <span class="nav-text">Selectors 选择器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Specificity"><span class="nav-number">2.6.</span> <span class="nav-text">Specificity</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Overriding-覆盖"><span class="nav-number">2.7.</span> <span class="nav-text">Overriding 覆盖</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Inheritance-继承"><span class="nav-number">2.8.</span> <span class="nav-text">Inheritance 继承</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Brevity-代码简写"><span class="nav-number">2.9.</span> <span class="nav-text">Brevity 代码简写</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Language-语言-1"><span class="nav-number">2.10.</span> <span class="nav-text">Language 语言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Vendor-prefixes-厂商前缀"><span class="nav-number">2.11.</span> <span class="nav-text">Vendor prefixes 厂商前缀</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Animations-动画"><span class="nav-number">2.12.</span> <span class="nav-text">Animations 动画</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Units-单位"><span class="nav-number">2.13.</span> <span class="nav-text">Units 单位</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Colors-使用16进制颜色"><span class="nav-number">2.14.</span> <span class="nav-text">Colors 使用16进制颜色</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Drawing-绘图"><span class="nav-number">2.15.</span> <span class="nav-text">Drawing 绘图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Hacks"><span class="nav-number">2.16.</span> <span class="nav-text">Hacks</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JavaScript"><span class="nav-number">3.</span> <span class="nav-text">JavaScript</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Performance-性能-1"><span class="nav-number">3.1.</span> <span class="nav-text">Performance 性能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Statelessness"><span class="nav-number">3.2.</span> <span class="nav-text">Statelessness</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Natives"><span class="nav-number">3.3.</span> <span class="nav-text">Natives</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Coercion"><span class="nav-number">3.4.</span> <span class="nav-text">Coercion</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Loops-循环"><span class="nav-number">3.5.</span> <span class="nav-text">Loops 循环</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Arguments-参数"><span class="nav-number">3.6.</span> <span class="nav-text">Arguments 参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Apply-忘记Apply"><span class="nav-number">3.7.</span> <span class="nav-text">Apply 忘记Apply</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Bind-绑定"><span class="nav-number">3.8.</span> <span class="nav-text">Bind 绑定</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Higher-order-functions-高阶函数"><span class="nav-number">3.9.</span> <span class="nav-text">Higher-order functions 高阶函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Composition"><span class="nav-number">3.10.</span> <span class="nav-text">Composition</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Caching-缓存"><span class="nav-number">3.11.</span> <span class="nav-text">Caching 缓存</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Variables-变量"><span class="nav-number">3.12.</span> <span class="nav-text">Variables 变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Conditions-条件"><span class="nav-number">3.13.</span> <span class="nav-text">Conditions 条件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Object-iteration-对象迭代"><span class="nav-number">3.14.</span> <span class="nav-text">Object iteration 对象迭代</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Objects-as-Maps"><span class="nav-number">3.15.</span> <span class="nav-text">Objects as Maps</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Curry"><span class="nav-number">3.16.</span> <span class="nav-text">Curry</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Readability-可读性"><span class="nav-number">3.17.</span> <span class="nav-text">Readability 可读性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Dependencies-最小化依赖"><span class="nav-number">3.18.</span> <span class="nav-text">Dependencies 最小化依赖</span></a></li></ol></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">小栋同学</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+
+  
+
+
+
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=0.5.0"></script>
+
+
+
+  
+  
+
+  
+  
+<script type="text/javascript" src="/js/src/scrollspy.js?v=0.5.0"></script>
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 1 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = NexT.utils.escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    NexT.motion.middleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+
+      if (CONFIG.sidebar.display === 'post' || CONFIG.sidebar.display === 'always') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          NexT.utils.displaySidebar();
+        }
+      }
+    };
+  });
+</script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.5.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"xiaodongtongxue"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>

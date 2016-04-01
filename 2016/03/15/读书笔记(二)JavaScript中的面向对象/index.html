@@ -57,19 +57,19 @@
 
 
 
-<meta name="description" content="1.面向对象面向对象编程是用抽象方式创建基于现实世界模型的一种编程模式，主要包括模块化、多态、和封装几种技术。 对JavaScript而言，其核心是支持面向对象的，同时它也提供了强大灵活的基于原型的面向对象编程能力。 本文将会深入的探讨有关使用JavaScript进行面向对象编程的一些核心基础知识，包括对象的创建，继承机制， 最后还会简要的介绍如何借助ES6提供的新的类机制重写传统的JavaScr">
+<meta name="description" content="JavaScript中一切皆为对象">
 <meta property="og:type" content="article">
-<meta property="og:title" content="读书笔记(二)JavaScript中的面向对象">
+<meta property="og:title" content="读书笔记(二):JavaScript中的面向对象">
 <meta property="og:url" content="http://yoursite.com/2016/03/15/读书笔记(二)JavaScript中的面向对象/index.html">
 <meta property="og:site_name" content="时光 漫步">
-<meta property="og:description" content="1.面向对象面向对象编程是用抽象方式创建基于现实世界模型的一种编程模式，主要包括模块化、多态、和封装几种技术。 对JavaScript而言，其核心是支持面向对象的，同时它也提供了强大灵活的基于原型的面向对象编程能力。 本文将会深入的探讨有关使用JavaScript进行面向对象编程的一些核心基础知识，包括对象的创建，继承机制， 最后还会简要的介绍如何借助ES6提供的新的类机制重写传统的JavaScr">
-<meta property="og:image" content="http://7xsgf8.com1.z0.glb.clouddn.com/imgprototype-graph-1.jpg">
-<meta property="og:image" content="http://7xsgf8.com1.z0.glb.clouddn.com/imgprototype-chain-inheritance2.jpg">
-<meta property="og:updated_time" content="2016-03-31T06:00:00.724Z">
+<meta property="og:description" content="JavaScript中一切皆为对象">
+<meta property="og:image" content="http://7xsgf8.com1.z0.glb.clouddn.com/image/bghuguang.jpg">
+<meta property="og:image" content="http://7xsgf8.com1.z0.glb.clouddn.com/image/bghuguang.jpg">
+<meta property="og:updated_time" content="2016-03-31T14:38:14.689Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="读书笔记(二)JavaScript中的面向对象">
-<meta name="twitter:description" content="1.面向对象面向对象编程是用抽象方式创建基于现实世界模型的一种编程模式，主要包括模块化、多态、和封装几种技术。 对JavaScript而言，其核心是支持面向对象的，同时它也提供了强大灵活的基于原型的面向对象编程能力。 本文将会深入的探讨有关使用JavaScript进行面向对象编程的一些核心基础知识，包括对象的创建，继承机制， 最后还会简要的介绍如何借助ES6提供的新的类机制重写传统的JavaScr">
-<meta name="twitter:image" content="http://7xsgf8.com1.z0.glb.clouddn.com/imgprototype-graph-1.jpg">
+<meta name="twitter:title" content="读书笔记(二):JavaScript中的面向对象">
+<meta name="twitter:description" content="JavaScript中一切皆为对象">
+<meta name="twitter:image" content="http://7xsgf8.com1.z0.glb.clouddn.com/image/bghuguang.jpg">
 
 
 
@@ -87,7 +87,7 @@
   };
 </script>
 
-  <title> 读书笔记(二)JavaScript中的面向对象 | 时光 漫步 </title>
+  <title> 读书笔记(二):JavaScript中的面向对象 | 时光 漫步 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -239,7 +239,7 @@
             
             
               
-                读书笔记(二)JavaScript中的面向对象
+                读书笔记(二):JavaScript中的面向对象
               
             
           </h1>
@@ -285,7 +285,10 @@
       
 
       
-        <h1 id="1-面向对象"><a href="#1-面向对象" class="headerlink" title="1.面向对象"></a><font color="DarkRed" size="6" face="黑体">1.面向对象</font></h1><p>面向对象编程是用抽象方式创建基于现实世界模型的一种编程模式，主要包括模块化、多态、和封装几种技术。 对JavaScript而言，其核心是支持面向对象的，同时它也提供了强大灵活的基于原型的面向对象编程能力。 本文将会深入的探讨有关使用JavaScript进行面向对象编程的一些核心基础知识，包括对象的创建，继承机制， 最后还会简要的介绍如何借助ES6提供的新的类机制重写传统的JavaScript面向对象代码。<br><a id="more"></a></p>
+        <p><img src="http://7xsgf8.com1.z0.glb.clouddn.com/image/bghuguang.jpg" alt="湖光"></p>
+<pre><code>JavaScript中一切皆为对象
+</code></pre><a id="more"></a>
+<h1 id="1-面向对象"><a href="#1-面向对象" class="headerlink" title="1.面向对象"></a><font color="DarkRed" size="6" face="黑体">1.面向对象</font></h1><p>面向对象编程是用抽象方式创建基于现实世界模型的一种编程模式，主要包括模块化、多态、和封装几种技术。 对JavaScript而言，其核心是支持面向对象的，同时它也提供了强大灵活的基于原型的面向对象编程能力。 本文将会深入的探讨有关使用JavaScript进行面向对象编程的一些核心基础知识，包括对象的创建，继承机制， 最后还会简要的介绍如何借助ES6提供的新的类机制重写传统的JavaScript面向对象代码。</p>
 <h2 id="1-1-面向对象的几个概念"><a href="#1-1-面向对象的几个概念" class="headerlink" title="1.1 面向对象的几个概念"></a><font color="DarkRed" size="5" face="黑体">1.1 面向对象的几个概念</font></h2><p>在进入正题前，先了解传统的面向对象编程（例如Java）中常会涉及到的概念，大致可以包括：</p>
 <ul>
 <li>类：定义对象的特征。它是对象的属性和方法的模板定义。</li>
@@ -340,7 +343,7 @@ person2.sayName(); // Lily
 Chinese.prototype.country = &apos;China&apos;; // 公共属性，所有实例共享
 </code></pre><h2 id="2-2-原型对象"><a href="#2-2-原型对象" class="headerlink" title="2.2 原型对象"></a><font color="DarkRed" size="5" face="黑体">2.2 原型对象</font></h2><p>现在我们来深入的理解一下什么是原型对象。<br>只要创建了一个新函数，就会根据一组特定的规则为该函数创建一个<font color="LightCoral" size="4" face="黑体">prototype</font>属性，这个属性指向函数的原型对象。 在默认情况下，所有原型对象都会自动获得一个<font color="LightCoral" size="4" face="黑体">constructor</font>属性，这个属性包含一个指向<font color="LightCoral" size="4" face="黑体">prototype</font>属性所在函数的指针。 也就是说：<font color="LightCoral" size="4" face="黑体">Person.prototype.constructor</font>指向Person构造函数。<br>创建了自定义的构造函数之后，其原型对象默认只会取得constructor属性；至于其他方法，则都是从Object继承而来的。 当调用构造函数创建一个新实例后，该实例内部将包含一个指针（内部属性），指向构造函数的原型对象。ES5中称这个指针为[[Prototype]]， 在Firefox、Safari和Chrome在每个对象上都支持一个属性<strong>proto</strong>（目前已被废弃）；而在其他实现中，这个属性对脚本则是完全不可见的。 要注意，这个链接存在于实例与构造函数的原型对象之间，而不是实例与构造函数之间。</p>
 <p>这三者关系的示意图如下：</p>
-<p><img src="http://7xsgf8.com1.z0.glb.clouddn.com/imgprototype-graph-1.jpg" alt="图片1"></p>
+<p><img src="http://7xsgf8.com1.z0.glb.clouddn.com/image/bghuguang.jpg" alt="图片1"></p>
 <p>上图展示了Person构造函数、Person的原型对象以及Person现有的两个实例之间的关系。</p>
 <p>Person.prototype指向了原型对象<br>Person.prototype.constructor又指回了Person构造函数<br>Person的每个实例person1和person2都包含一个内部属性（通常为<strong>proto</strong>），person1.<strong>proto</strong>和person2.<strong>proto</strong>指向了原型对象<br>查找对象属性</p>
 <p>从上图我们发现，虽然Person的两个实例都不包含属性和方法，但我们却可以调用person1.sayName()。 这是通过查找对象属性的过程来实现的。</p>
@@ -402,7 +405,7 @@ instance.getChildValue();  // false
 </code></pre><p>在上面的代码中，原型链继承的核心语句是Child.prototype = new Father()，它实现了Child对Father的继承， 而继承是通过创建Father的实例，并将该实例赋给Child.prototype实现的。</p>
 <p>实现的本质是重写原型对象，代之以一个新类型的实例。也就是说，原来存在于Father的实例中的所有属性和方法， 现在也存在于Child.prototype中了。</p>
 <p>这个例子中的实例以及构造函数和原型之间的关系如下图所示：</p>
-<p><img src="http://7xsgf8.com1.z0.glb.clouddn.com/imgprototype-chain-inheritance2.jpg" alt="图片2"></p>
+<p>![图片2][2]</p>
 <p>prototype chain inheritance</p>
 <p>在上面的代码中，我们没有使用Child默认提供的原型，而是给它换了一个新原型；这个新原型就是Father的实例。 于是，新原型不仅具有了作为一个Father的实例所拥有的全部属性和方法。而且其内部还有一个指针[[Prototype]]，指向了Father的原型。</p>
 <p>instance指向Child的原型对象<br>Child的原型对象指向Father的原型对象<br>getFatherValue()方法仍然还在Father.prototype中<br>但是，fatherValue则位于Child.prototype中<br>instance.constructor现在指向的是Father<br>因为fatherValue是一个实例属性，而getFatherValue()则是一个原型方法。既然Child.prototype现在是Father的实例， 那么fatherValue当然就位于该实例中。</p>
@@ -545,6 +548,14 @@ this.school = school;
 super.functionOnParent([arguments]); // 调用父类中的方法
 </code></pre><p>如果是在类的构造器中，需要在this关键字之前使用。参考链接</p>
 <p><font color="LightSalmon" size="6" face="黑体">小结</font><br>本文对JavaScript的面向对象机制进行了较为深入的解读，尤其是构造函数和原型链方式实现对象的创建、继承、以及实例化。 此外，本文还简要介绍了如在ES6中编写面向对象代码。</p>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ol>
+<li><a href="http://luopq.com/2016/02/28/Object-in-Javascript" target="_blank" rel="external">详解Javascript中的Object对象</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/new" target="_blank" rel="external"><code>new</code>操作符</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Introduction_to_Object-Oriented_JavaScript" target="_blank" rel="external">JavaScript面向对象简介</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/create" target="_blank" rel="external">Object.create()</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Inheritance_and_the_prototype_chain" target="_blank" rel="external">继承与原型链</a></li>
+</ol>
+<p><strong> 声明：</strong> 本文整理取自：景庄 <a href="http://ryanmorr.com/understanding-scope-and-context-in-javascript/" target="_blank" rel="external">原文链接</a></p>
 
       
     </div>
@@ -568,13 +579,17 @@ super.functionOnParent([arguments]); // 调用父类中的方法
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/03/12/this到底指的是谁？/" rel="next" title="this到底指的是谁？">
-                <i class="fa fa-chevron-left"></i> this到底指的是谁？
+              <a href="/2016/03/10/容易混淆：JavaScript作用域原型/" rel="next" title="JavaScript作用域原型">
+                <i class="fa fa-chevron-left"></i> JavaScript作用域原型
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/03/18/this到底指的是谁？/" rel="prev" title="this到底指的是谁？">
+                this到底指的是谁？ <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -601,7 +616,7 @@ super.functionOnParent([arguments]); // 调用父类中的方法
   <div class="comments" id="comments">
     
       <div class="ds-thread" data-thread-key="2016/03/15/读书笔记(二)JavaScript中的面向对象/"
-           data-title="读书笔记(二)JavaScript中的面向对象" data-url="http://yoursite.com/2016/03/15/读书笔记(二)JavaScript中的面向对象/">
+           data-title="读书笔记(二):JavaScript中的面向对象" data-url="http://yoursite.com/2016/03/15/读书笔记(二)JavaScript中的面向对象/">
       </div>
     
   </div>
@@ -646,7 +661,7 @@ super.functionOnParent([arguments]); // 调用父类中的方法
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">4</span>
+              <span class="site-state-item-count">9</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -708,7 +723,7 @@ super.functionOnParent([arguments]); // 调用父类中的方法
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-面向对象"><span class="nav-number">1.</span> <span class="nav-text">1.面向对象</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-面向对象的几个概念"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 面向对象的几个概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-对象（类）的创建"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 对象（类）的创建</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-3-创建一个新对象（实例）"><span class="nav-number">1.3.</span> <span class="nav-text">1.3 创建一个新对象（实例）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-4-自定义对象的类型检测"><span class="nav-number">1.4.</span> <span class="nav-text">1.4 自定义对象的类型检测</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-构造函数"><span class="nav-number">2.</span> <span class="nav-text">2.构造函数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-借助原型模式定义对象的方法"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 借助原型模式定义对象的方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-原型对象"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 原型对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-更简单的原型语法"><span class="nav-number">2.3.</span> <span class="nav-text">2.3 更简单的原型语法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-4-组合使用构造函数模式和原型模式"><span class="nav-number">2.4.</span> <span class="nav-text">2.4 组合使用构造函数模式和原型模式</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-原型链继承"><span class="nav-number">3.</span> <span class="nav-text">3.原型链继承</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-原型链继承的问题"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 原型链继承的问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-借用构造函数继承"><span class="nav-number">3.2.</span> <span class="nav-text">3.2 借用构造函数继承</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-3-组合使用原型链和借用构造函数"><span class="nav-number">3.3.</span> <span class="nav-text">3.3 组合使用原型链和借用构造函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-4-组合继承的改进版：使用Object-create"><span class="nav-number">3.4.</span> <span class="nav-text">3.4 组合继承的改进版：使用Object.create()</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-ES6中的面向对象语法"><span class="nav-number">4.</span> <span class="nav-text">5.ES6中的面向对象语法</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-面向对象"><span class="nav-number">1.</span> <span class="nav-text">1.面向对象</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-面向对象的几个概念"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 面向对象的几个概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-对象（类）的创建"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 对象（类）的创建</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-3-创建一个新对象（实例）"><span class="nav-number">1.3.</span> <span class="nav-text">1.3 创建一个新对象（实例）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-4-自定义对象的类型检测"><span class="nav-number">1.4.</span> <span class="nav-text">1.4 自定义对象的类型检测</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-构造函数"><span class="nav-number">2.</span> <span class="nav-text">2.构造函数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-借助原型模式定义对象的方法"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 借助原型模式定义对象的方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-原型对象"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 原型对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-更简单的原型语法"><span class="nav-number">2.3.</span> <span class="nav-text">2.3 更简单的原型语法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-4-组合使用构造函数模式和原型模式"><span class="nav-number">2.4.</span> <span class="nav-text">2.4 组合使用构造函数模式和原型模式</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-原型链继承"><span class="nav-number">3.</span> <span class="nav-text">3.原型链继承</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-原型链继承的问题"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 原型链继承的问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-借用构造函数继承"><span class="nav-number">3.2.</span> <span class="nav-text">3.2 借用构造函数继承</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-3-组合使用原型链和借用构造函数"><span class="nav-number">3.3.</span> <span class="nav-text">3.3 组合使用原型链和借用构造函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-4-组合继承的改进版：使用Object-create"><span class="nav-number">3.4.</span> <span class="nav-text">3.4 组合继承的改进版：使用Object.create()</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-ES6中的面向对象语法"><span class="nav-number">4.</span> <span class="nav-text">5.ES6中的面向对象语法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#References"><span class="nav-number">4.1.</span> <span class="nav-text">References</span></a></li></ol></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">

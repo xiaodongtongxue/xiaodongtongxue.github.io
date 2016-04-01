@@ -41,7 +41,7 @@
 <link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="普渡众生," />
+  <meta name="keywords" content="知识点," />
 
 
 
@@ -57,16 +57,18 @@
 
 
 
-<meta name="description" content="初学java和javascript肯定对这个this很是苦恼，他到底指的是谁啊？经过我多方查证终于搞懂了，顺便“普渡众生”,你可能经常看到这样的用法：object.call(this,x,y,z)那么这个call和this是什么关系呢？接下来：">
+<meta name="description" content="初学java和javascript肯定对这个this很是苦恼，他到底指的是谁？">
 <meta property="og:type" content="article">
 <meta property="og:title" content="this到底指的是谁？">
-<meta property="og:url" content="http://yoursite.com/2016/03/12/this到底指的是谁？/index.html">
+<meta property="og:url" content="http://yoursite.com/2016/03/18/this到底指的是谁？/index.html">
 <meta property="og:site_name" content="时光 漫步">
-<meta property="og:description" content="初学java和javascript肯定对这个this很是苦恼，他到底指的是谁啊？经过我多方查证终于搞懂了，顺便“普渡众生”,你可能经常看到这样的用法：object.call(this,x,y,z)那么这个call和this是什么关系呢？接下来：">
-<meta property="og:updated_time" content="2016-03-31T05:59:59.805Z">
+<meta property="og:description" content="初学java和javascript肯定对这个this很是苦恼，他到底指的是谁？">
+<meta property="og:image" content="http://7xsgf8.com1.z0.glb.clouddn.com/image/bgguidao.jpg">
+<meta property="og:updated_time" content="2016-03-31T14:38:23.537Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="this到底指的是谁？">
-<meta name="twitter:description" content="初学java和javascript肯定对这个this很是苦恼，他到底指的是谁啊？经过我多方查证终于搞懂了，顺便“普渡众生”,你可能经常看到这样的用法：object.call(this,x,y,z)那么这个call和this是什么关系呢？接下来：">
+<meta name="twitter:description" content="初学java和javascript肯定对这个this很是苦恼，他到底指的是谁？">
+<meta name="twitter:image" content="http://7xsgf8.com1.z0.glb.clouddn.com/image/bgguidao.jpg">
 
 
 
@@ -248,8 +250,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-03-12T20:09:24+08:00" content="2016-03-12">
-              2016-03-12
+            <time itemprop="dateCreated" datetime="2016-03-18T20:09:24+08:00" content="2016-03-18">
+              2016-03-18
             </time>
           </span>
 
@@ -259,8 +261,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/03/12/this到底指的是谁？/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/12/this到底指的是谁？/" itemprop="commentsCount"></span>
+                <a href="/2016/03/18/this到底指的是谁？/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/18/this到底指的是谁？/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -282,7 +284,11 @@
       
 
       
-        <p>初学java和javascript肯定对这个<strong>this</strong>很是苦恼，他到底指的是谁啊？经过我多方查证终于搞懂了，顺便“普渡众生”,你可能经常看到这样的用法：<strong>object.call(this,x,y,z)</strong>那么这个call和this是什么关系呢？接下来：<br><a id="more"></a><br>Js 里函数调用有4种模式：方法调用、正常函数调用、构造器函数调用、apply/call 调用<br>同时，无论哪种函数调用除了你声明时定义的形参外，还会自动添加2个形参，分别是： this 和 arguments。<br>这里就只谈 this。this 的值，在上面4中调用模式下，分别会绑定不同的值。分别来说一说：<br>方法调用：<br>这个很好理解，函数是一个对象的属性，比如：</p>
+        <p><img src="http://7xsgf8.com1.z0.glb.clouddn.com/image/bgguidao.jpg" alt="轨道"></p>
+<pre><code>初学java和javascript肯定对这个this很是苦恼，他到底指的是谁？
+</code></pre><a id="more"></a>
+<p>你可能经常看到这样的用法：<strong>object.call(this,x,y,z)</strong>那么这个call和this是什么关系呢？接下来：</p>
+<p>Js 里函数调用有4种模式：方法调用、正常函数调用、构造器函数调用、apply/call 调用<br>同时，无论哪种函数调用除了你声明时定义的形参外，还会自动添加2个形参，分别是： this 和 arguments。<br>这里就只谈 this。this 的值，在上面4中调用模式下，分别会绑定不同的值。分别来说一说：<br>方法调用：<br>这个很好理解，函数是一个对象的属性，比如：</p>
 <pre><code>var a = {
     v : 0,
     f : function(xx) {
@@ -310,7 +316,7 @@ a.apply(o, [5]);
 alert(a.b);    // undefined
 alert(o.b);    // 5
 </code></pre><p>是不是很神奇，函数 a 居然可以给 o 加属性值。当然，如果你 apply 的第一个参数传递null，那么在函数a里面this指针依然会绑定全局对象。你可能要问了，apply函数是哪来的，因为在 js 里所有的函数都有一个共同的 prototype，也就是传说中的 Function.prototype, 这个原型里有两个神奇的方法，一个就是这里的apply，另一个就是让题主疑惑的 call。</p>
-<p>说了这么一大堆，终于来到 call 了。<br>call() 方法和 apply() 方法很类似，它们的存在都是为了改变 this 的绑定，那 </p>
+<p>说了这么一大堆，终于来到 call 了。<br>call() 方法和 apply() 方法很类似，它们的存在都是为了改变 this 的绑定，那</p>
 <h2 id="call-和-apply"><a href="#call-和-apply" class="headerlink" title="call() 和 apply()"></a>call() 和 apply()</h2><p>有什么区别呢？就我个人看来，没啥鸟区别。。。开玩笑！刚刚说了，上面 apply() 接收两个参数，第一个是你想要 this 绑定的对象，第二个是一个参数数组，注意是一个数组，你想传递给这个函数的所有内容都放在数组里，然后 apply() 函数会在传递形参时自动帮你展开，同时加入我上面提到的另一个神奇形参arguments。而 call()呢，它的第一个参数也是你想要 this 绑定的对象，但是后面可以接受不定参数，而不再是一个数组，也就是你可以像平时给函数传参那样把这些参数一个一个传递，当然，神奇形参arguments还是不会少的。所以如果一定要说有什么区别的话，看起来是这样的：</p>
 <pre><code>function a(xx, yy) {
     alert(xx, yy);
@@ -334,7 +340,7 @@ a.call(null, 5, 55);
       
         <div class="post-tags">
           
-            <a href="/tags/普渡众生/" rel="tag">#普渡众生</a>
+            <a href="/tags/知识点/" rel="tag">#知识点</a>
           
         </div>
       
@@ -343,16 +349,16 @@ a.call(null, 5, 55);
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/03/10/读书笔记：JavaScript作用域原型/" rel="next" title="读书笔记(一)：JavaScript作用域原型">
-                <i class="fa fa-chevron-left"></i> 读书笔记(一)：JavaScript作用域原型
+              <a href="/2016/03/15/读书笔记(二)JavaScript中的面向对象/" rel="next" title="读书笔记(二):JavaScript中的面向对象">
+                <i class="fa fa-chevron-left"></i> 读书笔记(二):JavaScript中的面向对象
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/03/15/读书笔记(二)JavaScript中的面向对象/" rel="prev" title="读书笔记(二)JavaScript中的面向对象">
-                读书笔记(二)JavaScript中的面向对象 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/03/21/Web前端编程规范/" rel="prev" title="HTML5、CSS3、ES6编程规范">
+                HTML5、CSS3、ES6编程规范 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -379,8 +385,8 @@ a.call(null, 5, 55);
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/03/12/this到底指的是谁？/"
-           data-title="this到底指的是谁？" data-url="http://yoursite.com/2016/03/12/this到底指的是谁？/">
+      <div class="ds-thread" data-thread-key="2016/03/18/this到底指的是谁？/"
+           data-title="this到底指的是谁？" data-url="http://yoursite.com/2016/03/18/this到底指的是谁？/">
       </div>
     
   </div>
@@ -425,7 +431,7 @@ a.call(null, 5, 55);
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">4</span>
+              <span class="site-state-item-count">9</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

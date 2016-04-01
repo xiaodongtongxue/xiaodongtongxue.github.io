@@ -41,7 +41,7 @@
 <link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="《JavaScript高级程序设计》," />
+  <meta name="keywords" content="知识点," />
 
 
 
@@ -57,16 +57,18 @@
 
 
 
-<meta name="description" content="javascript中的的函数运行在他们被定义的作用域里，而不是他们被执行的作用域里。">
+<meta name="description" content="javascript中的的函数运行在他们被定义的作用域里，而不是他们被执行的作用域里">
 <meta property="og:type" content="article">
-<meta property="og:title" content="读书笔记(一)：JavaScript作用域原型">
-<meta property="og:url" content="http://yoursite.com/2016/03/10/读书笔记：JavaScript作用域原型/index.html">
+<meta property="og:title" content="JavaScript作用域原型">
+<meta property="og:url" content="http://yoursite.com/2016/03/10/容易混淆：JavaScript作用域原型/index.html">
 <meta property="og:site_name" content="时光 漫步">
-<meta property="og:description" content="javascript中的的函数运行在他们被定义的作用域里，而不是他们被执行的作用域里。">
-<meta property="og:updated_time" content="2016-03-31T06:00:01.767Z">
+<meta property="og:description" content="javascript中的的函数运行在他们被定义的作用域里，而不是他们被执行的作用域里">
+<meta property="og:image" content="http://7xsgf8.com1.z0.glb.clouddn.com/image/bgrenhai.jpg">
+<meta property="og:updated_time" content="2016-03-31T14:42:49.119Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="读书笔记(一)：JavaScript作用域原型">
-<meta name="twitter:description" content="javascript中的的函数运行在他们被定义的作用域里，而不是他们被执行的作用域里。">
+<meta name="twitter:title" content="JavaScript作用域原型">
+<meta name="twitter:description" content="javascript中的的函数运行在他们被定义的作用域里，而不是他们被执行的作用域里">
+<meta name="twitter:image" content="http://7xsgf8.com1.z0.glb.clouddn.com/image/bgrenhai.jpg">
 
 
 
@@ -84,7 +86,7 @@
   };
 </script>
 
-  <title> 读书笔记(一)：JavaScript作用域原型 | 时光 漫步 </title>
+  <title> JavaScript作用域原型 | 时光 漫步 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -236,7 +238,7 @@
             
             
               
-                读书笔记(一)：JavaScript作用域原型
+                JavaScript作用域原型
               
             
           </h1>
@@ -259,8 +261,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/03/10/读书笔记：JavaScript作用域原型/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/10/读书笔记：JavaScript作用域原型/" itemprop="commentsCount"></span>
+                <a href="/2016/03/10/容易混淆：JavaScript作用域原型/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/10/容易混淆：JavaScript作用域原型/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -282,7 +284,8 @@
       
 
       
-        <pre><code>javascript中的的函数运行在他们被定义的作用域里，而不是他们被执行的作用域里。
+        <p><img src="http://7xsgf8.com1.z0.glb.clouddn.com/image/bgrenhai.jpg" alt="人海"></p>
+<pre><code>javascript中的的函数运行在他们被定义的作用域里，而不是他们被执行的作用域里
 </code></pre><a id="more"></a>
 <h2 id="问题的提出"><a href="#问题的提出" class="headerlink" title="问题的提出"></a>问题的提出</h2><p>首先看一个例子:</p>
 <pre><code>var name = &apos;laruence&apos;;
@@ -295,10 +298,10 @@
      echo();
 </code></pre><p>运行结果是什么呢?<br>上面的问题, 我相信会有很多人会认为是:</p>
 <pre><code>laruence   eve   [脚本出错]
-</code></pre><p>因为会以为在echo中, 第一次alert的时候, 会取到全局变量name的值, 而第二次值被局部变量name覆盖, 所以第二次alert是’eve’. 而age属性没有定义, 所以脚本会出错.<br>但其实, 运行结果应该是:      </p>
+</code></pre><p>因为会以为在echo中, 第一次alert的时候, 会取到全局变量name的值, 而第二次值被局部变量name覆盖, 所以第二次alert是’eve’. 而age属性没有定义, 所以脚本会出错.<br>但其实, 运行结果应该是:</p>
 <pre><code>undefined
 eve
-[脚本出错]      
+[脚本出错]
 </code></pre><p> 为什么呢?</p>
 <h2 id="JavaScript的作用域链"><a href="#JavaScript的作用域链" class="headerlink" title="JavaScript的作用域链"></a>JavaScript的作用域链</h2><p>首先让让我们来看看Javasript(简称JS, 不完全代表JScript)的作用域的原理: JS权威指南中有一句很精辟的描述:　”JavaScript中的函数运行在它们被定义的作用域里,而不是它们被执行的作用域里.”　<br>为了接下来的知识, 你能顺利理解, 我再提醒一下, 在JS中:”一切皆是对象, 函数也是”.<br>在JS中，作用域的概念和其他语言差不多， 在每次调用一个函数的时候 ，就会进入一个函数内的作用域，当从函数返回以后，就返回调用前的作用域.<br>JS的语法风格和C/C++类似, 但作用域的实现却和C/C++不同，并非用“堆栈”方式，而是使用列表，具体过程如下(ECMA262中所述):<br>任何执行上下文时刻的作用域, 都是由作用域链(scope chain, 后面介绍)来实现.<br>在一个函数被定义的时候, 会将它定义时刻的scope chain链接到这个函数对象的[[scope]]属性.<br>在一个函数对象被调用的时候，会创建一个活动对象(也就是一个对象), 然后对于每一个函数的形参，都命名为该活动对象的命名属性, 然后将这个活动对象做为此时的作用域链(scope chain)最前端, 并将这个函数对象的[[scope]]加入到scope chain中.<br>看个例子:</p>
 <pre><code>var func = function(lps, rps){
@@ -336,7 +339,7 @@ function app(para){
 }
 
 app(&apos;eve&apos;);
-</code></pre><p>当调用app的时候, scope chain是由: {window活动对象(全局)}-&gt;{app的活动对象} 组成.  在刚进入app函数体时, app的活动对象有一个arguments属性, 俩个值为undefined的属性: name和func.    和一个值为’eve’的属性para;<br>此时的scope chain如下: </p>
+</code></pre><p>当调用app的时候, scope chain是由: {window活动对象(全局)}-&gt;{app的活动对象} 组成.  在刚进入app函数体时, app的活动对象有一个arguments属性, 俩个值为undefined的属性: name和func.    和一个值为’eve’的属性para;<br>此时的scope chain如下:</p>
 <pre><code>[[scope chain]] = [
 {
      para : &apos;eve&apos;,
@@ -346,7 +349,7 @@ app(&apos;eve&apos;);
 }, {
      window call object
 }
-]   
+]
 </code></pre><p>当调用进入factory的函数体的时候, 此时的factory的scope chain为:</p>
 <pre><code>[[scope chain]] = [
 {
@@ -414,7 +417,7 @@ alert(sum);    //30
       
         <div class="post-tags">
           
-            <a href="/tags/《JavaScript高级程序设计》/" rel="tag">#《JavaScript高级程序设计》</a>
+            <a href="/tags/知识点/" rel="tag">#知识点</a>
           
         </div>
       
@@ -423,16 +426,16 @@ alert(sum);    //30
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/03/01/初入前端/" rel="next" title="初入前端">
-                <i class="fa fa-chevron-left"></i> 初入前端
+              <a href="/2016/03/07/读书笔记(一)JavaScript中的作用域与上下文/" rel="next" title="读书笔记(一)：JavaScript中的作用域和上下文">
+                <i class="fa fa-chevron-left"></i> 读书笔记(一)：JavaScript中的作用域和上下文
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/03/12/this到底指的是谁？/" rel="prev" title="this到底指的是谁？">
-                this到底指的是谁？ <i class="fa fa-chevron-right"></i>
+              <a href="/2016/03/15/读书笔记(二)JavaScript中的面向对象/" rel="prev" title="读书笔记(二):JavaScript中的面向对象">
+                读书笔记(二):JavaScript中的面向对象 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -459,8 +462,8 @@ alert(sum);    //30
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/03/10/读书笔记：JavaScript作用域原型/"
-           data-title="读书笔记(一)：JavaScript作用域原型" data-url="http://yoursite.com/2016/03/10/读书笔记：JavaScript作用域原型/">
+      <div class="ds-thread" data-thread-key="2016/03/10/容易混淆：JavaScript作用域原型/"
+           data-title="JavaScript作用域原型" data-url="http://yoursite.com/2016/03/10/容易混淆：JavaScript作用域原型/">
       </div>
     
   </div>
@@ -505,7 +508,7 @@ alert(sum);    //30
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">4</span>
+              <span class="site-state-item-count">9</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
