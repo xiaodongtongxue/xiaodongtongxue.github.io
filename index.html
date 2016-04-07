@@ -281,9 +281,12 @@
           
 
           
-
-          
-          
+		  
+        
+      	 <span id="/2016/04/05/json/"class="leancloud_visitors"  data-flag-title="Json是什么？">
+              |   阅读次数
+            </span>
+      
 
         </div>
       </header>
@@ -382,9 +385,12 @@
           
 
           
-
-          
-          
+		  
+        
+      	 <span id="/2016/04/04/you-get/"class="leancloud_visitors"  data-flag-title="黑科技：强大的you-get">
+              |   阅读次数
+            </span>
+      
 
         </div>
       </header>
@@ -482,9 +488,12 @@
           
 
           
-
-          
-          
+		  
+        
+      	 <span id="/2016/04/03/前端必备软件 brackets/"class="leancloud_visitors"  data-flag-title="前端必备：brackets安装及常用插件">
+              |   阅读次数
+            </span>
+      
 
         </div>
       </header>
@@ -582,9 +591,12 @@
           
 
           
-
-          
-          
+		  
+        
+      	 <span id="/2016/04/01/10个经典的JavaScript面试题/"class="leancloud_visitors"  data-flag-title="十个经典的JavaScript面试题">
+              |   阅读次数
+            </span>
+      
 
         </div>
       </header>
@@ -682,9 +694,12 @@
           
 
           
-
-          
-          
+		  
+        
+      	 <span id="/2016/03/31/传奇中的闭包到底是什么？/"class="leancloud_visitors"  data-flag-title="传奇中的闭包到底是什么？">
+              |   阅读次数
+            </span>
+      
 
         </div>
       </header>
@@ -782,9 +797,12 @@
           
 
           
-
-          
-          
+		  
+        
+      	 <span id="/2016/03/27/call()、apply()、bind()的用法/"class="leancloud_visitors"  data-flag-title="call()、apply()、bind()的用法">
+              |   阅读次数
+            </span>
+      
 
         </div>
       </header>
@@ -882,9 +900,12 @@
           
 
           
-
-          
-          
+		  
+        
+      	 <span id="/2016/03/21/Web前端编程规范/"class="leancloud_visitors"  data-flag-title="HTML5、CSS3、ES6编程规范">
+              |   阅读次数
+            </span>
+      
 
         </div>
       </header>
@@ -982,9 +1003,12 @@
           
 
           
-
-          
-          
+		  
+        
+      	 <span id="/2016/03/18/this到底指的是谁？/"class="leancloud_visitors"  data-flag-title="this到底指的是谁？">
+              |   阅读次数
+            </span>
+      
 
         </div>
       </header>
@@ -1082,9 +1106,12 @@
           
 
           
-
-          
-          
+		  
+        
+      	 <span id="/2016/03/15/读书笔记(二)JavaScript中的面向对象/"class="leancloud_visitors"  data-flag-title="读书笔记(二):JavaScript中的面向对象">
+              |   阅读次数
+            </span>
+      
 
         </div>
       </header>
@@ -1182,9 +1209,12 @@
           
 
           
-
-          
-          
+		  
+        
+      	 <span id="/2016/03/10/容易混淆：JavaScript作用域原型/"class="leancloud_visitors"  data-flag-title="JavaScript作用域原型">
+              |   阅读次数
+            </span>
+      
 
         </div>
       </header>
@@ -1457,6 +1487,99 @@
   
 
   
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("giQcON1aYKcTH2HFEhsWqeIk-gzGzoHsz", "vNDXtDvpDvfvc3GbxFeTKkWu");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
 
   
 
