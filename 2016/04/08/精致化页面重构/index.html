@@ -1,0 +1,1044 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="HTML5," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.5.0" />
+
+
+
+
+
+
+<meta name="description" content="作为一个注重用户体验的 H5 页面，合适的页面布局方式很重要。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="(转载)精致化页面重构">
+<meta property="og:url" content="http://yoursite.com/2016/04/08/精致化页面重构/index.html">
+<meta property="og:site_name" content="时光  漫步">
+<meta property="og:description" content="作为一个注重用户体验的 H5 页面，合适的页面布局方式很重要。">
+<meta property="og:image" content="http://7xsgf8.com1.z0.glb.clouddn.com/%E7%B2%BE%E8%87%B4%E5%8C%96%E9%A1%B5%E9%9D%A2%E9%87%8D%E6%9E%84cover.png">
+<meta property="og:image" content="http://7xsgf8.com1.z0.glb.clouddn.com/%E7%B2%BE%E8%87%B4%E5%8C%96%E9%A1%B5%E9%9D%A2%E9%87%8D%E6%9E%841.png">
+<meta property="og:image" content="http://7xsgf8.com1.z0.glb.clouddn.com/%E7%B2%BE%E8%87%B4%E5%8C%96%E9%A1%B5%E9%9D%A2%E9%87%8D%E6%9E%842.png">
+<meta property="og:image" content="http://7xsgf8.com1.z0.glb.clouddn.com/%E7%B2%BE%E8%87%B4%E5%8C%96%E9%A1%B5%E9%9D%A2%E9%87%8D%E6%9E%843.png">
+<meta property="og:image" content="http://7xsgf8.com1.z0.glb.clouddn.com/%E7%B2%BE%E8%87%B4%E5%8C%96%E9%A1%B5%E9%9D%A2%E9%87%8D%E6%9E%844.png">
+<meta property="og:updated_time" content="2016-04-08T06:41:19.536Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="(转载)精致化页面重构">
+<meta name="twitter:description" content="作为一个注重用户体验的 H5 页面，合适的页面布局方式很重要。">
+<meta name="twitter:image" content="http://7xsgf8.com1.z0.glb.clouddn.com/%E7%B2%BE%E8%87%B4%E5%8C%96%E9%A1%B5%E9%9D%A2%E9%87%8D%E6%9E%84cover.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"right","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> (转载)精致化页面重构 | 时光  漫步 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?1bb8cb9144e28da63279255dadca25ce";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">时光  漫步</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">追求规范，讲究高效，符合标准</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-heartbeat fa-fw"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-guestbook">
+          <a href="/guestbook" rel="section">
+            
+              <i class="menu-item-icon fa fa-question-circle fa-fw"></i> <br />
+            
+            留言
+          </a>
+        </li>
+      
+
+      
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                (转载)精致化页面重构
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-04-08T14:43:49+08:00" content="2016-04-08">
+              2016-04-08
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/04/08/精致化页面重构/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/08/精致化页面重构/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+		  
+        
+      	 <span id="/2016/04/08/精致化页面重构/"class="leancloud_visitors"  data-flag-title="(转载)精致化页面重构">
+              |   阅读次数
+            </span>
+      
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="http://7xsgf8.com1.z0.glb.clouddn.com/%E7%B2%BE%E8%87%B4%E5%8C%96%E9%A1%B5%E9%9D%A2%E9%87%8D%E6%9E%84cover.png" alt=""></p>
+<pre><code>作为一个注重用户体验的 H5 页面，合适的页面布局方式很重要。
+</code></pre><a id="more"></a>
+<p>精致化页面重构</p>
+<h1 id="一-布局方式"><a href="#一-布局方式" class="headerlink" title="一 布局方式"></a>一 布局方式</h1><p>移动端页面常规布局基本分两种：</p>
+<h2 id="1-流式布局（响应式宽度自适应布局）"><a href="#1-流式布局（响应式宽度自适应布局）" class="headerlink" title="1. 流式布局（响应式宽度自适应布局）"></a>1. 流式布局（响应式宽度自适应布局）</h2><p>这是普遍使用的方法，流式布局使用这个标签即可自适应所有尺寸的屏幕。</p>
+<pre><code>&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no&quot;&gt;
+</code></pre><p>优点：响应式、简单、兼容好。<br>缺点：非设计稿尺寸屏幕展现效果可能不是很理想。</p>
+<h2 id="2-版式布局（页面等比缩放布局）"><a href="#2-版式布局（页面等比缩放布局）" class="headerlink" title="2. 版式布局（页面等比缩放布局）"></a>2. 版式布局（页面等比缩放布局）</h2><p>可行方案：</p>
+<p>页面使用 REM 作为页面数值单位运算。<br>通过 zoom/scale 整体缩放页面。<br>优点：页面等比缩放，比例与设计稿一致。<br>缺点：大屏手机等比放大后的体验可能不佳。</p>
+<p>** 结论：<br>两种布局方式各有优劣，项目最终选用流式布局，原因：</p>
+<p>部分页面还是与现有项目模块共用，版式布局改动成本偏高，不好维护。<br>考虑到页面在大屏手机等比放大后的体验可能不佳。<br>流式布局可以针对大屏手机做一些更灵活的排版（配合媒体查询），达到更好的用户体验。</p>
+<h1 id="二-设计规范"><a href="#二-设计规范" class="headerlink" title="二 设计规范"></a>二 设计规范</h1><p>设计规范也是重要元素之一，条件允许情况下，从开发前期就需要跟设计师达成共识制定了一套设计规范。</p>
+<p>设计规范需要包括：<br>页面背景色、文字颜色、边框颜色、各种按钮样式、图标等等全局通用样式。</p>
+<p><img src="http://7xsgf8.com1.z0.glb.clouddn.com/%E7%B2%BE%E8%87%B4%E5%8C%96%E9%A1%B5%E9%9D%A2%E9%87%8D%E6%9E%841.png" alt=""></p>
+<p>当然除了前期到设计规范，开发过程中这边也需要分离出一些可复用的组件、公共样式，包括：<br>公共底部、商品组模块、轮播组件等等。</p>
+<h1 id="三-技巧"><a href="#三-技巧" class="headerlink" title="三 技巧"></a>三 技巧</h1><ol>
+<li>还原设计稿的 0.5PX<br>在 2014 年的 WWDC，“设计响应的 Web 体验” 一讲中，Ted O’Connor 讲到关于“retina hairlines”（retina 极细的线）：在 retina 屏上仅仅显示 1 物理像素的边框。<br>简单点说就是：在 Retina 屏的设备上，1px 其实相当于 2 个物理像素，所以 1 个物理像素 = 0.5px。</li>
+</ol>
+<p><img src="http://7xsgf8.com1.z0.glb.clouddn.com/%E7%B2%BE%E8%87%B4%E5%8C%96%E9%A1%B5%E9%9D%A2%E9%87%8D%E6%9E%842.png" alt=""></p>
+<p>实现 0.5px 有很多种方法，这里比较一下各种处理的优缺点：</p>
+<h2 id="1-IOS8-以上支持-0-5PX"><a href="#1-IOS8-以上支持-0-5PX" class="headerlink" title="1. IOS8 以上支持 0.5PX"></a>1. IOS8 以上支持 0.5PX</h2><p>实现原理：常规属性。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.border &#123;</span><br><span class="line">    border: <span class="number">0.5</span>px solid red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>优点：原生、简单、常规写法。<br>缺点：目前只有 iOS8 以上系统才能支持，iOS7及以下、安卓系统都显示为 0px，可以通过脚本判断系统然后区分处理。</p>
+<h2 id="2-CSS-渐变模拟"><a href="#2-CSS-渐变模拟" class="headerlink" title="2. CSS 渐变模拟"></a>2. CSS 渐变模拟</h2><p>实现原理：设置 1px 通过 css 实现的背景图片，50%有颜色，50%透明。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">.border &#123;</span><br><span class="line">    background-image:linear-gradient(<span class="number">180</span>deg, red, red <span class="number">50</span>%, transparent <span class="number">50</span>%), linear-gradient(<span class="number">270</span>deg, red, red <span class="number">50</span>%, transparent <span class="number">50</span>%), linear-gradient(<span class="number">0</span>deg, red, red <span class="number">50</span>%, transparent <span class="number">50</span>%), linear-gradient(<span class="number">90</span>deg, red, red <span class="number">50</span>%, transparent <span class="number">50</span>%);</span><br><span class="line">    background-size: <span class="number">100</span>% <span class="number">1</span>px, <span class="number">1</span>px <span class="number">100</span>%, <span class="number">100</span>% <span class="number">1</span>px, <span class="number">1</span>px <span class="number">100</span>%;</span><br><span class="line">    background-repeat: no-repeat;</span><br><span class="line">    background-position: top, right top, bottom, left top;</span><br><span class="line">    padding: <span class="number">10</span>px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>优点：兼容性较好，单边框、多边框可实现，大小、颜色可配置。<br>缺点：代码量多、无法实现圆角、同时占用了背景样式</p>
+<h2 id="3-阴影"><a href="#3-阴影" class="headerlink" title="3. 阴影"></a>3. 阴影</h2><p>实现原理：利用 css 对阴影处理的方式模拟。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.border &#123;</span><br><span class="line">    -webkit-box-shadow: <span class="number">0</span> <span class="number">1</span>px <span class="number">1</span>px <span class="number">-1</span>px rgba(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0.5</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>优点：兼容性较好，单边框、多边框、圆角可实现，大小、颜色、可配置。<br>缺点：模拟效果强差人意，颜色不好配置。</p>
+<h2 id="4-VIEWPORT-REM"><a href="#4-VIEWPORT-REM" class="headerlink" title="4. VIEWPORT + REM"></a>4. VIEWPORT + REM</h2><p>实现原理：通过设置页面 viewport 与对应 rem 基准值。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- devicePixelRatio = <span class="number">2</span>：--&gt;</span><br><span class="line">&lt;meta name="viewport" content="initial-scale=0.5, maximum-scale=0.5, minimum-scale=0.5, user-scalable=no"&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- devicePixelRatio = 3：--&gt;</span><br><span class="line">&lt;meta name="viewport" content="initial-scale=0.3333333333333333, maximum-scale=0.3333333333333333, minimum-scale=0.3333333333333333, user-scalable=no"&gt;</span><br></pre></td></tr></table></figure>
+<p>优点：兼容比较好，写法跟常规写法无异。<br>缺点：老项目改用 rem 单位成本较高。</p>
+<h2 id="5-BORDER-IMAGE"><a href="#5-BORDER-IMAGE" class="headerlink" title="5. BORDER-IMAGE"></a>5. BORDER-IMAGE</h2><p>实现原理：通过图片配合边框背景模拟。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">.border-image&#123;</span><br><span class="line">    border-image: url() <span class="number">2</span> <span class="number">0</span> stretch;</span><br><span class="line">    border-width: <span class="number">0</span> <span class="number">0</span> <span class="number">1</span>px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>优点：无。<br>缺点：图片边缘模糊，大小、颜色更改不灵活。</p>
+<h2 id="6-CSS3-缩放"><a href="#6-CSS3-缩放" class="headerlink" title="6. CSS3 缩放"></a>6. CSS3 缩放</h2><p>实现原理：利用 :before/:after 重做 border，配合 scale 使得伪元素缩小一半</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">$bor_style : 1px solid #ddd;</span><br><span class="line">%border-top-1pt &#123;</span><br><span class="line">    content: '';</span><br><span class="line">    height: 0;</span><br><span class="line">    display: block;</span><br><span class="line">    border-bottom: $bor_style;</span><br><span class="line">    position: absolute;</span><br><span class="line">    left: 0;</span><br><span class="line">    right: 0;</span><br><span class="line">    top: 0;</span><br><span class="line">&#125;</span><br><span class="line">@media only screen and (-webkit-min-device-pixel-ratio:2) &#123;</span><br><span class="line">    %border-top-1pt &#123;</span><br><span class="line">        -webkit-transform: scaleY(0.5);</span><br><span class="line">        -webkit-transform-origin: 50% 0%;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>优点：实现简单、单边框、多边框、圆角可实现，大小、颜色可配置。<br>缺点：代码量多，可通过 sass 预处理器处理。</p>
+<p>总结：<br>经过比较与实操测试，最好的处理方式是 CSS3 缩放，目前项目已经在广泛使用。</p>
+<h2 id="2-FLEXBOX-布局"><a href="#2-FLEXBOX-布局" class="headerlink" title="2. FLEXBOX 布局"></a>2. FLEXBOX 布局</h2><p>Flexbox Layout（弹性盒模型）模块（目前W3C工作草案正在最后通过）的目的是为了提供一种更有效的方式来布局，使各模块即使大小是未知或者动态的也可以在项目空间中合理分配位置（就像“弹性”这个词一样）。<br>项目哪些地方可以使用 flexbox？比如这些</p>
+<p><img src="http://7xsgf8.com1.z0.glb.clouddn.com/%E7%B2%BE%E8%87%B4%E5%8C%96%E9%A1%B5%E9%9D%A2%E9%87%8D%E6%9E%843.png" alt=""></p>
+<p>基本语法：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">ul &#123;</span><br><span class="line">    display: box;</span><br><span class="line">    display: -webkit-box;</span><br><span class="line">    display: flex;</span><br><span class="line">    display: -webkit-flex;</span><br><span class="line">&#125;</span><br><span class="line">ul li &#123;</span><br><span class="line">    display: block;</span><br><span class="line">    flex: <span class="number">1</span>;</span><br><span class="line">    -webkit-flex: <span class="number">1</span>;</span><br><span class="line">    box-flex: <span class="number">1</span>;</span><br><span class="line">    -webkit-box-flex: <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="3-元素水平垂直居中"><a href="#3-元素水平垂直居中" class="headerlink" title="3. 元素水平垂直居中"></a>3. 元素水平垂直居中</h2><p>实现的方法有很多种，下面几种比较常用：</p>
+<h3 id="1-表格方法："><a href="#1-表格方法：" class="headerlink" title="1. 表格方法："></a>1. 表格方法：</h3><p>实现方法：表格内容本来就是垂直居中的，可以通过模拟表格处理。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"box_center"</span>&gt;</span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"inner"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">&lt;<span class="regexp">/div&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">.box_center &#123;</span><br><span class="line">    display: table-cell;</span><br><span class="line">    width: <span class="number">300</span>px;</span><br><span class="line">    height: <span class="number">300</span>px;</span><br><span class="line">    text-align: center;</span><br><span class="line">    vertical-align: middle;</span><br><span class="line">&#125;</span><br><span class="line">.box_center .inner &#123;</span><br><span class="line">    display: inline-block;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="2-VERTICAL-ALIGN-MIDDLE"><a href="#2-VERTICAL-ALIGN-MIDDLE" class="headerlink" title="2. VERTICAL-ALIGN: MIDDLE"></a>2. VERTICAL-ALIGN: MIDDLE</h3><p>实现方法：利用空元素占位实现</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"box_center"</span>&gt;</span><br><span class="line">    <span class="xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"placeholder"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">    &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"inner"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">    <span class="comment">//&lt;/div&gt;</span></span><br><span class="line">.box_center &#123;</span><br><span class="line">    width: <span class="number">300</span>px;</span><br><span class="line">    height: <span class="number">300</span>px;</span><br><span class="line">    text-align: center;</span><br><span class="line">&#125;</span><br><span class="line">.box_center .inner &#123;</span><br><span class="line">    display: inline-block;</span><br><span class="line">&#125;</span><br><span class="line">.box_center .placeholder &#123;</span><br><span class="line">    display: inline-block;</span><br><span class="line">    width: <span class="number">0</span>;</span><br><span class="line">    height: <span class="number">100</span>%;</span><br><span class="line">    vertical-align: middle;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="3-绝对定位"><a href="#3-绝对定位" class="headerlink" title="3. 绝对定位"></a>3. 绝对定位</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">%box_center &#123;</span><br><span class="line">    width: <span class="number">300</span>px;</span><br><span class="line">    height: <span class="number">300</span>px;</span><br><span class="line">    position: absolute;</span><br><span class="line">    left: <span class="number">0</span>;</span><br><span class="line">    right: <span class="number">0</span>;</span><br><span class="line">    top: <span class="number">0</span>;</span><br><span class="line">    bottom: <span class="number">0</span>;</span><br><span class="line">    margin: auto;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="4-使用-TRANSFORM-实现"><a href="#4-使用-TRANSFORM-实现" class="headerlink" title="4. 使用 TRANSFORM 实现"></a>4. 使用 TRANSFORM 实现</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">%box_center &#123;</span><br><span class="line">    position: absolute;</span><br><span class="line">    left: <span class="number">50</span>%;</span><br><span class="line">    top: <span class="number">50</span>%;</span><br><span class="line">    -webkit-transform: translate(<span class="number">-50</span>%, <span class="number">-50</span>%);</span><br><span class="line">    transform: translate(<span class="number">-50</span>%, <span class="number">-50</span>%);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>兼容性：Android2.3 系统浏览器不支持容器直接使用 fixed 进行定位，外加 fixed 容器可解决。</p>
+<p>结论：<br>经过各种场景的适用型比较，项目使用 transform 实现，兼容性好且使用方便。</p>
+<h2 id="4-图片占位"><a href="#4-图片占位" class="headerlink" title="4. 图片占位"></a>4. 图片占位</h2><p>图片未加载出来之前浏览器是无法计算出图片实际尺寸的，所以会出现一个问题，页面刚打开各种元素会因为图片未完全加载而跳动/错位。</p>
+<p>这里推荐一种兼容性很好做法简单的方法：</p>
+<p>实现原理：<br>通过图片宽高比例计算出图片所需占位空间，赋值于外容器，图片再绝对定位在等比缩放的容器当中。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">.placeholder &#123;</span><br><span class="line">    position: relative;</span><br><span class="line">    overflow: hidden;</span><br><span class="line">    width: <span class="number">100</span>%:</span><br><span class="line">    height: <span class="number">0</span>;</span><br><span class="line">    padding-top: <span class="number">100</span>%:</span><br><span class="line">&#125;</span><br><span class="line">.placeholder img &#123;</span><br><span class="line">    display: block;</span><br><span class="line">    width: <span class="number">100</span>%;</span><br><span class="line">    height: auto;</span><br><span class="line">    position: absolute;</span><br><span class="line">    left: <span class="number">0</span>;</span><br><span class="line">    top: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>计算公式：</p>
+<pre><code>padding-top = 图片高度(px)/图片宽度(px) * 100%
+</code></pre><p>比如：</p>
+<pre><code>1:1 比例的图片 padding-top: 100%;
+2:1 比例的图片 padding-top: 50%;
+</code></pre><h1 id="四-尽可能减少样式图片"><a href="#四-尽可能减少样式图片" class="headerlink" title="四 尽可能减少样式图片"></a>四 尽可能减少样式图片</h1><p>大多图标元素都可以使用 CSS 样式绘制，可以大大减少样式图资源请求还有增强图标可维护性。<br>比如：链接箭头、圆点、优惠券点点、选择框、checkbox等等。</p>
+<p><img src="http://7xsgf8.com1.z0.glb.clouddn.com/%E7%B2%BE%E8%87%B4%E5%8C%96%E9%A1%B5%E9%9D%A2%E9%87%8D%E6%9E%844.png" alt=""></p>
+<h1 id="五-使用-WEBP-格式图片"><a href="#五-使用-WEBP-格式图片" class="headerlink" title="五 使用 WEBP 格式图片"></a>五 使用 WEBP 格式图片</h1><p>WebP 格式，由 google 于 2010 年推出的新一代图片格式，在压缩方面比 JPEG 格式更优越，并能节省大量的服务器带宽资源和数据空间。与 JPEG 相同，WebP 也是一种有损压缩，主要优势在于高效率。在质量相同的情况下，WebP 格式图像的体积要比 JPEG 格式图像小 40%。<br>项目中大部分页面素材图都使用了 WebP 格式，兼容方案：</p>
+<p>打开场景是浏览器：通过 javascript 检测，对支持 WebP 的用户输出 WebP 格式图片。<br>WebP 支持 插件：<a href="http://webpjs.appspot.com/" target="_blank" rel="external">http://webpjs.appspot.com/</a><br>打开场景是APP：根据不同系统使用 Android WebP 解析库或iOS WebP 解析库做兼容解析。<br>Android4.0 以下解析库：<a href="https://github.com/alexey-pelykh/webp-android-backport" target="_blank" rel="external">https://github.com/alexey-pelykh/webp-android-backport</a><br>iOS 解析库：<a href="https://github.com/carsonmcdonald/WebP-iOS-example" target="_blank" rel="external">https://github.com/carsonmcdonald/WebP-iOS-example</a><br>PS：除了 Android4.0 以上提供原生支持</p>
+<p>资料参考：<a href="http://isux.tencent.com/introduction-of-webp.html" target="_blank" rel="external">http://isux.tencent.com/introduction-of-webp.html</a></p>
+<p>结论：<br>保证图片高清质量的同时，大大压缩了图片大小，节省了服务器带宽资源和数据空间。</p>
+<h1 id="六-APP缓存策略"><a href="#六-APP缓存策略" class="headerlink" title="六 APP缓存策略"></a>六 APP缓存策略</h1><p>注： APP缓存策略由开发同学提供</p>
+<ol>
+<li>缓存方式<br>模块化的使用 APP 缓存，写入磁盘，包括 HTML、JS、CSS。<br>图片使用浏览器缓存，稳定后的背景图以及常用图片也使用 APP 缓存。</li>
+<li>缓存更新<br>主模块更新：APP 打开就发送主模块版本号到服务端，返回有更新的模块内容以及版本号，并且返回所有模块版本索引。<br>子模块更新：进去一个主模块，在加载完成后，会检查所有子模块版本索引，并获取需要更新的模块内容。<br>当前模块更新：在直接打开模块时（非首页进入），会去 check/更新一下当前版本，然后在加载。</li>
+</ol>
+<h2 id="原文地址-http-aotu-io-notes-2015-11-24-project-summary"><a href="#原文地址-http-aotu-io-notes-2015-11-24-project-summary" class="headerlink" title="原文地址:http://aotu.io/notes/2015/11/24/project-summary/"></a>原文地址:<a href="http://aotu.io/notes/2015/11/24/project-summary/" target="_blank" rel="external">http://aotu.io/notes/2015/11/24/project-summary/</a></h2>
+      
+    </div>
+
+    <div>
+      
+        
+<div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton", disable="enable", onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}", style="cursor: pointer; border: 0; outline: 0; border-radius: 100%; padding: 0; margin: 0; letter-spacing: normal; text-transform: none; text-indent: 0px; text-shadow: none">
+    <span onmouseover="this.style.color='rgb(236,96,0)';this.style.background='rgb(204,204,204)'" onMouseOut="this.style.color='#fff';this.style.background='rgb(236,96,0)'" style="display: inline-block; width: 70px; height: 70px; border-radius: 100%; line-height: 81px; color: #fff; font: 400 35px/75px 'microsofty'; background: rgb(236,96,0)">赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="http://7xsgf8.com1.z0.glb.clouddn.com/image/bg%E5%BE%AE%E4%BF%A1%E4%BA%8C%E7%BB%B4%E7%A0%81.png" alt="小栋同学 WeChat Pay" style="width: 200px; max-width: 100%; display: inline-block"/>
+        <p>微信打赏</p>
+      </div>
+    
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="http://7xsgf8.com1.z0.glb.clouddn.com/image/bg%E6%94%AF%E4%BB%98%E5%AE%9D%E4%BA%8C%E7%BB%B4%E7%A0%81.png" alt="小栋同学 Alipay" style="width: 200px; max-width: 100%; display: inline-block"/>
+        <p>支付宝打赏</p>
+      </div>
+    
+  </div>
+<div>
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/HTML5/" rel="tag">#HTML5</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/04/08/提升代码的可读性系列(一)--基础篇/" rel="next" title="(转载)提升代码的可读性系列(一)--基础篇">
+                <i class="fa fa-chevron-left"></i> (转载)提升代码的可读性系列(一)--基础篇
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/04/08/精致化页面重构/"
+           data-title="(转载)精致化页面重构" data-url="http://yoursite.com/2016/04/08/精致化页面重构/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/touxiang.png"
+               alt="小栋同学" />
+          <p class="site-author-name" itemprop="name">小栋同学</p>
+          <p class="site-description motion-element" itemprop="description">You are the owner of your career.</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">14</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/Pillar-Zhang" target="_blank">
+                  
+                    <i class="fa fa-github"></i> GitHub
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/henuxiaodong/profile" target="_blank">
+                  
+                    <i class="fa fa-weibo"></i> Weibo
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/xiaodongtongxue" target="_blank">
+                  
+                    <i class="fa fa-zhihu"></i> zhihu
+                  
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        <div class="links-of-blogroll motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一-布局方式"><span class="nav-number">1.</span> <span class="nav-text">一 布局方式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-流式布局（响应式宽度自适应布局）"><span class="nav-number">1.1.</span> <span class="nav-text">1. 流式布局（响应式宽度自适应布局）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-版式布局（页面等比缩放布局）"><span class="nav-number">1.2.</span> <span class="nav-text">2. 版式布局（页面等比缩放布局）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二-设计规范"><span class="nav-number">2.</span> <span class="nav-text">二 设计规范</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三-技巧"><span class="nav-number">3.</span> <span class="nav-text">三 技巧</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-IOS8-以上支持-0-5PX"><span class="nav-number">3.1.</span> <span class="nav-text">1. IOS8 以上支持 0.5PX</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-CSS-渐变模拟"><span class="nav-number">3.2.</span> <span class="nav-text">2. CSS 渐变模拟</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-阴影"><span class="nav-number">3.3.</span> <span class="nav-text">3. 阴影</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-VIEWPORT-REM"><span class="nav-number">3.4.</span> <span class="nav-text">4. VIEWPORT + REM</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-BORDER-IMAGE"><span class="nav-number">3.5.</span> <span class="nav-text">5. BORDER-IMAGE</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-CSS3-缩放"><span class="nav-number">3.6.</span> <span class="nav-text">6. CSS3 缩放</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-FLEXBOX-布局"><span class="nav-number">3.7.</span> <span class="nav-text">2. FLEXBOX 布局</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-元素水平垂直居中"><span class="nav-number">3.8.</span> <span class="nav-text">3. 元素水平垂直居中</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-表格方法："><span class="nav-number">3.8.1.</span> <span class="nav-text">1. 表格方法：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-VERTICAL-ALIGN-MIDDLE"><span class="nav-number">3.8.2.</span> <span class="nav-text">2. VERTICAL-ALIGN: MIDDLE</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-绝对定位"><span class="nav-number">3.8.3.</span> <span class="nav-text">3. 绝对定位</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-使用-TRANSFORM-实现"><span class="nav-number">3.8.4.</span> <span class="nav-text">4. 使用 TRANSFORM 实现</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-图片占位"><span class="nav-number">3.9.</span> <span class="nav-text">4. 图片占位</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#四-尽可能减少样式图片"><span class="nav-number">4.</span> <span class="nav-text">四 尽可能减少样式图片</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#五-使用-WEBP-格式图片"><span class="nav-number">5.</span> <span class="nav-text">五 使用 WEBP 格式图片</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#六-APP缓存策略"><span class="nav-number">6.</span> <span class="nav-text">六 APP缓存策略</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#原文地址-http-aotu-io-notes-2015-11-24-project-summary"><span class="nav-number">6.1.</span> <span class="nav-text">原文地址:http://aotu.io/notes/2015/11/24/project-summary/</span></a></li></ol></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">小栋同学</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+
+  
+
+
+
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=0.5.0"></script>
+
+
+
+  
+  
+
+  
+  
+<script type="text/javascript" src="/js/src/scrollspy.js?v=0.5.0"></script>
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 1 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = NexT.utils.escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    NexT.motion.middleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+
+      if (CONFIG.sidebar.display === 'post' || CONFIG.sidebar.display === 'always') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          NexT.utils.displaySidebar();
+        }
+      }
+    };
+  });
+</script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.5.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"xiaodongtongxue"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("giQcON1aYKcTH2HFEhsWqeIk-gzGzoHsz", "vNDXtDvpDvfvc3GbxFeTKkWu");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+  
+  
+  	 <!-- custom analytics part create by xiamo -->
+<script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+<script>AV.initialize("giQcON1aYKcTH2HFEhsWqeIk-gzGzoHsz", "vNDXtDvpDvfvc3GbxFeTKkWu");</script>
+<script>
+function showTime(Counter) {
+  var query = new AV.Query(Counter);
+  $(".leancloud_visitors").each(function() {
+    var url = $(this).attr("id").trim();
+    query.equalTo("url", url);
+    query.find({
+      success: function(results) {
+        if (results.length == 0) {
+          var content = $(document.getElementById(url)).text() + ': 0';
+          $(document.getElementById(url)).text(content);
+          return;
+        }
+        for (var i = 0; i < results.length; i++) {
+          var object = results[i];
+          var content = $(document.getElementById(url)).text() + ': ' + object.get('time');
+          $(document.getElementById(url)).text(content);
+        }
+      },
+      error: function(object, error) {
+        console.log("Error: " + error.code + " " + error.message);
+      }
+    });
+
+  });
+}
+
+function addCount(Counter) {
+  var Counter = AV.Object.extend("Counter");
+  url = $(".leancloud_visitors").attr('id').trim();
+  title = $(".leancloud_visitors").attr('data-flag-title').trim();
+  var query = new AV.Query(Counter);
+  query.equalTo("url", url);
+  query.find({
+    success: function(results) {
+      if (results.length > 0) {
+        var counter = results[0];
+        counter.fetchWhenSave(true);
+        counter.increment("time");
+        counter.save(null, {
+          success: function(counter) {
+            var content = $(document.getElementById(url)).text() + ': ' + counter.get('time');
+            $(document.getElementById(url)).text(content);
+          },
+          error: function(counter, error) {
+            console.log('Failed to save Visitor num, with error message: ' + error.message);
+          }
+        });
+      } else {
+        var newcounter = new Counter();
+        newcounter.set("title", title);
+        newcounter.set("url", url);
+        newcounter.set("time", 1);
+        newcounter.save(null, {
+          success: function(newcounter) {
+              console.log("newcounter.get('time')="+newcounter.get('time'));
+            var content = $(document.getElementById(url)).text() + ': ' + newcounter.get('time');
+            $(document.getElementById(url)).text(content);
+          },
+          error: function(newcounter, error) {
+            console.log('Failed to create');
+          }
+        });
+      }
+    },
+    error: function(error) {
+      console.log('Error:' + error.code + " " + error.message);
+    }
+  });
+}
+$(function() {
+  var Counter = AV.Object.extend("Counter");
+  if ($('.leancloud_visitors').length == 1) {
+    addCount(Counter);
+  } else if ($('.post-title-link').length > 1) {
+    showTime(Counter);
+  }
+}); 
+</script>
+  
+
+</body>
+</html>
