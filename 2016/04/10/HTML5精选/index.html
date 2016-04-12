@@ -41,7 +41,7 @@
 <link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="知识点," />
+  <meta name="keywords" content="文章精选," />
 
 
 
@@ -57,18 +57,16 @@
 
 
 
-<meta name="description" content="对当前的Web世界而言，JavaScript是一门你必须精通的语言。">
+<meta name="description" content="我不生产文章，我只是文章的搬运工。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="十个经典的JavaScript面试题">
-<meta property="og:url" content="http://yoursite.com/2016/04/01/10个经典的JavaScript面试题/index.html">
+<meta property="og:title" content="HTML5精选">
+<meta property="og:url" content="http://yoursite.com/2016/04/10/HTML5精选/index.html">
 <meta property="og:site_name" content="时光  漫步">
-<meta property="og:description" content="对当前的Web世界而言，JavaScript是一门你必须精通的语言。">
-<meta property="og:image" content="http://7xsgf8.com1.z0.glb.clouddn.com/image/bgmeihua%20.png">
-<meta property="og:updated_time" content="2016-04-01T05:30:54.459Z">
+<meta property="og:description" content="我不生产文章，我只是文章的搬运工。">
+<meta property="og:updated_time" content="2016-04-11T14:42:40.208Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="十个经典的JavaScript面试题">
-<meta name="twitter:description" content="对当前的Web世界而言，JavaScript是一门你必须精通的语言。">
-<meta name="twitter:image" content="http://7xsgf8.com1.z0.glb.clouddn.com/image/bgmeihua%20.png">
+<meta name="twitter:title" content="HTML5精选">
+<meta name="twitter:description" content="我不生产文章，我只是文章的搬运工。">
 
 
 
@@ -86,7 +84,7 @@
   };
 </script>
 
-  <title> 十个经典的JavaScript面试题 | 时光  漫步 </title>
+  <title> HTML5精选 | 时光  漫步 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -248,7 +246,7 @@
             
             
               
-                十个经典的JavaScript面试题
+                HTML5精选
               
             
           </h1>
@@ -260,8 +258,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-04-01T00:40:29+08:00" content="2016-04-01">
-              2016-04-01
+            <time itemprop="dateCreated" datetime="2016-04-10T20:51:00+08:00" content="2016-04-10">
+              2016-04-10
             </time>
           </span>
 
@@ -271,8 +269,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/04/01/10个经典的JavaScript面试题/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/01/10个经典的JavaScript面试题/" itemprop="commentsCount"></span>
+                <a href="/2016/04/10/HTML5精选/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/10/HTML5精选/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -281,7 +279,7 @@
           
 		  
         
-      	 <span id="/2016/04/01/10个经典的JavaScript面试题/"class="leancloud_visitors"  data-flag-title="十个经典的JavaScript面试题">
+      	 <span id="/2016/04/10/HTML5精选/"class="leancloud_visitors"  data-flag-title="HTML5精选">
               |   阅读次数
             </span>
       
@@ -297,201 +295,139 @@
       
 
       
-        <p><img src="http://7xsgf8.com1.z0.glb.clouddn.com/image/bgmeihua%20.png" alt="图片"></p>
-<pre><code>对当前的Web世界而言，JavaScript是一门你必须精通的语言。
+        <pre><code>我不生产文章，我只是文章的搬运工。
 </code></pre><a id="more"></a>
-<h2 id="面试题"><a href="#面试题" class="headerlink" title="面试题"></a>面试题</h2><h3 id="1-变量范围"><a href="#1-变量范围" class="headerlink" title="1. 变量范围"></a>1. 变量范围</h3><p>以下代码的输出结果为：</p>
-<pre><code>(function() {
-   var a = b = 5;
-})();
-
-console.log(b); //5
-console.log(a); //Error, a is not defined
-</code></pre><p>解答：</p>
-<p>在这个立即执行函数表达式（IIFE）中包括两个赋值操作，其中<code>a</code>使用<code>var</code>关键字进行声明，因此其属于函数内部的局部变量（仅存在于函数中），相反，<code>b</code>被分配到全局命名空间。</p>
-<p>另一个需要注意的是，这里没有在函数内部使用<a href="http://cjihrig.com/blog/javascripts-strict-mode-and-why-you-should-use-it/" target="_blank" rel="external">严格模式</a>(<code>use strict</code>;)。如果启用了严格模式，代码会在输出b时报错<code>Uncaught ReferenceError: b is not defined</code>,需要记住的是，严格模式要求你显式的引用全局作用域。因此，你需要写成：</p>
-<pre><code>(function() {
-   &apos;use strict&apos;;
-   var a = window.b = 5;
-})();
-
-console.log(b);
-</code></pre><h3 id="2-创建“native”方法"><a href="#2-创建“native”方法" class="headerlink" title="2. 创建“native”方法"></a>2. 创建“native”方法</h3><p>在<code>String</code>对象上定义一个<code>repeatify</code>方法。该方法接收一个整数作为参数用于指定字符串的重复次数。例如：</p>
-<pre><code>console.log(&apos;hello&apos;.repeatify(3)); // hellohellohello
-</code></pre><p>解答：</p>
-<pre><code>String.prototype.repeatify = String.prototype.repeatify || function(times) {
-   var str = &apos;&apos;;
-
-   for (var i = 0; i &lt; times; i++) {
-      str += this;
-   }
-
-   return str;
-};
-</code></pre><p>这个题目主要测试你对JavaScript中的继承和<code>prototype</code>属性的理解。另一个值得关注的点是，在定义该方法前你需要确定该对象中是否已存在你要定义的同名方法。通常，我们使用如下的方式：</p>
-<pre><code>String.prototype.repeatify = String.prototype.repeatify || function(times) {/* code here */};
-</code></pre><h3 id="3-提升-Hoisting"><a href="#3-提升-Hoisting" class="headerlink" title="3. 提升 Hoisting"></a>3. 提升 Hoisting</h3><p>以下代码的执行结果为：</p>
-<pre><code>function test() {
-   console.log(a);     // undefined
-   console.log(foo()); // 2
-
-   var a = 1;
-   function foo() {
-      return 2;
-   }
-}
-
-test();
-</code></pre><p>回答：</p>
-<p>执行结果分别为<code>undefined</code>和<code>2</code>。</p>
-<p>在JavaScript中，变量和命名函数都会被提升到函数的顶端，但是对变量而言其初始化操作不会被提升。因此，当打印<code>a</code>的值时，它虽然存在于函数<code>test()</code>中，但其值此刻为<code>undefined</code>，即未被初始化。也就是说，上面的代码会被转换成：</p>
-<pre><code>function test() {
-   var a;
-   function foo() {
-      return 2;
-   }
-
-   console.log(a);
-   console.log(foo());
-
-   a = 1;
-}
-
-test();
-</code></pre><h3 id="4-this在JavaScript中是如何工作的"><a href="#4-this在JavaScript中是如何工作的" class="headerlink" title="4. this在JavaScript中是如何工作的"></a>4. <code>this</code>在JavaScript中是如何工作的</h3><p>下面代码的执行结果为：</p>
-<pre><code>var fullname = &apos;John Doe&apos;;
-var obj = {
-   fullname: &apos;Colin Ihrig&apos;,
-   prop: {
-      fullname: &apos;Aurelio De Rosa&apos;,
-      getFullname: function() {
-         return this.fullname;
-      }
-   }
-};
-
-console.log(obj.prop.getFullname()); // Aurelio De Rosa
-
-var test = obj.prop.getFullname;
-
-console.log(test());  // John Doe
-</code></pre><p>解答：</p>
-<p>上面的代码打印结果依次为<code>Aurelio De Rosa</code>和<code>John Doe</code>。 原因在于<code>this</code>指向的是函数的执行环境，<code>this</code>取决于其被谁调用了，而不是被谁定义了。</p>
-<p>对第一个<code>console.log()</code>语句而言，<code>getFullName()</code>是作为<code>obj.prop</code>对象的一个方法被调用的，因此此时的执行环境应该是这个对象。另一方面，但<code>getFullName()</code>被分配给<code>test</code>变量时，此时的执行环境变成全局对象（<code>window</code>），原因是<code>test</code>是在全局作用域中定义的。因此，此时的<code>this</code>指向的是全局作用域的<code>fullname</code>变量，即<code>John Doe</code>。</p>
-<h3 id="5-call-和apply"><a href="#5-call-和apply" class="headerlink" title="5. call()和apply()"></a>5. <code>call()</code>和<code>apply()</code></h3><p>修正题目4中存在的问题，使得最后一个<code>console.log()</code>打印出<code>Aurelio De Rosa</code>。</p>
-<p>解答：</p>
-<p>可以使用<code>call()</code>或者<code>apply()</code>强制切换执行环境，如果你不知道这两者的区别，可以参考<a href="http://www.sitepoint.com/whats-the-difference-between-function-call-and-function-apply/" target="_blank" rel="external">这篇文章</a>。如下：</p>
-<pre><code>console.log(test.call(obj.prop)); // 这里使用apply()也是一样的
-</code></pre><p>下面5个面试题来考察JavaScript中的部分重要概念，主要包括JavaScript中的闭包概念、数据类型、事件循环和一个简单的算法题，希望能够让你注意到JavaScript这门语言与其他语言不同的地方。</p>
-<h3 id="6-闭包-Closures"><a href="#6-闭包-Closures" class="headerlink" title="6. 闭包 Closures"></a>6. 闭包 Closures</h3><p>阅读下面的代码：</p>
-<pre><code>var nodes = document.getElementsByTagName(&apos;button&apos;);
-for (var i = 0; i &lt; nodes.length; i++) {
-   nodes[i].addEventListener(&apos;click&apos;, function() {
-      console.log(&apos;You clicked element #&apos; + i);
-   });
-}
-</code></pre><p>当用户点击第一个和第四个按钮的时候控制台分别打印的结果是什么？为什么？</p>
-<p>解答：</p>
-<p>上面的代码考察了一个非常重要的概念：闭包。如果你对闭包不是非常了解，可以参考我翻译过的<a href="http://wwsun.me/posts/javascript-closure.html" target="_blank" rel="external">这篇文章</a>，也可以阅读<a href="http://www.sitepoint.com/javascript-closures-demystified/" target="_blank" rel="external">另一篇文章</a>。</p>
-<p>上面的代码会打印两次<code>You clicked element #NODES_LENGTH</code>, 其中<code>NODES_LENGTH</code>为所获取到的button的个数。</p>
-<p>该问题的原因在于’addEventListener’是闭包，其中的回调函数是匿名函数，而不是闭包对象。在闭包中一共创建了’NODES_LENGTH’个匿名函数，但是它们都共享同一个环境，<code>i</code>是在闭包中的变量。在<code>addEventListener</code>的回调执行时，循环已经结束，此时的变量<code>i</code>被赋值为<code>NODES_LENGTGH</code>。</p>
-<h3 id="7-还是闭包"><a href="#7-还是闭包" class="headerlink" title="7. 还是闭包"></a>7. 还是闭包</h3><p>修复问题1的代码，使其按照我们的设想运行，即第一个按钮打印0，第二个按钮打印1等等。</p>
-<p>解答：</p>
-<p>这个问题可以有多种解答方法，下面主要使用两种方法解决这个问题。</p>
-<p>解法1：使用IIFE再创建一个闭包，这样<code>i</code>的值就不会被影响。如下：</p>
-<pre><code>var nodes = document.getElementsByTagName(&apos;button&apos;);
-for (var i = 0; i &lt; nodes.length; i++) {
-   nodes[i].addEventListener(&apos;click&apos;, (function(i) {
-      return function() {
-         console.log(&apos;You clicked element #&apos; + i);
-      }
-   })(i));
-}
-</code></pre><p>解法2：将函数移动到循环外部即可（这就创建了一个新的闭包对象）</p>
-<pre><code>function handlerWrapper(i) {
-   return function() {
-      console.log(&apos;You clicked element #&apos; + i);
-   }
-}
-
-var nodes = document.getElementsByTagName(&apos;button&apos;);
-for (var i = 0; i &lt; nodes.length; i++) {
-   nodes[i].addEventListener(&apos;click&apos;, handlerWrapper(i));
-}
-</code></pre><h3 id="8-数据类型"><a href="#8-数据类型" class="headerlink" title="8. 数据类型"></a>8. 数据类型</h3><p>阅读下面的代码，给出输出结果：</p>
-<pre><code>console.log(typeof null);  // object
-console.log(typeof {});    // object
-console.log(typeof []);    // object
-console.log(typeof undefined);    // undefined
-</code></pre><p>解答：</p>
-<p>这里主要测试的是对<code>typeof</code>操作符的理解。最容易被误解的应该是第三个输出值，可能大部分人的直觉是应该返回<code>Array</code>。假如你想测试一个变量是否包含数组，你可以使用下面的测试代码：</p>
-<pre><code>var myArray = [];
-if (myArray instanceof Array) {
-   // do something...
-}
-</code></pre><p><code>typeof</code>测试的是数据类型（基本数据类型 + <code>object</code>）；<code>instanceof</code>测试的是属于哪个对象的实例。</p>
-<h3 id="9-事件循环-Event-Loop"><a href="#9-事件循环-Event-Loop" class="headerlink" title="9. 事件循环 Event Loop"></a>9. 事件循环 Event Loop</h3><p>下面代码的执行结果为：</p>
-<pre><code>function printing() {
-   console.log(1);
-   setTimeout(function() { console.log(2); }, 1000);
-   setTimeout(function() { console.log(3); }, 0);
-   console.log(4);
-}
-
-printing();
-</code></pre><p>解答：</p>
-<p>执行结果为：</p>
-<pre><code>1
-4
-3
-2
-</code></pre><p>要想知道为什么输出顺序是这样的，你就得深入的了解<code>setTimeout()</code>做了什么，以及浏览器的<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/EventLoop" target="_blank" rel="external">事件循环</a>机制。</p>
-<p><code>setTimeout()</code>函数属于window对象，用来进行超时调用。它接受两个参数：要执行的代码和以毫秒表示的时间（即在执行代码前需要等待多时毫秒）。JavaScript是一个单线程序的解释器，因此同一时间内只能执行一段代码。为了控制要执行的代码，就有一个JavaScript任务队列。这些任务会按照它们添加到队列的顺序执行。</p>
-<p><code>setTimeout()</code>在指定时间后将任务插入任务队列。如果队列是空的，那么添加的代码会立即执行；如果队列不是空的，那么就要等前面的代码执行完了以后再执行。所以关于计时器你需要记住的是：</p>
-<blockquote>
-<p>指定的时间间隔表示何时将定时器的代码添加到队列，而不是何时实际的执行代码。</p>
-</blockquote>
-<p>因此，当调用<code>setTimeout()</code>时，即使延迟被设定为0，其回调也会被插入到队列中。回调处于队列中，直到被JS引擎分配到它，才会被执行。也就是说，即使<code>setTimeout</code>的延迟为0，其回调也会被加入到那些没有延迟的函数队列之后。</p>
-<h3 id="10-算法"><a href="#10-算法" class="headerlink" title="10. 算法"></a>10. 算法</h3><p>写一个函数<code>isPrime()</code>判断一个数是否为素数，如果是返回<code>true</code>，如果不是返回<code>false</code>。</p>
-<p>解答：</p>
-<p>回答这个题目首先要注意的是，这是在使用JavaScript进行编程，因此你不能信任传入的参数类型。因此，你永远都要检查函数的输入。</p>
-<p>其次需要注意的是，负数一定不是素数，1和0也不是，因此首先测试这些数字。其次，偶数中只有2是素数，因此，其他的偶数你无需判断。</p>
-<p>最后一点需要注意的是，通常你只需判断到给定数的根值即可。整理之后，很容易写出下面的程序：</p>
-<pre><code>function isPrime(number) {
-
-   // If your browser doesn&apos;t support the method Number.isInteger of ECMAScript 6,
-   // you can implement your own pretty easily
-   if (typeof number !== &apos;number&apos; || !Number.isInteger(number)) {
-      // Alternatively you can throw an error.
-      return false;
-   }
-
-   if (number &lt; 2) {
-      return false;
-   }
-
-   if (number === 2) {
-      return true;
-   } else if (number % 2 === 0) {
-      return false;
-   }
-
-   var squareRoot = Math.sqrt(number);
-   for(var i = 3; i &lt;= squareRoot; i += 2) {
-      if (number % i === 0) {
-         return false;
-      }
-   }
-
-   return true;
-}
-</code></pre><h2 id="JavaScript学习建议"><a href="#JavaScript学习建议" class="headerlink" title="JavaScript学习建议"></a>JavaScript学习建议</h2><h3 id="阅读列表"><a href="#阅读列表" class="headerlink" title="阅读列表"></a>阅读列表</h3><p>无论是jQuery，还是当前热门的AngularJS和ReactJS，都离不开扎实的JavaScript的基础。2015年有很多值得你学习的JavaScript知识，如ECMAScript6, TypeScript等等，但这一切之前，你一定要看的书肯定应该包括下面几本：</p>
-<ol>
-<li>JavaScript高级程序设计，第三版，Nicholas.C.Zakas</li>
-<li>JavaScript权威指南，第五版，犀牛书</li>
-<li>JavaScript语言精粹，修订版，蝴蝶书</li>
-</ol>
-<h3 id="声明"><a href="#声明" class="headerlink" title="声明"></a>声明</h3><p>本文翻译自： <a href="http://www.sitepoint.com/5-javascript-interview-exercises/" target="_blank" rel="external">http://www.sitepoint.com/5-javascript-interview-exercises/</a><br>面试题来源于：<a href="http://www.sitepoint.com/5-typical-javascript-interview-exercises/" target="_blank" rel="external">http://www.sitepoint.com/5-typical-javascript-interview-exercises/</a><br>本文整理取自: <a href="http://wwsun.github.com" target="_blank" rel="external">http://wwsun.github.com</a></p>
+<table>
+<thead>
+<tr>
+<th>名字</th>
+<th style="text-align:center">时间</th>
+<th style="text-align:right">作者</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="http://framework7.taobao.org" target="_blank" rel="external">特色的HTML框架可以创建精美的iOS应用</a></td>
+<td style="text-align:center">-</td>
+<td style="text-align:right">-</td>
+</tr>
+<tr>
+<td><a href="">在网站 Logo 上右击时提示下载网站的 Logo 素材下载</a></td>
+<td style="text-align:center">2016-4-11</td>
+<td style="text-align:right">ZJU</td>
+</tr>
+<tr>
+<td><a href="http://mp.weixin.qq.com/s?__biz=MjM5NzE0MjQ2Mw==&amp;mid=404986074&amp;idx=1&amp;sn=445c0c87e2bbd1aa1e009e12a9e3b808&amp;scene=19#wechat_redirect" target="_blank" rel="external">八种创建等高列布局</a></td>
+<td style="text-align:center">2016-04-09</td>
+<td style="text-align:right">大漠</td>
+</tr>
+<tr>
+<td><a href="http://mp.weixin.qq.com/s?__biz=MjM5NzE0MjQ2Mw==&amp;mid=404985661&amp;idx=1&amp;sn=a54c3efb61ed982f010822ff5bf06034&amp;scene=19#wechat_redirect" target="_blank" rel="external">如何将页脚固定在页面底部</a></td>
+<td style="text-align:center">2016-04-09</td>
+<td style="text-align:right">大漠</td>
+</tr>
+<tr>
+<td><a href="http://mp.weixin.qq.com/s?__biz=MjM5NzE0MjQ2Mw==&amp;mid=404985210&amp;idx=1&amp;sn=0826e1690a1e1a5e6a22c720fea6c21f&amp;scene=19#wechat_redirect" target="_blank" rel="external">CSS 布局模块</a></td>
+<td style="text-align:center">2016-04-09</td>
+<td style="text-align:right">南北</td>
+</tr>
+<tr>
+<td><a href="http://www.zhangxinxu.com/wordpress/2016/03/css-layout-base-20px/" target="_blank" rel="external">以20像素为基准的CSS网页布局</a></td>
+<td style="text-align:center">2016-03-22</td>
+<td style="text-align:right">zhangxinxu</td>
+</tr>
+<tr>
+<td><a href="http://www.w3ctrain.com/2016/03/28/float-secret/" target="_blank" rel="external">Float知多少</a></td>
+<td style="text-align:center">2016-04-01</td>
+<td style="text-align:right">-</td>
+</tr>
+<tr>
+<td><a href="http://mp.weixin.qq.com/s?__biz=MzI3NTE2NjYxNw==&amp;mid=401772881&amp;idx=1&amp;sn=2034c8ccae7d78ee98dbb1df3c76525a#rd" target="_blank" rel="external">Flex布局关于内容均分的那些坑</a></td>
+<td style="text-align:center">ustbhuangyi</td>
+<td style="text-align:right">DDFE</td>
+</tr>
+<tr>
+<td><a href="https://segmentfault.com/a/1190000004320409" target="_blank" rel="external">flex布局基础</a></td>
+<td style="text-align:center">2016-01-17</td>
+<td style="text-align:right">xuehen</td>
+</tr>
+<tr>
+<td><a href="https://www.evget.com/article/2015/11/19/23024.html" target="_blank" rel="external">2015年度HTML5响应式网页设计案例大搜罗</a></td>
+<td style="text-align:center">2015-11-19</td>
+<td style="text-align:right">如影随形</td>
+</tr>
+<tr>
+<td><a href="https://isux.tencent.com/3d.html" target="_blank" rel="external">打造H5里的“3D全景漫游”秘籍</a></td>
+<td style="text-align:center">-</td>
+<td style="text-align:right">田田</td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">-</td>
+<td style="text-align:right">-</td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">-</td>
+<td style="text-align:right">-</td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">-</td>
+<td style="text-align:right">-</td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">-</td>
+<td style="text-align:right">-</td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">-</td>
+<td style="text-align:right">-</td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">-</td>
+<td style="text-align:right">-</td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">-</td>
+<td style="text-align:right">-</td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">-</td>
+<td style="text-align:right">-</td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">-</td>
+<td style="text-align:right">-</td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">-</td>
+<td style="text-align:right">-</td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">-</td>
+<td style="text-align:right">-</td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">-</td>
+<td style="text-align:right">-</td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">-</td>
+<td style="text-align:right">-</td>
+</tr>
+</tbody>
+</table>
 
       
     </div>
@@ -527,7 +463,7 @@ printing();
       
         <div class="post-tags">
           
-            <a href="/tags/知识点/" rel="tag">#知识点</a>
+            <a href="/tags/文章精选/" rel="tag">#文章精选</a>
           
         </div>
       
@@ -536,16 +472,16 @@ printing();
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/03/31/传奇中的闭包到底是什么？/" rel="next" title="传奇中的闭包到底是什么？">
-                <i class="fa fa-chevron-left"></i> 传奇中的闭包到底是什么？
+              <a href="/2016/04/10/栅格式布局/" rel="next" title="栅格化布局">
+                <i class="fa fa-chevron-left"></i> 栅格化布局
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/04/03/前端必备软件 brackets/" rel="prev" title="前端必备：brackets安装及常用插件">
-                前端必备：brackets安装及常用插件 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/04/10/CSS3精选/" rel="prev" title="CSS3精选">
+                CSS3精选 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -572,8 +508,8 @@ printing();
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/04/01/10个经典的JavaScript面试题/"
-           data-title="十个经典的JavaScript面试题" data-url="http://yoursite.com/2016/04/01/10个经典的JavaScript面试题/">
+      <div class="ds-thread" data-thread-key="2016/04/10/HTML5精选/"
+           data-title="HTML5精选" data-url="http://yoursite.com/2016/04/10/HTML5精选/">
       </div>
     
   </div>
@@ -688,7 +624,7 @@ printing();
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#面试题"><span class="nav-number">1.</span> <span class="nav-text">面试题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-变量范围"><span class="nav-number">1.1.</span> <span class="nav-text">1. 变量范围</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-创建“native”方法"><span class="nav-number">1.2.</span> <span class="nav-text">2. 创建“native”方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-提升-Hoisting"><span class="nav-number">1.3.</span> <span class="nav-text">3. 提升 Hoisting</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-this在JavaScript中是如何工作的"><span class="nav-number">1.4.</span> <span class="nav-text">4. this在JavaScript中是如何工作的</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-call-和apply"><span class="nav-number">1.5.</span> <span class="nav-text">5. call()和apply()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-闭包-Closures"><span class="nav-number">1.6.</span> <span class="nav-text">6. 闭包 Closures</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-还是闭包"><span class="nav-number">1.7.</span> <span class="nav-text">7. 还是闭包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-数据类型"><span class="nav-number">1.8.</span> <span class="nav-text">8. 数据类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-事件循环-Event-Loop"><span class="nav-number">1.9.</span> <span class="nav-text">9. 事件循环 Event Loop</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-算法"><span class="nav-number">1.10.</span> <span class="nav-text">10. 算法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JavaScript学习建议"><span class="nav-number">2.</span> <span class="nav-text">JavaScript学习建议</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#阅读列表"><span class="nav-number">2.1.</span> <span class="nav-text">阅读列表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#声明"><span class="nav-number">2.2.</span> <span class="nav-text">声明</span></a></li></ol></li></ol></div>
+              <p class="post-toc-empty">此文章未包含目录</p>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
