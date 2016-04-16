@@ -65,7 +65,7 @@
 <meta property="og:description" content="理解作用域和上下文是学习JavaScript编程的起点，理解这些概念非常的重要。">
 <meta property="og:image" content="http://7xsgf8.com1.z0.glb.clouddn.com/image/bghuse.png">
 <meta property="og:image" content="http://7xpv9g.com1.z0.glb.clouddn.com/imgscope-chain.png">
-<meta property="og:updated_time" content="2016-04-01T05:30:34.893Z">
+<meta property="og:updated_time" content="2016-04-16T08:12:08.634Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="读书笔记(一)：JavaScript中的作用域和上下文">
 <meta name="twitter:description" content="理解作用域和上下文是学习JavaScript编程的起点，理解这些概念非常的重要。">
@@ -298,8 +298,9 @@
       
 
       
-        <p><img src="http://7xsgf8.com1.z0.glb.clouddn.com/image/bghuse.png" alt="图片"><br>    理解作用域和上下文是学习JavaScript编程的起点，理解这些概念非常的重要。</p>
-<a id="more"></a>
+        <p><img src="http://7xsgf8.com1.z0.glb.clouddn.com/image/bghuse.png" alt="图片"></p>
+<pre><code>理解作用域和上下文是学习JavaScript编程的起点，理解这些概念非常的重要。
+</code></pre><a id="more"></a>
 <h2 id="上下文（Context）和作用域（Scope）"><a href="#上下文（Context）和作用域（Scope）" class="headerlink" title="上下文（Context）和作用域（Scope）"></a>上下文（Context）和作用域（Scope）</h2><p>首先需要知道的是，上下文和作用域是两个完全不同的概念。函数的每次调用都有与之紧密相关的作用域和上下文。从根本上来说，作用域是基于函数的，而上下文是基于对象的。<br>换句话说，作用域涉及到所被调用函数中的变量访问，并且不同的调用场景是不一样的。上下文始终是<code>this</code>关键字的值，<br>它是拥有（控制）当前所执行代码的对象的引用。</p>
 <h2 id="变量作用域"><a href="#变量作用域" class="headerlink" title="变量作用域"></a>变量作用域</h2><p>一个变量可以被定义在局部或者全局作用域中，这建立了在运行时（runtime）期间变量的访问性的不同作用域范围。<br>任何被定义的全局变量，意味着它需要在函数体的外部被声明，并且存活于整个运行时（runtime），并且在任何作用域中都可以被访问到。<br>在ES6之前，局部变量只能存在于函数体中，并且函数的每次调用它们都拥有不同的作用域范围。<br>局部变量只能在其被调用期的作用域范围内被赋值、检索、操纵。</p>
 <p>需要注意，在ES6之前，JavaScript不支持块级作用域，这意味着在<code>if</code>语句、<code>switch</code>语句、<code>for</code>循环、<code>while</code>循环中无法支持块级作用域。<br>也就是说，ES6之前的JavaScript并不能构建类似于Java中的那样的块级作用域（变量不能在语句块外被访问到）。但是，<br>从ES6开始，你可以通过<code>let</code>关键字来定义变量，它修正了<code>var</code>关键字的缺点，能够让你像Java语言那样定义变量，并且支持块级作用域。看两个例子：</p>
@@ -490,7 +491,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">19</span>
+              <span class="site-state-item-count">21</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -500,7 +501,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-count">10</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
