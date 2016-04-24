@@ -41,7 +41,7 @@
 <link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="知识点," />
+  <meta name="keywords" content="Json," />
 
 
 
@@ -57,18 +57,24 @@
 
 
 
-<meta name="description" content="对当前的Web世界而言，JavaScript是一门你必须精通的语言。">
+<meta name="description" content="JSON, JavaScript Object Notation, 它是一种轻量级的数据交换格式，非常适合于服务器与JavaScript的交互。
+21世纪初，Douglas Crockford寻找一种简便的数据交换格式，能够在服务器之间交换数据。当时通用的数据交换语言是XML，但是Douglas Crockford觉得XML的生成和解析都太麻烦，所以他提出了一种简化格式，也就是JSON。
+JSO">
 <meta property="og:type" content="article">
-<meta property="og:title" content="十个经典的JavaScript面试题">
-<meta property="og:url" content="http://yoursite.com/2016/04/01/10个经典的JavaScript面试题/index.html">
+<meta property="og:title" content="Json是什么？">
+<meta property="og:url" content="http://yoursite.com/2016/04/05/json/index.html">
 <meta property="og:site_name" content="时光  漫步">
-<meta property="og:description" content="对当前的Web世界而言，JavaScript是一门你必须精通的语言。">
-<meta property="og:image" content="http://7xsgf8.com1.z0.glb.clouddn.com/image/bgmeihua%20.png">
-<meta property="og:updated_time" content="2016-04-01T05:30:54.459Z">
+<meta property="og:description" content="JSON, JavaScript Object Notation, 它是一种轻量级的数据交换格式，非常适合于服务器与JavaScript的交互。
+21世纪初，Douglas Crockford寻找一种简便的数据交换格式，能够在服务器之间交换数据。当时通用的数据交换语言是XML，但是Douglas Crockford觉得XML的生成和解析都太麻烦，所以他提出了一种简化格式，也就是JSON。
+JSO">
+<meta property="og:image" content="http://7xsgf8.com1.z0.glb.clouddn.com/image/json.png">
+<meta property="og:updated_time" content="2016-04-21T15:08:19.418Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="十个经典的JavaScript面试题">
-<meta name="twitter:description" content="对当前的Web世界而言，JavaScript是一门你必须精通的语言。">
-<meta name="twitter:image" content="http://7xsgf8.com1.z0.glb.clouddn.com/image/bgmeihua%20.png">
+<meta name="twitter:title" content="Json是什么？">
+<meta name="twitter:description" content="JSON, JavaScript Object Notation, 它是一种轻量级的数据交换格式，非常适合于服务器与JavaScript的交互。
+21世纪初，Douglas Crockford寻找一种简便的数据交换格式，能够在服务器之间交换数据。当时通用的数据交换语言是XML，但是Douglas Crockford觉得XML的生成和解析都太麻烦，所以他提出了一种简化格式，也就是JSON。
+JSO">
+<meta name="twitter:image" content="http://7xsgf8.com1.z0.glb.clouddn.com/image/json.png">
 
 
 
@@ -86,7 +92,7 @@
   };
 </script>
 
-  <title> 十个经典的JavaScript面试题 | 时光  漫步 </title>
+  <title> Json是什么？ | 时光  漫步 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -248,7 +254,7 @@
             
             
               
-                十个经典的JavaScript面试题
+                Json是什么？
               
             
           </h1>
@@ -260,8 +266,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-04-01T00:40:29+08:00" content="2016-04-01">
-              2016-04-01
+            <time itemprop="dateCreated" datetime="2016-04-05T19:24:40+08:00" content="2016-04-05">
+              2016-04-05
             </time>
           </span>
 
@@ -271,8 +277,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/04/01/10个经典的JavaScript面试题/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/01/10个经典的JavaScript面试题/" itemprop="commentsCount"></span>
+                <a href="/2016/04/05/json/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/05/json/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -281,7 +287,7 @@
           
 		  
         
-      	 <span id="/2016/04/01/10个经典的JavaScript面试题/"class="leancloud_visitors"  data-flag-title="十个经典的JavaScript面试题">
+      	 <span id="/2016/04/05/json/"class="leancloud_visitors"  data-flag-title="Json是什么？">
               |   阅读次数
             </span>
       
@@ -297,201 +303,200 @@
       
 
       
-        <p><img src="http://7xsgf8.com1.z0.glb.clouddn.com/image/bgmeihua%20.png" alt="图片"></p>
-<pre><code>对当前的Web世界而言，JavaScript是一门你必须精通的语言。
-</code></pre><a id="more"></a>
-<h2 id="面试题"><a href="#面试题" class="headerlink" title="面试题"></a>面试题</h2><h3 id="1-变量范围"><a href="#1-变量范围" class="headerlink" title="1. 变量范围"></a>1. 变量范围</h3><p>以下代码的输出结果为：</p>
-<pre><code>(function() {
-   var a = b = 5;
-})();
+        <p><img src="http://7xsgf8.com1.z0.glb.clouddn.com/image/json.png" alt="json"></p>
+<pre><code>JSON, JavaScript Object Notation, 它是一种轻量级的数据交换格式，非常适合于服务器与JavaScript的交互。
+</code></pre><p>21世纪初，Douglas Crockford寻找一种简便的数据交换格式，能够在服务器之间交换数据。当时通用的数据交换语言是XML，但是Douglas Crockford觉得XML的生成和解析都太麻烦，所以他提出了一种简化格式，也就是JSON。</p>
+<p>JSON, JavaScript Object Notation, 它是一种轻量级的数据交换格式，非常适合于服务器与JavaScript的交互。对消息通信而言，JSON的优势是比XML更简单，因而可以大大提高开发效率，代码也更为简单。</p>
+<a id="more"></a>
+<h2 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h2><p>JSON的语法格式非常简单，可以简单的概括如下：</p>
+<ul>
+<li>并列的数据之间用    “,”</li>
+<li>映射用                “:”</li>
+<li>并列数据的集合用    “[]”</li>
+<li>映射的集合用        “{}”</li>
+</ul>
+<p>例如我们可以用如下的JSON文件描述一张图的点集和边集：</p>
+<pre><code>{
+    &quot;nodes&quot;: [
+        { &quot;name&quot;: &quot;NodeName&quot;},
+        { &quot;name&quot;: &quot;NodeName&quot;}
+    ],
 
-console.log(b); //5
-console.log(a); //Error, a is not defined
-</code></pre><p>解答：</p>
-<p>在这个立即执行函数表达式（IIFE）中包括两个赋值操作，其中<code>a</code>使用<code>var</code>关键字进行声明，因此其属于函数内部的局部变量（仅存在于函数中），相反，<code>b</code>被分配到全局命名空间。</p>
-<p>另一个需要注意的是，这里没有在函数内部使用<a href="http://cjihrig.com/blog/javascripts-strict-mode-and-why-you-should-use-it/" target="_blank" rel="external">严格模式</a>(<code>use strict</code>;)。如果启用了严格模式，代码会在输出b时报错<code>Uncaught ReferenceError: b is not defined</code>,需要记住的是，严格模式要求你显式的引用全局作用域。因此，你需要写成：</p>
-<pre><code>(function() {
-   &apos;use strict&apos;;
-   var a = window.b = 5;
-})();
-
-console.log(b);
-</code></pre><h3 id="2-创建“native”方法"><a href="#2-创建“native”方法" class="headerlink" title="2. 创建“native”方法"></a>2. 创建“native”方法</h3><p>在<code>String</code>对象上定义一个<code>repeatify</code>方法。该方法接收一个整数作为参数用于指定字符串的重复次数。例如：</p>
-<pre><code>console.log(&apos;hello&apos;.repeatify(3)); // hellohellohello
-</code></pre><p>解答：</p>
-<pre><code>String.prototype.repeatify = String.prototype.repeatify || function(times) {
-   var str = &apos;&apos;;
-
-   for (var i = 0; i &lt; times; i++) {
-      str += this;
-   }
-
-   return str;
-};
-</code></pre><p>这个题目主要测试你对JavaScript中的继承和<code>prototype</code>属性的理解。另一个值得关注的点是，在定义该方法前你需要确定该对象中是否已存在你要定义的同名方法。通常，我们使用如下的方式：</p>
-<pre><code>String.prototype.repeatify = String.prototype.repeatify || function(times) {/* code here */};
-</code></pre><h3 id="3-提升-Hoisting"><a href="#3-提升-Hoisting" class="headerlink" title="3. 提升 Hoisting"></a>3. 提升 Hoisting</h3><p>以下代码的执行结果为：</p>
-<pre><code>function test() {
-   console.log(a);     // undefined
-   console.log(foo()); // 2
-
-   var a = 1;
-   function foo() {
-      return 2;
-   }
+    &quot;links&quot;: [
+        {
+            &quot;source&quot;: INDEX,
+            &quot;target&quot;: INDEX,
+            &quot;value&quot;: WEIGHT
+        },
+        {
+            &quot;source&quot;: INDEX，
+            &quot;target&quot;: INDEX，
+            &quot;value&quot;: WEIGHT
+        }
+    ]
 }
-
-test();
-</code></pre><p>回答：</p>
-<p>执行结果分别为<code>undefined</code>和<code>2</code>。</p>
-<p>在JavaScript中，变量和命名函数都会被提升到函数的顶端，但是对变量而言其初始化操作不会被提升。因此，当打印<code>a</code>的值时，它虽然存在于函数<code>test()</code>中，但其值此刻为<code>undefined</code>，即未被初始化。也就是说，上面的代码会被转换成：</p>
-<pre><code>function test() {
-   var a;
-   function foo() {
-      return 2;
-   }
-
-   console.log(a);
-   console.log(foo());
-
-   a = 1;
-}
-
-test();
-</code></pre><h3 id="4-this在JavaScript中是如何工作的"><a href="#4-this在JavaScript中是如何工作的" class="headerlink" title="4. this在JavaScript中是如何工作的"></a>4. <code>this</code>在JavaScript中是如何工作的</h3><p>下面代码的执行结果为：</p>
-<pre><code>var fullname = &apos;John Doe&apos;;
-var obj = {
-   fullname: &apos;Colin Ihrig&apos;,
-   prop: {
-      fullname: &apos;Aurelio De Rosa&apos;,
-      getFullname: function() {
-         return this.fullname;
-      }
-   }
-};
-
-console.log(obj.prop.getFullname()); // Aurelio De Rosa
-
-var test = obj.prop.getFullname;
-
-console.log(test());  // John Doe
-</code></pre><p>解答：</p>
-<p>上面的代码打印结果依次为<code>Aurelio De Rosa</code>和<code>John Doe</code>。 原因在于<code>this</code>指向的是函数的执行环境，<code>this</code>取决于其被谁调用了，而不是被谁定义了。</p>
-<p>对第一个<code>console.log()</code>语句而言，<code>getFullName()</code>是作为<code>obj.prop</code>对象的一个方法被调用的，因此此时的执行环境应该是这个对象。另一方面，但<code>getFullName()</code>被分配给<code>test</code>变量时，此时的执行环境变成全局对象（<code>window</code>），原因是<code>test</code>是在全局作用域中定义的。因此，此时的<code>this</code>指向的是全局作用域的<code>fullname</code>变量，即<code>John Doe</code>。</p>
-<h3 id="5-call-和apply"><a href="#5-call-和apply" class="headerlink" title="5. call()和apply()"></a>5. <code>call()</code>和<code>apply()</code></h3><p>修正题目4中存在的问题，使得最后一个<code>console.log()</code>打印出<code>Aurelio De Rosa</code>。</p>
-<p>解答：</p>
-<p>可以使用<code>call()</code>或者<code>apply()</code>强制切换执行环境，如果你不知道这两者的区别，可以参考<a href="http://www.sitepoint.com/whats-the-difference-between-function-call-and-function-apply/" target="_blank" rel="external">这篇文章</a>。如下：</p>
-<pre><code>console.log(test.call(obj.prop)); // 这里使用apply()也是一样的
-</code></pre><p>下面5个面试题来考察JavaScript中的部分重要概念，主要包括JavaScript中的闭包概念、数据类型、事件循环和一个简单的算法题，希望能够让你注意到JavaScript这门语言与其他语言不同的地方。</p>
-<h3 id="6-闭包-Closures"><a href="#6-闭包-Closures" class="headerlink" title="6. 闭包 Closures"></a>6. 闭包 Closures</h3><p>阅读下面的代码：</p>
-<pre><code>var nodes = document.getElementsByTagName(&apos;button&apos;);
-for (var i = 0; i &lt; nodes.length; i++) {
-   nodes[i].addEventListener(&apos;click&apos;, function() {
-      console.log(&apos;You clicked element #&apos; + i);
-   });
-}
-</code></pre><p>当用户点击第一个和第四个按钮的时候控制台分别打印的结果是什么？为什么？</p>
-<p>解答：</p>
-<p>上面的代码考察了一个非常重要的概念：闭包。如果你对闭包不是非常了解，可以参考我翻译过的<a href="http://wwsun.me/posts/javascript-closure.html" target="_blank" rel="external">这篇文章</a>，也可以阅读<a href="http://www.sitepoint.com/javascript-closures-demystified/" target="_blank" rel="external">另一篇文章</a>。</p>
-<p>上面的代码会打印两次<code>You clicked element #NODES_LENGTH</code>, 其中<code>NODES_LENGTH</code>为所获取到的button的个数。</p>
-<p>该问题的原因在于’addEventListener’是闭包，其中的回调函数是匿名函数，而不是闭包对象。在闭包中一共创建了’NODES_LENGTH’个匿名函数，但是它们都共享同一个环境，<code>i</code>是在闭包中的变量。在<code>addEventListener</code>的回调执行时，循环已经结束，此时的变量<code>i</code>被赋值为<code>NODES_LENGTGH</code>。</p>
-<h3 id="7-还是闭包"><a href="#7-还是闭包" class="headerlink" title="7. 还是闭包"></a>7. 还是闭包</h3><p>修复问题1的代码，使其按照我们的设想运行，即第一个按钮打印0，第二个按钮打印1等等。</p>
-<p>解答：</p>
-<p>这个问题可以有多种解答方法，下面主要使用两种方法解决这个问题。</p>
-<p>解法1：使用IIFE再创建一个闭包，这样<code>i</code>的值就不会被影响。如下：</p>
-<pre><code>var nodes = document.getElementsByTagName(&apos;button&apos;);
-for (var i = 0; i &lt; nodes.length; i++) {
-   nodes[i].addEventListener(&apos;click&apos;, (function(i) {
-      return function() {
-         console.log(&apos;You clicked element #&apos; + i);
-      }
-   })(i));
-}
-</code></pre><p>解法2：将函数移动到循环外部即可（这就创建了一个新的闭包对象）</p>
-<pre><code>function handlerWrapper(i) {
-   return function() {
-      console.log(&apos;You clicked element #&apos; + i);
-   }
-}
-
-var nodes = document.getElementsByTagName(&apos;button&apos;);
-for (var i = 0; i &lt; nodes.length; i++) {
-   nodes[i].addEventListener(&apos;click&apos;, handlerWrapper(i));
-}
-</code></pre><h3 id="8-数据类型"><a href="#8-数据类型" class="headerlink" title="8. 数据类型"></a>8. 数据类型</h3><p>阅读下面的代码，给出输出结果：</p>
-<pre><code>console.log(typeof null);  // object
-console.log(typeof {});    // object
-console.log(typeof []);    // object
-console.log(typeof undefined);    // undefined
-</code></pre><p>解答：</p>
-<p>这里主要测试的是对<code>typeof</code>操作符的理解。最容易被误解的应该是第三个输出值，可能大部分人的直觉是应该返回<code>Array</code>。假如你想测试一个变量是否包含数组，你可以使用下面的测试代码：</p>
-<pre><code>var myArray = [];
-if (myArray instanceof Array) {
-   // do something...
-}
-</code></pre><p><code>typeof</code>测试的是数据类型（基本数据类型 + <code>object</code>）；<code>instanceof</code>测试的是属于哪个对象的实例。</p>
-<h3 id="9-事件循环-Event-Loop"><a href="#9-事件循环-Event-Loop" class="headerlink" title="9. 事件循环 Event Loop"></a>9. 事件循环 Event Loop</h3><p>下面代码的执行结果为：</p>
-<pre><code>function printing() {
-   console.log(1);
-   setTimeout(function() { console.log(2); }, 1000);
-   setTimeout(function() { console.log(3); }, 0);
-   console.log(4);
-}
-
-printing();
-</code></pre><p>解答：</p>
-<p>执行结果为：</p>
-<pre><code>1
-4
-3
-2
-</code></pre><p>要想知道为什么输出顺序是这样的，你就得深入的了解<code>setTimeout()</code>做了什么，以及浏览器的<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/EventLoop" target="_blank" rel="external">事件循环</a>机制。</p>
-<p><code>setTimeout()</code>函数属于window对象，用来进行超时调用。它接受两个参数：要执行的代码和以毫秒表示的时间（即在执行代码前需要等待多时毫秒）。JavaScript是一个单线程序的解释器，因此同一时间内只能执行一段代码。为了控制要执行的代码，就有一个JavaScript任务队列。这些任务会按照它们添加到队列的顺序执行。</p>
-<p><code>setTimeout()</code>在指定时间后将任务插入任务队列。如果队列是空的，那么添加的代码会立即执行；如果队列不是空的，那么就要等前面的代码执行完了以后再执行。所以关于计时器你需要记住的是：</p>
-<blockquote>
-<p>指定的时间间隔表示何时将定时器的代码添加到队列，而不是何时实际的执行代码。</p>
-</blockquote>
-<p>因此，当调用<code>setTimeout()</code>时，即使延迟被设定为0，其回调也会被插入到队列中。回调处于队列中，直到被JS引擎分配到它，才会被执行。也就是说，即使<code>setTimeout</code>的延迟为0，其回调也会被加入到那些没有延迟的函数队列之后。</p>
-<h3 id="10-算法"><a href="#10-算法" class="headerlink" title="10. 算法"></a>10. 算法</h3><p>写一个函数<code>isPrime()</code>判断一个数是否为素数，如果是返回<code>true</code>，如果不是返回<code>false</code>。</p>
-<p>解答：</p>
-<p>回答这个题目首先要注意的是，这是在使用JavaScript进行编程，因此你不能信任传入的参数类型。因此，你永远都要检查函数的输入。</p>
-<p>其次需要注意的是，负数一定不是素数，1和0也不是，因此首先测试这些数字。其次，偶数中只有2是素数，因此，其他的偶数你无需判断。</p>
-<p>最后一点需要注意的是，通常你只需判断到给定数的根值即可。整理之后，很容易写出下面的程序：</p>
-<pre><code>function isPrime(number) {
-
-   // If your browser doesn&apos;t support the method Number.isInteger of ECMAScript 6,
-   // you can implement your own pretty easily
-   if (typeof number !== &apos;number&apos; || !Number.isInteger(number)) {
-      // Alternatively you can throw an error.
-      return false;
-   }
-
-   if (number &lt; 2) {
-      return false;
-   }
-
-   if (number === 2) {
-      return true;
-   } else if (number % 2 === 0) {
-      return false;
-   }
-
-   var squareRoot = Math.sqrt(number);
-   for(var i = 3; i &lt;= squareRoot; i += 2) {
-      if (number % i === 0) {
-         return false;
-      }
-   }
-
-   return true;
-}
-</code></pre><h2 id="JavaScript学习建议"><a href="#JavaScript学习建议" class="headerlink" title="JavaScript学习建议"></a>JavaScript学习建议</h2><h3 id="阅读列表"><a href="#阅读列表" class="headerlink" title="阅读列表"></a>阅读列表</h3><p>无论是jQuery，还是当前热门的AngularJS和ReactJS，都离不开扎实的JavaScript的基础。2015年有很多值得你学习的JavaScript知识，如ECMAScript6, TypeScript等等，但这一切之前，你一定要看的书肯定应该包括下面几本：</p>
+</code></pre><p>解析该文件我们可以发现，这个JSON文件包含了两个数组，分别是 nodes 和 links 。而每个数组中又包含了不同的映射对。到此，JSON的语法基本就结束了。下面我们讨论JSON在Java中的应用。</p>
+<p>Java对象/JSON之间的映射非常简单，只有两种数据结构：</p>
 <ol>
-<li>JavaScript高级程序设计，第三版，Nicholas.C.Zakas</li>
-<li>JavaScript权威指南，第五版，犀牛书</li>
-<li>JavaScript语言精粹，修订版，蝴蝶书</li>
+<li>Map  用 { } 表示</li>
+<li>Array 用 [ ] 表示</li>
 </ol>
-<h3 id="声明"><a href="#声明" class="headerlink" title="声明"></a>声明</h3><p>本文翻译自： <a href="http://www.sitepoint.com/5-javascript-interview-exercises/" target="_blank" rel="external">http://www.sitepoint.com/5-javascript-interview-exercises/</a><br>面试题来源于：<a href="http://www.sitepoint.com/5-typical-javascript-interview-exercises/" target="_blank" rel="external">http://www.sitepoint.com/5-typical-javascript-interview-exercises/</a><br>本文整理取自: <a href="http://wwsun.github.com" target="_blank" rel="external">http://wwsun.github.com</a></p>
+<h3 id="Map"><a href="#Map" class="headerlink" title="Map"></a>Map</h3><p>简单的说就是Java中的Map，名称-值对的形式给出，名称和值之间用“：”隔开，两个Map之间用“，”隔开，一般表示形式如下：</p>
+<pre><code>{&apos;key1&apos;:&apos;value1&apos;,&apos;key2&apos;:&apos;value2&apos;}
+</code></pre><h3 id="Array"><a href="#Array" class="headerlink" title="Array"></a>Array</h3><p>就是普通意义上的数组，一般形式如下：</p>
+<pre><code>[&apos;arr1&apos;,&apos;arr2&apos;,&apos;arr3&apos;];
+</code></pre><h3 id="要点："><a href="#要点：" class="headerlink" title="要点："></a>要点：</h3><ol>
+<li>JSON的数据结构只有两种；</li>
+<li>可以嵌套表示，比如Array中可以嵌套Object等；</li>
+<li>记住：Object是以｛｝表示，Array是以[  ]表示；</li>
+</ol>
+<h2 id="Java-with-JSON"><a href="#Java-with-JSON" class="headerlink" title="Java with JSON"></a>Java with JSON</h2><h3 id="JSR-353"><a href="#JSR-353" class="headerlink" title="JSR 353"></a>JSR 353</h3><p>JSR 353为处理JSON提供了官方的解决方案，并作为JEE 7 API的一部分被实现。因此，使用在Java中使用JSON的最合适的方法是使用JSR 353.其在包<code>javax.json</code>中，<a href="http://docs.oracle.com/javaee/7/api/javax/json/package-summary.html" target="_blank" rel="external">点击查看API</a>。这方面的内容请参考：</p>
+<ol>
+<li><a href="http://www.javabeat.net/java-json-api-jsr-353/" target="_blank" rel="external">Creating JSON Data Using the Java JSON API (JSR 353)</a></li>
+<li><a href="http://www.java2s.com/Tutorials/Java/JSON/0100__JSON_Java.htm" target="_blank" rel="external">Java JSON Tutorial</a></li>
+<li><a href="http://www.javabeat.net/2013/10/json-processing-javaee-7-object-model-api/" target="_blank" rel="external">JSON Processing in Java EE 7 - Using Object Model API</a></li>
+<li><a href="http://www.javabeat.net/2013/10/json-processing-javaee-7-streaming-api/" target="_blank" rel="external">JSON Processing in Java EE 7 - Using Straeming API</a></li>
+</ol>
+<h3 id="Others"><a href="#Others" class="headerlink" title="Others"></a>Others</h3><p>另外还有有许多的Java库可以用来处理（解析或生成）JSON。Java中最基本的结构是对象，这些库将Java对象映射为JSON，并提供用于序列化和反序列化JSON到对象的方法。Jackson和Gson是建立JSON\对象映射的两个最流行的库。实际开发时可以选择一个你喜欢的，下面将介绍这两个库的具体使用方法。</p>
+<p>GSON的项目主页为：</p>
+<blockquote>
+<p><a href="https://code.google.com/p/google-gson/" target="_blank" rel="external">https://code.google.com/p/google-gson/</a></p>
+</blockquote>
+<p>在POM中加入GSON的相关依赖</p>
+<pre><code>&lt;dependency&gt;
+    &lt;groupId&gt;com.google.code.gson&lt;/groupId&gt;
+    &lt;artifactId&gt;gson&lt;/artifactId&gt;
+    &lt;version&gt;2.3&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre><p>Jaackson的项目主页为：</p>
+<blockquote>
+<p><a href="https://github.com/FasterXML/jackson" target="_blank" rel="external">https://github.com/FasterXML/jackson</a></p>
+</blockquote>
+<p>在POM中加入Jackson的相关依赖</p>
+<pre><code>&lt;dependency&gt;
+    &lt;groupId&gt;org.codehaus.jackson&lt;/groupId&gt;
+    &lt;artifactId&gt;jackson-mapper-asl&lt;/artifactId&gt;
+    &lt;version&gt;1.9.12&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre><p><del><br>JSON在Java上的实现最常用的为Json lib， 其最新版即相关的依赖包的下载地址如下：</del></p>
+<pre><code>http://download.csdn.net/detail/dqsweet/5246564
+</code></pre><p></p>
+<h3 id="POJO"><a href="#POJO" class="headerlink" title="POJO"></a>POJO</h3><p>定义一个POJO类用来序列化和反序列化JSON。</p>
+<pre><code>public class MyPojo {
+    private String thing1;
+    private String thing2;
+
+    public MyPojo(){
+        System.out.println(&quot;*** Constructor MyPojo() called&quot;);
+    }
+
+    public String getThing1() {
+        return thing1;
+    }
+
+    public void setThing1(String thing1) {
+        this.thing1 = thing1;
+    }
+
+    public String getThing2() {
+        return thing2;
+    }
+
+    public void setThing2(String thing2) {
+        this.thing2 = thing2;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if(this == obj) return true;
+        if(obj==null || getClass() != obj.getClass()) return false;
+
+        MyPojo myPojo = (MyPojo) obj;
+
+        if(thing1 !=null ? !thing1.equals(myPojo.thing1) : myPojo.thing1 !=null)
+            return false;
+        if(thing2 !=null ? !thing2.equals(myPojo.thing2) : myPojo.thing2 !=null)
+            return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = thing1 != null ? thing1.hashCode() : 0;
+        result = 31 * result + (thing2 != null ? thing2.hashCode() : 0);
+        return result;
+    }
+}
+</code></pre><h3 id="GSON-Demo"><a href="#GSON-Demo" class="headerlink" title="GSON Demo"></a>GSON Demo</h3><pre><code>MyPojo pojo = new MyPojo();
+pojo.setThing1(&quot;Hello&quot;);
+pojo.setThing2(&quot;Gson&quot;);
+
+Gson gson = new Gson();
+String json = gson.toJson(pojo);//序列化pojo为JSON对象
+System.out.println(json); //{&quot;thing1&quot;:&quot;Hello&quot;,&quot;thing2&quot;:&quot;Gson&quot;}
+
+System.out.println(&quot;\nNow create object and populate it with the JSON string.&quot;);
+MyPojo pojo2 = gson.fromJson(json, MyPojo.class);
+System.out.println(&quot;Serialized and deserialized object are equal: &quot; + pojo.equals(pojo2));
+</code></pre><h3 id="Jackson-Demo"><a href="#Jackson-Demo" class="headerlink" title="Jackson Demo"></a>Jackson Demo</h3><pre><code>MyPojo pojo = new MyPojo();
+pojo.setThing1(&quot;Hello&quot;);
+pojo.setThing2(&quot;Jackson&quot;);
+
+ObjectMapper mapper = new ObjectMapper();
+String json = mapper.writeValueAsString(pojo);
+System.out.println(json);
+
+System.out.println(&quot;\nNow create object and populate it with the JSON string.&quot;);
+MyPojo pojo2 = mapper.readValue(json, MyPojo.class);
+System.out.println(&quot;Serialized and deserialized object are equal: &quot; + pojo.equals(pojo2));
+</code></pre><p>更多有关两个库的高级实用功能，请参考相关的官方文档。</p>
+<blockquote>
+<p>Modified at 11/3/2014, via Weiwei SUN</p>
+</blockquote>
+<h4 id="JSON-Lib"><a href="#JSON-Lib" class="headerlink" title="JSON Lib"></a>JSON Lib</h4><p><del></del></p>
+<p>利用JSON lib可以构建和解析json文件。具体的使用方法可以参考其官方api，这里以构建JSON对象为例，介绍JSON lib的基本使用方法：</p>
+<pre><code>http://www.json.org/java/
+</code></pre><p>创建JSON对象</p>
+<pre><code>JSONObject json = new JSONObject();    //创建空白
+</code></pre><p>或</p>
+<pre><code>JSONObject json = JSONObject.fromObject(object);//从已有字符串构建
+</code></pre><p>其输出为：</p>
+<pre><code>{
+    //...
+}
+</code></pre><p>创建JSON数组</p>
+<pre><code>JSONArray array = new JSONArray();
+</code></pre><p>其输出为：</p>
+<pre><code>[
+    //...
+]
+</code></pre><p>一个JSON数组中实际是包含了若干的JSON对象，而一个JSON对象其实包含了若干的JSON键值对。</p>
+<p>例如：</p>
+<pre><code>JSONObject json = new JSONObject();//the whole document
+JSONArray array = new JSONArray();//a json object array
+JSONObject element = new JSONObject();
+element.put(&quot;name&quot;,&quot;Allen&quot;)
+element.put(&quot;school&quot;,&quot;seu&quot;);
+array.add(element);
+json.put(&quot;student&quot;, array);
+</code></pre><p>输出结果为</p>
+<pre><code>{
+    &quot;student&quot;: [
+        {
+            &quot;name&quot;: &quot;Allen&quot;,
+            &quot;school&quot;: &quot;seu&quot;
+        }
+    ]
+}
+</code></pre><p></p>
+<h3 id="References"><a href="#References" class="headerlink" title="References"></a>References</h3><ol>
+<li><a href="http://www.ibm.com/developerworks/cn/web/wa-lo-json/" target="_blank" rel="external">http://www.ibm.com/developerworks/cn/web/wa-lo-json/</a></li>
+<li><a href="http://www.ruanyifeng.com/blog/2009/05/data_types_and_json.html" target="_blank" rel="external">http://www.ruanyifeng.com/blog/2009/05/data_types_and_json.html</a></li>
+<li><a href="http://www.json.org/java/" target="_blank" rel="external">http://www.json.org/java/</a></li>
+<li><a href="http://blog.csdn.net/xiazdong/article/details/7059573" target="_blank" rel="external">http://blog.csdn.net/xiazdong/article/details/7059573</a></li>
+<li>Client-Server Web Apps with JavaScript and Java, 2014</li>
+</ol>
 
       
     </div>
@@ -527,7 +532,7 @@ printing();
       
         <div class="post-tags">
           
-            <a href="/tags/知识点/" rel="tag">#知识点</a>
+            <a href="/tags/Json/" rel="tag">#Json</a>
           
         </div>
       
@@ -536,16 +541,16 @@ printing();
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/03/31/传奇中的闭包到底是什么？/" rel="next" title="传奇中的闭包到底是什么？">
-                <i class="fa fa-chevron-left"></i> 传奇中的闭包到底是什么？
+              <a href="/2016/04/04/you-get/" rel="next" title="黑科技：强大的you-get">
+                <i class="fa fa-chevron-left"></i> 黑科技：强大的you-get
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/04/03/前端必备软件 brackets/" rel="prev" title="前端必备：brackets安装及常用插件">
-                前端必备：brackets安装及常用插件 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/04/08/提升代码的可读性系列(一)--基础篇/" rel="prev" title="(转载)提升代码的可读性系列(一)--基础篇">
+                (转载)提升代码的可读性系列(一)--基础篇 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -572,8 +577,8 @@ printing();
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/04/01/10个经典的JavaScript面试题/"
-           data-title="十个经典的JavaScript面试题" data-url="http://yoursite.com/2016/04/01/10个经典的JavaScript面试题/">
+      <div class="ds-thread" data-thread-key="2016/04/05/json/"
+           data-title="Json是什么？" data-url="http://yoursite.com/2016/04/05/json/">
       </div>
     
   </div>
@@ -688,7 +693,7 @@ printing();
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#面试题"><span class="nav-number">1.</span> <span class="nav-text">面试题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-变量范围"><span class="nav-number">1.1.</span> <span class="nav-text">1. 变量范围</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-创建“native”方法"><span class="nav-number">1.2.</span> <span class="nav-text">2. 创建“native”方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-提升-Hoisting"><span class="nav-number">1.3.</span> <span class="nav-text">3. 提升 Hoisting</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-this在JavaScript中是如何工作的"><span class="nav-number">1.4.</span> <span class="nav-text">4. this在JavaScript中是如何工作的</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-call-和apply"><span class="nav-number">1.5.</span> <span class="nav-text">5. call()和apply()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-闭包-Closures"><span class="nav-number">1.6.</span> <span class="nav-text">6. 闭包 Closures</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-还是闭包"><span class="nav-number">1.7.</span> <span class="nav-text">7. 还是闭包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-数据类型"><span class="nav-number">1.8.</span> <span class="nav-text">8. 数据类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-事件循环-Event-Loop"><span class="nav-number">1.9.</span> <span class="nav-text">9. 事件循环 Event Loop</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-算法"><span class="nav-number">1.10.</span> <span class="nav-text">10. 算法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JavaScript学习建议"><span class="nav-number">2.</span> <span class="nav-text">JavaScript学习建议</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#阅读列表"><span class="nav-number">2.1.</span> <span class="nav-text">阅读列表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#声明"><span class="nav-number">2.2.</span> <span class="nav-text">声明</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本语法"><span class="nav-number">1.</span> <span class="nav-text">基本语法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Map"><span class="nav-number">1.1.</span> <span class="nav-text">Map</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Array"><span class="nav-number">1.2.</span> <span class="nav-text">Array</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#要点："><span class="nav-number">1.3.</span> <span class="nav-text">要点：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java-with-JSON"><span class="nav-number">2.</span> <span class="nav-text">Java with JSON</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#JSR-353"><span class="nav-number">2.1.</span> <span class="nav-text">JSR 353</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Others"><span class="nav-number">2.2.</span> <span class="nav-text">Others</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#POJO"><span class="nav-number">2.3.</span> <span class="nav-text">POJO</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GSON-Demo"><span class="nav-number">2.4.</span> <span class="nav-text">GSON Demo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Jackson-Demo"><span class="nav-number">2.5.</span> <span class="nav-text">Jackson Demo</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#JSON-Lib"><span class="nav-number">2.5.1.</span> <span class="nav-text">JSON Lib</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#References"><span class="nav-number">2.6.</span> <span class="nav-text">References</span></a></li></ol></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
