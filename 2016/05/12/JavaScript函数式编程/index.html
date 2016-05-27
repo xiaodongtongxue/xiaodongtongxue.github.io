@@ -1,0 +1,986 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="JavaScript," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.5.0" />
+
+
+
+
+
+
+<meta name="description" content="JavaScript函数式编程让你的代码更有价值
+月影推荐，完成于2016年04月29日 
+原文：https://www.h5jun.com/post/functional-how-far.html
+函数式编程（Functional Programming）其实相对于计算机的历史而言是一个非常古老的概念，甚至早于第一台计算机的诞生。函数式编程的基础模型来源于 λ 演算，而 λ 演算并非设计于在计">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript函数式编程">
+<meta property="og:url" content="http://yoursite.com/2016/05/12/JavaScript函数式编程/index.html">
+<meta property="og:site_name" content="时光  漫步">
+<meta property="og:description" content="JavaScript函数式编程让你的代码更有价值
+月影推荐，完成于2016年04月29日 
+原文：https://www.h5jun.com/post/functional-how-far.html
+函数式编程（Functional Programming）其实相对于计算机的历史而言是一个非常古老的概念，甚至早于第一台计算机的诞生。函数式编程的基础模型来源于 λ 演算，而 λ 演算并非设计于在计">
+<meta property="og:image" content="http://7xsgf8.com1.z0.glb.clouddn.com/image/6dc60c09e1c9cb3cbfa8.png">
+<meta property="og:image" content="https://p.ssl.qhimg.com/d/inn/8aaf8340/fp1.png">
+<meta property="og:image" content="https://dn-h5jun.qbox.me/matrix/t8Gyl7MMq6YH3owqTUufAu5p.png">
+<meta property="og:updated_time" content="2016-05-27T14:19:52.088Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript函数式编程">
+<meta name="twitter:description" content="JavaScript函数式编程让你的代码更有价值
+月影推荐，完成于2016年04月29日 
+原文：https://www.h5jun.com/post/functional-how-far.html
+函数式编程（Functional Programming）其实相对于计算机的历史而言是一个非常古老的概念，甚至早于第一台计算机的诞生。函数式编程的基础模型来源于 λ 演算，而 λ 演算并非设计于在计">
+<meta name="twitter:image" content="http://7xsgf8.com1.z0.glb.clouddn.com/image/6dc60c09e1c9cb3cbfa8.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"right","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> JavaScript函数式编程 | 时光  漫步 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?1bb8cb9144e28da63279255dadca25ce";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">时光  漫步</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">追求规范，讲究高效，符合标准</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-heartbeat fa-fw"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-guestbook">
+          <a href="/guestbook" rel="section">
+            
+              <i class="menu-item-icon fa fa-question-circle fa-fw"></i> <br />
+            
+            留言
+          </a>
+        </li>
+      
+
+      
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                JavaScript函数式编程
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-05-12T21:31:00+08:00" content="2016-05-12">
+              2016-05-12
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/05/12/JavaScript函数式编程/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/12/JavaScript函数式编程/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+		  
+        
+      	 <span id="/2016/05/12/JavaScript函数式编程/"class="leancloud_visitors"  data-flag-title="JavaScript函数式编程">
+              |   阅读次数
+            </span>
+      
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="http://7xsgf8.com1.z0.glb.clouddn.com/image/6dc60c09e1c9cb3cbfa8.png" alt=""></p>
+<pre><code>JavaScript函数式编程让你的代码更有价值
+</code></pre><p><a href="https://www.h5jun.com/" target="_blank" rel="external">月影</a>推荐，完成于2016年04月29日 </p>
+<pre><code>原文：https://www.h5jun.com/post/functional-how-far.html
+</code></pre><p>函数式编程（Functional Programming）其实相对于计算机的历史而言是一个非常古老的概念，甚至早于第一台计算机的诞生。函数式编程的基础模型来源于 λ 演算，而 λ 演算并非设计于在计算机上执行，它是由 Alonzo Church 和 Stephen Cole Kleene 在 20 世纪三十年代引入的一套用于研究函数定义、函数应用和递归的形式系统。</p><br><p><img src="https://p.ssl.qhimg.com/d/inn/8aaf8340/fp1.png" alt="functional programming"></p><br><p>随着计算机语言、Web和前端的发展，JavaScript这门语言被越来越广泛地使用。作为现代编程语言的代表作之一的JavaScript，与和它具有相似性的一些现代编程语言一样，都有着函数式的某些特性，以至于 Douglas Crockford 在他写的 《JavaScript : The Good Parts》中说，JavaScript 是披着 C 外衣的 Lisp。</p><br><a id="more"></a><br><h2 id="toc-d35">函数式编程究竟是什么</h2><br><p>函数式编程是一种编程思想或者说编程泛型，网上的各种资料和技术书籍中都会有对它的基本定义。根据基本定义，通常情况下，函数式编程强调函数计算本身，而不是如同经典的命令式编程模型那样强调指令执行。</p><br><p>以上定义只是定义，就像<strong>面向对象编程</strong>的定义是将计算机程序用单个能够起到子程序作用的单元或对象组合而成。这种定义总是正确的，但有时候无助于我们真正理解它，因此我们还是需要通过代码来理解。</p><br><p>如同<strong>面向过程</strong>和<strong>面向对象</strong>一样，<strong>函数式编程</strong>思想体现在代码上，会带有明显的特征，以至于我们可以将这种编程思想同程序的其他部分区别开来。但这里我并不是要谈标准的、纯粹的或者规范的“函数式”风格，那是一种类似于LISP或者Scheme语言的风格，显然并不适合于JavaScript或者类似于JavaScript的现代编程语言。就像我们讨论面向对象不必强调纯粹性一样，我们在实际工作中很少用到单一的纯粹的泛型，通常情况下都是几种模型混合使用。如同面向对象和面向过程不可分割一样，函数式、面向对象和面向过程的编程泛型常常混合于我们的代码中，如果不去刻意区分它们，很难将它们彻底独立开来。</p><br><p>先来看一段简单的示例代码：</p><br><pre><code class="hljs lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">add</span>(<span class="hljs-params">x, y</span>)</span>{<br>    <span class="hljs-keyword">return</span> x + y;<br>}<br><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">mul</span>(<span class="hljs-params">x, y</span>)</span>{<br>    <span class="hljs-keyword">return</span> x <em> y;<br>}<br><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">concat</span>(<span class="hljs-params">arr1, arr2</span>)</span>{<br>    <span class="hljs-keyword">return</span> arr1.concat(arr2);<br>}<br><br><span class="hljs-built_in">console</span>.log(add(<span class="hljs-number">1</span>, add(<span class="hljs-number">2</span>, <span class="hljs-number">3</span>)),     <span class="hljs-comment">//6</span><br>    mul(<span class="hljs-number">1</span>, mul(<span class="hljs-number">2</span>, mul(<span class="hljs-number">3</span>, <span class="hljs-number">4</span>))),        <span class="hljs-comment">//24</span><br>    concat([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>], concat([<span class="hljs-number">3</span>, <span class="hljs-number">4</span>], [<span class="hljs-number">5</span>, <span class="hljs-number">6</span>]))); <span class="hljs-comment">//[1,2,3,4,5,6]</span><br></em></code></pre><br><p>上面的代码中，我们有 3 个简单的函数，用来计算两个数的和、积以及两个数组的连接。我们看到，当我们要对两个以上的数进行操作的时候，调用起来略显繁琐，所以我们可以对它们进行一系列修改，使得它们支持多个数连续的操作：</p><br><p><strong>版本1</strong></p><br><pre><code class="hljs lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">add</span>(<span class="hljs-params">…args</span>)</span>{<br>    <span class="hljs-keyword">return</span> args.reduce((x, y) =&gt; x + y);<br>}<br><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">mul</span>(<span class="hljs-params">…args</span>)</span>{<br>    <span class="hljs-keyword">return</span> args.reduce((x, y) =&gt; x  y);<br>}<br><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">concat</span>(<span class="hljs-params">…args</span>)</span>{<br>    <span class="hljs-keyword">return</span> args.reduce((arr1, arr2) =&gt; arr1.concat(arr2));<br>}<br><br><span class="hljs-built_in">console</span>.log(add(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>),     <span class="hljs-comment">//6</span><br>    mul(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>),        <span class="hljs-comment">//24</span><br>    concat([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>], [<span class="hljs-number">3</span>, <span class="hljs-number">4</span>], [<span class="hljs-number">5</span>, <span class="hljs-number">6</span>])); <span class="hljs-comment">//[1,2,3,4,5,6]</span><br></code></pre><br><p>上面的代码通过对三个函数的分别修改，将它们改造成了支持多个操作数的版本，实现了我们简化函数调用的目的。不过，这不是一种足够聪明的做法，因为如果我们还有更多类似函数，我们还得对这些函数进行一一的改写。</p><br><p>注意到，我们完全可以一次性抽取出一个通用的版本 <code>reduce</code> ，它的作用是当任意两个参数的函数如果传入多余2个函数时，用这些参数进行 reduce 迭代：</p><br><p><strong>版本二</strong></p><br><pre><code class="hljs lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">reduce</span>(<span class="hljs-params">fn, …args</span>)</span>{<br>    <span class="hljs-keyword">return</span> args.reduce(fn);<br>}<br><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">add</span>(<span class="hljs-params">x, y</span>)</span>{<br>    <span class="hljs-keyword">return</span> x + y;<br>}<br><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">mul</span>(<span class="hljs-params">x, y</span>)</span>{<br>    <span class="hljs-keyword">return</span> x <em> y;<br>}<br><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">concat</span>(<span class="hljs-params">arr1, arr2</span>)</span>{<br>    <span class="hljs-keyword">return</span> arr1.concat(arr2);<br>}<br><br><span class="hljs-built_in">console</span>.log(reduce(add, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>),     <span class="hljs-comment">//6</span><br>    reduce(mul, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>),        <span class="hljs-comment">//24</span><br>    reduce(concat, [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>], [<span class="hljs-number">3</span>, <span class="hljs-number">4</span>], [<span class="hljs-number">5</span>, <span class="hljs-number">6</span>])); <span class="hljs-comment">//[1,2,3,4,5,6]</span><br></em></code></pre><br><p>上面的代码好处是显而易见，我们不再需要对 add、mul、concat 分别进行修改，并且 <code>reduce</code> 可以应用在任何一个两个参数的函数上。不过呢，我们还是修改了函数调用的过程，改变了调用的函数和参数。然而，我们可以进一步进行优化：</p><br><p><strong>版本三</strong></p><br><pre><code class="hljs lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">reduce</span>(<span class="hljs-params">fn, …args</span>)</span>{<br>    <span class="hljs-keyword">return</span> args.reduce(fn);<br>}<br><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">add</span>(<span class="hljs-params">x, y</span>)</span>{<br>    <span class="hljs-keyword">return</span> x + y;<br>}<br><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">mul</span>(<span class="hljs-params">x, y</span>)</span>{<br>    <span class="hljs-keyword">return</span> x  y;<br>}<br><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">concat</span>(<span class="hljs-params">arr1, arr2</span>)</span>{<br>    <span class="hljs-keyword">return</span> arr1.concat(arr2);<br>}<br><br>add = reduce.bind(<span class="hljs-literal">null</span>, add);<br>mul = reduce.bind(<span class="hljs-literal">null</span>, mul);<br>concat = reduce.bind(<span class="hljs-literal">null</span>, concat);<br><br><span class="hljs-built_in">console</span>.log(add(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>),     <span class="hljs-comment">//6</span><br>    mul(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>),        <span class="hljs-comment">//24</span><br>    concat([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>], [<span class="hljs-number">3</span>, <span class="hljs-number">4</span>], [<span class="hljs-number">5</span>, <span class="hljs-number">6</span>])); <span class="hljs-comment">//[1,2,3,4,5,6]</span><br></code></pre><br><p>在这里，我们利用 reduce 和 <code>bind</code> 方法改变了 add、mul 和 concat。当然我们这么做带来一个小小的副作用，那就是 this 被限定为 null。我们还有更好的做法：</p><br><p><strong>版本四</strong></p><br><pre><code class="hljs lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">reduce</span>(<span class="hljs-params">fn</span>)</span>{<br>    <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">…args</span>)</span>{<br>        <span class="hljs-keyword">return</span> args.reduce(fn.bind(<span class="hljs-keyword">this</span>));<br>    }<br>}<br><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">add</span>(<span class="hljs-params">x, y</span>)</span>{<br>    <span class="hljs-keyword">return</span> x + y;<br>}<br><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">mul</span>(<span class="hljs-params">x, y</span>)</span>{<br>    <span class="hljs-keyword">return</span> x <em> y;<br>}<br><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">concat</span>(<span class="hljs-params">arr1, arr2</span>)</span>{<br>    <span class="hljs-keyword">return</span> arr1.concat(arr2);<br>}<br><br>add = reduce(add);<br>mul = reduce(mul);<br>concat = reduce(concat);<br><br><span class="hljs-built_in">console</span>.log(add(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>),     <span class="hljs-comment">//6</span><br>    mul(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>),        <span class="hljs-comment">//24</span><br>    concat([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>], [<span class="hljs-number">3</span>, <span class="hljs-number">4</span>], [<span class="hljs-number">5</span>, <span class="hljs-number">6</span>])); <span class="hljs-comment">//[1,2,3,4,5,6]</span><br></em></code></pre><br><p>在这个版本中，我们干脆让 reduce 返回 function，实际上我们相当于让 reduce 对函数进行了变换。我们可以这样理解，函数变换基于原始函数包装了一个新的函数，新的函数在原始函数的基础上具备某些增强的能力。在这里我们得到了一颗<strong>函数式编程</strong>的“糖果”——我们可以像操作数据那样操作一组函数，使得这些函数具备某些新的能力。而这，就是<strong>过程抽象</strong>的基本思想。这些变换函数的函数我们称之为<strong>“高阶函数”</strong>。</p><br><p><img src="https://dn-h5jun.qbox.me/matrix/t8Gyl7MMq6YH3owqTUufAu5p.png" alt="procedural abstraction"></p><br><p>上面的代码我们是否还能进一步优化？事实上还是可以，如果 reduce 的函数是异步的，那么我们前面的函数是处理不了的，因此我们可以再设计一下 reduce，让它支持异步函数：</p><br><pre><code class="hljs lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">reduce</span>(<span class="hljs-params">fn, async</span>)</span>{<br>  <span class="hljs-keyword">if</span>(<span class="hljs-keyword">async</span>){<br>    <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">…args</span>)</span>{<br>      <span class="hljs-keyword">return</span> args.reduce((a, b)=&gt;{<br>        <span class="hljs-keyword">return</span> <span class="hljs-built_in">Promise</span>.resolve(a).then((v)=&gt;fn.call(<span class="hljs-keyword">this</span>, v, b));<br>      });<br>    }<br>  }<span class="hljs-keyword">else</span>{<br>    <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">…args</span>)</span>{<br>      <span class="hljs-keyword">return</span> args.reduce(fn.bind(<span class="hljs-keyword">this</span>));<br>    }<br>  }<br>}<br><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">add</span>(<span class="hljs-params">x, y</span>)</span>{<br>  <span class="hljs-keyword">return</span> x + y;<br>}<br><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">mul</span>(<span class="hljs-params">x, y</span>)</span>{<br>  <span class="hljs-keyword">return</span> x  y;<br>}<br><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">concat</span>(<span class="hljs-params">arr1, arr2</span>)</span>{<br>  <span class="hljs-keyword">return</span> arr1.concat(arr2);<br>}<br><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">asyncAdd</span>(<span class="hljs-params">x, y</span>)</span>{<br>  <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>((resolve, reject)=&gt;{<br>    setTimeout(()=&gt; resolve(x+y), <span class="hljs-number">100</span>);<br>  });<br>}<br><br>add = reduce(add);<br>mul = reduce(mul);<br>concat = reduce(concat);<br><br><span class="hljs-built_in">console</span>.log(add(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>),   <span class="hljs-comment">//6</span><br>  mul(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>),    <span class="hljs-comment">//24</span><br>  concat([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>], [<span class="hljs-number">3</span>, <span class="hljs-number">4</span>], [<span class="hljs-number">5</span>, <span class="hljs-number">6</span>])); <span class="hljs-comment">//[1,2,3,4,5,6]</span><br><br>asyncAdd = reduce(asyncAdd, <span class="hljs-literal">true</span>);<br>asyncAdd(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>).then((v)=&gt;<span class="hljs-built_in">console</span>.log(v));<br></code></pre><br><h2 id="toc-bac">过程抽象的具体应用</h2><br><h3 id="toc-870"><a class="anchor" href="#toc-870"></a>函数调用的频度控制</h3><br><p>在实际项目中，我们有时候会遇到限制某函数调用频率的需求。例如，防止一个按钮短时间的的重复点击，防止 resize、scroll 和 mousemove 事件过于频繁地触发等。</p><br><p><strong>throttle</strong></p><br><p>throttle 可以限制函数调用的频率，常用来防止按钮被重复点击。</p><br><pre><code class="hljs lang-js"><span class="hljs-comment">//限制button在500ms内只能被点击一次</span><br>$(<span class="hljs-string">“#btn”</span>).click(throttle(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">evt</span>)</span>{<br>    <span class="hljs-keyword">do</span> sth.<br>}, <span class="hljs-number">500</span>);<br></code></pre><br><p>throttle 的简单实现</p><br><pre><code class="hljs lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">throttle</span>(<span class="hljs-params">fn, wait</span>)</span>{<br>    <span class="hljs-keyword">var</span> timer;<br>    <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">…args</span>)</span>{<br>        <span class="hljs-keyword">if</span>(!timer){<br>            timer = setTimeout(()=&gt;timer=<span class="hljs-literal">null</span>, wait);<br>            <span class="hljs-keyword">return</span> fn.apply(<span class="hljs-keyword">this</span>, args);<br>        }<br>    }<br>}<br><br><span class="hljs-comment">//按钮每500ms一次点击有效</span><br>btn.onclick = throttle(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{<br>    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">“button clicked”</span>);<br>}, <span class="hljs-number">500</span>);<br></code></pre><br><p><strong>debounce</strong></p><br><p>有时候我们希望函数在某些操作执行完成之后被触发。例如，实现搜索框的 Suggest 效果，如果数据是从服务器端读取的，为了限制从服务器读取数据的频率，我们可以等待用户输入结束 100ms 之后再触发 Suggest 查询：</p><br><pre><code class="hljs lang-actionscript">searchBox.addEventListener(<span class="hljs-string">“input”</span>, debounce(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>{<br>    loadSuggestion();<br>}, <span class="hljs-number">100</span>));<br></code></pre><p>debouce 的简单实现：</p><br><pre><code class="hljs lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">debounce</span>(<span class="hljs-params">fn, delay</span>)</span>{<br>    <span class="hljs-keyword">var</span> timer = <span class="hljs-literal">null</span>;<br>    <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">…args</span>)</span>{<br>        clearTimeout(timer);<br>        timer = setTimeout(() =&gt; fn.apply(<span class="hljs-keyword">this</span>, args), delay);<br>    }<br>}<br><br><span class="hljs-built_in">window</span>.addEventListener(<span class="hljs-string">“scroll”</span>, debounce(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{<br>    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">“scrolled”</span>);<br>}, <span class="hljs-number">500</span>));<br></code></pre><br><h3 id="toc-63c"><a class="anchor" href="#toc-63c"></a>DOM的批量操作</h3><br><p>jQuery 的语法糖特点包括批量操作与链式调用。我们可以看一下，实际上用函数式的过程抽象思想很容易实现类似的“语法糖”。我们先考虑如何支持函数的“批量操作”。</p><br><pre><code class="hljs lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">multicast</span>(<span class="hljs-params">fn</span>)</span>{<br>  <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">list, …args</span>)</span>{<br>    <span class="hljs-keyword">if</span>(<span class="hljs-built_in">Array</span>.isArray(list)){<br>      <span class="hljs-keyword">return</span> list.map((item)=&gt;fn.apply(<span class="hljs-keyword">this</span>, [item,…args]));<br>    }<span class="hljs-keyword">else</span>{<br>      <span class="hljs-keyword">return</span> fn.apply(<span class="hljs-keyword">this</span>, [list,…args]);<br>    }<br>  }<br>}<br><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">add</span>(<span class="hljs-params">x, y</span>)</span>{<br>    <span class="hljs-keyword">return</span> x + y;<br>}<br><br>add = multicast(add);<br><br><span class="hljs-built_in">console</span>.log(add([<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>], <span class="hljs-number">4</span>)); <span class="hljs-comment">//5,6,7</span><br></code></pre><br><p>有了 multicast，我们来尝试用它批量操作一个 ul 中的 li 元素：</p><br><pre><code class="hljs lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>1<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>2<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>3<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>4<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>5<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>6<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>7<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span><br></code></pre><br><pre><code class="hljs lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">multicast</span>(<span class="hljs-params">fn</span>)</span>{<br>  <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">list, …args</span>)</span>{<br>    <span class="hljs-keyword">if</span>(<span class="hljs-built_in">Array</span>.isArray(list)){<br>      <span class="hljs-keyword">return</span> list.map((item)=&gt;fn.apply(<span class="hljs-keyword">this</span>, [item,…args]));<br>    }<span class="hljs-keyword">else</span>{<br>      <span class="hljs-keyword">return</span> fn.apply(<span class="hljs-keyword">this</span>, [list,…args]);<br>    }<br>  }<br>}<br><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">setColor</span>(<span class="hljs-params">el, color</span>)</span>{<br>  <span class="hljs-keyword">return</span> el.style.color = color;<br>}<br><br>setColor = multicast(setColor);<br><br><span class="hljs-keyword">var</span> list = <span class="hljs-built_in">document</span>.querySelectorAll(<span class="hljs-string">“li:nth-child(2n+1)”</span>);<br>setColor(<span class="hljs-built_in">Array</span>.from(list), <span class="hljs-string">“red”</span>);<br></code></pre><br><p><a href="http://code.w3ctech.com/detail/3218" target="_blank" rel="external">演示例子</a></p><br><h3 id="wrapperanddecorators"><a class="anchor" href="#wrapperanddecorators"></a>Wrapper and decorators</h3><br><p>我们可以对上面的例子进行进一步的处理，添加对 selector 参数的支持。这一次，我们使用一个叫做 wrap 的新的高阶函数，它可以对原始函数的参数和返回值进行再包装。</p><br><pre><code class="hljs lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">multicast</span>(<span class="hljs-params">fn</span>)</span>{<br>  <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">list, …args</span>)</span>{<br>    <span class="hljs-keyword">if</span>(<span class="hljs-built_in">Array</span>.isArray(list)){<br>      <span class="hljs-keyword">return</span> list.map((item)=&gt;fn.apply(<span class="hljs-keyword">this</span>, [item,…args]));<br>    }<span class="hljs-keyword">else</span>{<br>      <span class="hljs-keyword">return</span> fn.apply(<span class="hljs-keyword">this</span>, [list,…args]);<br>    }<br>  }<br>}<br><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">wrap</span>(<span class="hljs-params">fn, before, after</span>)</span>{<br>  <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">…args</span>)</span>{<br>    <span class="hljs-keyword">if</span>(before){<br>        args = before.apply(<span class="hljs-keyword">this</span>, args);<br>    }<br>    <span class="hljs-keyword">let</span> ret = fn.apply(<span class="hljs-keyword">this</span>, args);<br>    <span class="hljs-keyword">if</span>(after){<br>        ret = after.call(<span class="hljs-keyword">this</span>, [ret, …args]);<br>    }<br>    <span class="hljs-keyword">return</span> ret;<br>  }<br>}<br><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">setColor</span>(<span class="hljs-params">el, color</span>)</span>{<br>  <span class="hljs-keyword">return</span> el.style.color = color;<br>}<br><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">setFontSize</span>(<span class="hljs-params">el, size</span>)</span>{<br>  <span class="hljs-keyword">return</span> el.style.fontSize = size;<br>}<br><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">cast</span>(<span class="hljs-params">fn</span>)</span>{<br>  <span class="hljs-keyword">return</span> wrap(multicast(fn), (…args)=&gt;{<br>      <span class="hljs-keyword">if</span>(<span class="hljs-keyword">typeof</span> args[<span class="hljs-number">0</span>] === <span class="hljs-string">“string”</span>){<br>          args[<span class="hljs-number">0</span>] = <span class="hljs-built_in">Array</span>.from(<span class="hljs-built_in">document</span>.querySelectorAll(args[<span class="hljs-number">0</span>]));<br>      }<br>      <span class="hljs-keyword">return</span> args;<br>  });<br>}<br><br>[setColor, setFontSize] = multicast(cast)([setColor, setFontSize]);<br><br>setColor(<span class="hljs-string">“li:nth-child(2n+1)”</span>, <span class="hljs-string">“red”</span>);<br><br>setFontSize(<span class="hljs-string">“li:nth-child(2n+1)”</span>, <span class="hljs-string">“32px”</span>);<br></code></pre><br><p><a href="http://code.w3ctech.com/detail/3219" target="_blank" rel="external">演示例子</a></p><br><p>接下来，我们继续对上面的代码进行优化，我们可以构造一个高阶函数 zip，它结合面向对象和过程抽像：</p><br><pre><code class="hljs lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">zip</span>(<span class="hljs-params">props</span>)</span>{<br>  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Class</span>(<span class="hljs-params">…args</span>)</span>{<br>    <span class="hljs-keyword">this</span>.<strong>args = args;<br>  }<br>  <span class="hljs-keyword">let</span> keys = <span class="hljs-built_in">Object</span>.keys(props);<br>  keys.forEach((key) =&gt; {<br>    Class.prototype[key] = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">…args</span>)</span>{<br>      <span class="hljs-keyword">return</span> props[key].apply(<span class="hljs-keyword">this</span>, […this.</strong>args, …args]);<br>    };<br>  });<br>  <span class="hljs-keyword">return</span> (…args)=&gt;<span class="hljs-keyword">new</span> Class(…args);<br>}<br><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">add</span>(<span class="hljs-params">x, y</span>)</span>{<br>  <span class="hljs-keyword">return</span> x + y;<br>}<br><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">sub</span>(<span class="hljs-params">x, y</span>)</span>{<br>  <span class="hljs-keyword">return</span> x - y;<br>}<br><br><span class="hljs-keyword">let</span> N = zip({add, sub});<br><br><span class="hljs-built_in">console</span>.log(N(<span class="hljs-number">9</span>).add(<span class="hljs-number">8</span>)); <span class="hljs-comment">//17</span><br><br><span class="hljs-built_in">console</span>.log(N(<span class="hljs-number">3</span>).sub(<span class="hljs-number">5</span>)); <span class="hljs-comment">//-2</span><br></code></pre><br><p>有了 zip，我们就可以实现链式调用：</p><br><pre><code class="hljs lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">zip</span>(<span class="hljs-params">props</span>)</span>{<br>  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Class</span>(<span class="hljs-params">…args</span>)</span>{<br>    <span class="hljs-keyword">this</span>.<strong>args = args;<br>  }<br>  <span class="hljs-keyword">let</span> keys = <span class="hljs-built_in">Object</span>.keys(props);<br>  keys.forEach((key) =&gt; {<br>    Class.prototype[key] = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">…args</span>)</span>{<br>      <span class="hljs-keyword">return</span> props[key].apply(<span class="hljs-keyword">this</span>, […this.</strong>args, …args]);<br>    };<br>  });<br>  <span class="hljs-keyword">return</span> (…args)=&gt;<span class="hljs-keyword">new</span> Class(…args);<br>}<br><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">multicast</span>(<span class="hljs-params">fn</span>)</span>{<br>  <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">list, …args</span>)</span>{<br>    <span class="hljs-keyword">if</span>(<span class="hljs-built_in">Array</span>.isArray(list)){<br>      <span class="hljs-keyword">return</span> list.map((item)=&gt;fn.apply(<span class="hljs-keyword">this</span>, [item,…args]));<br>    }<span class="hljs-keyword">else</span>{<br>      <span class="hljs-keyword">return</span> fn.apply(<span class="hljs-keyword">this</span>, [list,…args]);<br>    }<br>  }<br>}<br><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">wrap</span>(<span class="hljs-params">fn, before, after</span>)</span>{<br>  <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">…args</span>)</span>{<br>    <span class="hljs-keyword">if</span>(before){<br>    args = before.apply(<span class="hljs-keyword">this</span>, args);<br>    }<br>    <span class="hljs-keyword">let</span> ret = fn.apply(<span class="hljs-keyword">this</span>, args);<br>    <span class="hljs-keyword">if</span>(after){<br>        ret = after.apply(<span class="hljs-keyword">this</span>, [ret, …args]);<br>    }<br>    <span class="hljs-keyword">return</span> ret;<br>  }<br>}<br><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">setColor</span>(<span class="hljs-params">el, color</span>)</span>{<br>  <span class="hljs-keyword">return</span> el.style.color = color;<br>}<br><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">setFontSize</span>(<span class="hljs-params">el, size</span>)</span>{<br>  <span class="hljs-keyword">return</span> el.style.fontSize = size;<br>}<br><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">cast</span>(<span class="hljs-params">fn</span>)</span>{<br>  <span class="hljs-keyword">return</span> wrap(multicast(fn), (…args)=&gt;{<br>      <span class="hljs-keyword">if</span>(<span class="hljs-keyword">typeof</span> args[<span class="hljs-number">0</span>] === <span class="hljs-string">“string”</span>){<br>          args[<span class="hljs-number">0</span>] = <span class="hljs-built_in">Array</span>.from(<span class="hljs-built_in">document</span>.querySelectorAll(args[<span class="hljs-number">0</span>]));<br>      }<br>      <span class="hljs-keyword">return</span> args;<br>  }, (ret,…args)=&gt;$(args[<span class="hljs-number">0</span>]));<br>}<br><br>[setColor, setFontSize] = multicast(cast)([setColor, setFontSize]);<br><br><span class="hljs-keyword">let</span> $ = zip({setColor, setFontSize});<br><br>$(<span class="hljs-string">“li:nth-child(2n+1)”</span>).setColor(<span class="hljs-string">“red”</span>).setFontSize(<span class="hljs-string">“32px”</span>);<br></code></pre><br><p><a href="http://code.w3ctech.com/detail/3220" target="_blank" rel="external">演示例子</a></p><br><p>通过上面的例子，我们体会一下函数式编程的基本思想：</p><br><ul><br><li>设计高阶函数：操作函数的函数，例如例子中的 multicast、wrap、cast、zip</li><br><li>高阶函数之间可以组合调用，例如 cast 调用 wrap， wrap 调用 multicast，cast 后的函数再被 zip 调用。组合调用可以给函数扩展出复杂的功能。</li><br></ul><br><h3 id="toc-e7c"><a class="anchor" href="#toc-e7c"></a>防御性编程</h3><br><p>我们还可以使用上面的 wrap 高阶函数进行防御性编程：</p><br><pre><code class="hljs lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">wrap</span>(<span class="hljs-params">fn, before, after</span>)</span>{<br>  <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">…args</span>)</span>{<br>    <span class="hljs-keyword">if</span>(before){<br>    args = before.apply(<span class="hljs-keyword">this</span>, args);<br>    }<br>    <span class="hljs-keyword">let</span> ret = fn.apply(<span class="hljs-keyword">this</span>, args);<br>    <span class="hljs-keyword">if</span>(after){<br>        ret = after.call(<span class="hljs-keyword">this</span>, [ret, …args]);<br>    }<br>    <span class="hljs-keyword">return</span> ret;<br>  }<br>}<br><br><span class="hljs-built_in">Object</span>.defineProperty(<span class="hljs-built_in">window</span>, <span class="hljs-string">“ERROR_IF_MISSING”</span>, {<br>  get: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{<br>    <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">TypeError</span>(<span class="hljs-string">“missing parameter”</span>)<br>  },<br>  writeable: <span class="hljs-literal">false</span><br>});<br><br><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">add</span>(<span class="hljs-params">x, y</span>)</span>{<br>    <span class="hljs-keyword">return</span> x + y;<br>}<br><br><span class="hljs-keyword">var</span> add = wrap(add,<br>          (x = ERROR_IF_MISSING, y = ERROR_IF_MISSING)=&gt;[x, y]);<br><br><span class="hljs-comment">//Uncaught TypeError: missing parameter</span><br><span class="hljs-built_in">console</span>.log(add());<br></code></pre><br><p><a href="http://code.w3ctech.com/detail/3222" target="_blank" rel="external">演示例子</a></p><br><p>上面的代码如果不给 x 或 y 赋值，就会强制抛出一个 TypeError。</p><br><h2 id="toc-25f">总结</h2><br><p>我们说<strong>函数式编程</strong>是一种<strong>编程思想</strong>或者<strong>编程范式</strong>，上面的例子演示了函数式编程思想本身的基本应用场景。其实不管是号称支持函数式编程的 <a href="lodash.com">lodash</a>、<a href="underscorejs.org">underscore</a> 或者更强大一些的 <a href="https://github.com/ramda/ramda" target="_blank" rel="external">ramdajs</a> 库，它们的基本原理和使用场景也都包括上面的这些点。</p><br><p>通过上面的讨论我们还可以得出结论，函数式编程拥有强大的抽象能力，也正是因为抽象能力强，函数式编程的模型才拥有巨大的潜力。</p><br><p>函数式编程是程序设计范式的一种，就像面向对象编程一样，它是我们解决问题可以选择的模式和思路，它和命令式编程（面向过程、面向对象）之间并不意味着非此即彼的选择，而是可以并存。所以，关键问题不在于函数式编程实不实用，而在于学习一种新的思考模式，这种思考模式能够帮助我们更深入理解程序设计原理和本质，深入了解函数式编程的优点和缺点，从而写出更通用抽象能力更强质量更好的代码。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+<div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton", disable="enable", onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}", style="cursor: pointer; border: 0; outline: 0; border-radius: 100%; padding: 0; margin: 0; letter-spacing: normal; text-transform: none; text-indent: 0px; text-shadow: none">
+    <span onmouseover="this.style.color='rgb(236,96,0)';this.style.background='rgb(204,204,204)'" onMouseOut="this.style.color='#fff';this.style.background='rgb(236,96,0)'" style="display: inline-block; width: 70px; height: 70px; border-radius: 100%; line-height: 81px; color: #fff; font: 400 35px/75px 'microsofty'; background: rgb(236,96,0)">赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="http://7xsgf8.com1.z0.glb.clouddn.com/image/bg%E5%BE%AE%E4%BF%A1%E4%BA%8C%E7%BB%B4%E7%A0%81.png" alt="小栋同学 WeChat Pay" style="width: 200px; max-width: 100%; display: inline-block"/>
+        <p>微信打赏</p>
+      </div>
+    
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="http://7xsgf8.com1.z0.glb.clouddn.com/image/bg%E6%94%AF%E4%BB%98%E5%AE%9D%E4%BA%8C%E7%BB%B4%E7%A0%81.png" alt="小栋同学 Alipay" style="width: 200px; max-width: 100%; display: inline-block"/>
+        <p>支付宝打赏</p>
+      </div>
+    
+  </div>
+<div>
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript/" rel="tag">#JavaScript</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/04/20/前端精选/" rel="next" title="前端文章精选">
+                <i class="fa fa-chevron-left"></i> 前端文章精选
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/05/16/V8眼中的JavaScript的未来/" rel="prev" title="V8 团队眼中的 ES6、ES7及未来">
+                V8 团队眼中的 ES6、ES7及未来 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/05/12/JavaScript函数式编程/"
+           data-title="JavaScript函数式编程" data-url="http://yoursite.com/2016/05/12/JavaScript函数式编程/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/touxiang.png"
+               alt="小栋同学" />
+          <p class="site-author-name" itemprop="name">小栋同学</p>
+          <p class="site-description motion-element" itemprop="description">You are the owner of your career.</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">25</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/Pillar-Zhang" target="_blank">
+                  
+                    <i class="fa fa-github"></i> GitHub
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/henuxiaodong/profile" target="_blank">
+                  
+                    <i class="fa fa-weibo"></i> Weibo
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/xiaodongtongxue" target="_blank">
+                  
+                    <i class="fa fa-zhihu"></i> zhihu
+                  
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        <div class="links-of-blogroll motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#toc-d35"><span class="nav-number">1.</span> <span class="nav-text">函数式编程究竟是什么</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#toc-bac"><span class="nav-number">2.</span> <span class="nav-text">过程抽象的具体应用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#toc-870"><span class="nav-number">2.1.</span> <span class="nav-text">函数调用的频度控制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#toc-63c"><span class="nav-number">2.2.</span> <span class="nav-text">DOM的批量操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#wrapperanddecorators"><span class="nav-number">2.3.</span> <span class="nav-text">Wrapper and decorators</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#toc-e7c"><span class="nav-number">2.4.</span> <span class="nav-text">防御性编程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#toc-25f"><span class="nav-number">3.</span> <span class="nav-text">总结</span></a></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">小栋同学</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+
+  
+
+
+
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=0.5.0"></script>
+
+
+
+  
+  
+
+  
+  
+<script type="text/javascript" src="/js/src/scrollspy.js?v=0.5.0"></script>
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 1 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = NexT.utils.escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    NexT.motion.middleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+
+      if (CONFIG.sidebar.display === 'post' || CONFIG.sidebar.display === 'always') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          NexT.utils.displaySidebar();
+        }
+      }
+    };
+  });
+</script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.5.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"xiaodongtongxue"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("giQcON1aYKcTH2HFEhsWqeIk-gzGzoHsz", "vNDXtDvpDvfvc3GbxFeTKkWu");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+  
+  
+  	 <!-- custom analytics part create by xiamo -->
+<script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+<script>AV.initialize("giQcON1aYKcTH2HFEhsWqeIk-gzGzoHsz", "vNDXtDvpDvfvc3GbxFeTKkWu");</script>
+<script>
+function showTime(Counter) {
+  var query = new AV.Query(Counter);
+  $(".leancloud_visitors").each(function() {
+    var url = $(this).attr("id").trim();
+    query.equalTo("url", url);
+    query.find({
+      success: function(results) {
+        if (results.length == 0) {
+          var content = $(document.getElementById(url)).text() + ': 0';
+          $(document.getElementById(url)).text(content);
+          return;
+        }
+        for (var i = 0; i < results.length; i++) {
+          var object = results[i];
+          var content = $(document.getElementById(url)).text() + ': ' + object.get('time');
+          $(document.getElementById(url)).text(content);
+        }
+      },
+      error: function(object, error) {
+        console.log("Error: " + error.code + " " + error.message);
+      }
+    });
+
+  });
+}
+
+function addCount(Counter) {
+  var Counter = AV.Object.extend("Counter");
+  url = $(".leancloud_visitors").attr('id').trim();
+  title = $(".leancloud_visitors").attr('data-flag-title').trim();
+  var query = new AV.Query(Counter);
+  query.equalTo("url", url);
+  query.find({
+    success: function(results) {
+      if (results.length > 0) {
+        var counter = results[0];
+        counter.fetchWhenSave(true);
+        counter.increment("time");
+        counter.save(null, {
+          success: function(counter) {
+            var content = $(document.getElementById(url)).text() + ': ' + counter.get('time');
+            $(document.getElementById(url)).text(content);
+          },
+          error: function(counter, error) {
+            console.log('Failed to save Visitor num, with error message: ' + error.message);
+          }
+        });
+      } else {
+        var newcounter = new Counter();
+        newcounter.set("title", title);
+        newcounter.set("url", url);
+        newcounter.set("time", 1);
+        newcounter.save(null, {
+          success: function(newcounter) {
+              console.log("newcounter.get('time')="+newcounter.get('time'));
+            var content = $(document.getElementById(url)).text() + ': ' + newcounter.get('time');
+            $(document.getElementById(url)).text(content);
+          },
+          error: function(newcounter, error) {
+            console.log('Failed to create');
+          }
+        });
+      }
+    },
+    error: function(error) {
+      console.log('Error:' + error.code + " " + error.message);
+    }
+  });
+}
+$(function() {
+  var Counter = AV.Object.extend("Counter");
+  if ($('.leancloud_visitors').length == 1) {
+    addCount(Counter);
+  } else if ($('.post-title-link').length > 1) {
+    showTime(Counter);
+  }
+}); 
+</script>
+  
+
+</body>
+</html>

@@ -1,0 +1,973 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Gulp," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.5.0" />
+
+
+
+
+
+
+<meta name="description" content="Gulp基于流的自动化构建工具">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用Gulp构建网站的小白教程">
+<meta property="og:url" content="http://yoursite.com/2016/05/28/使用Gulp构建网站小白教程/index.html">
+<meta property="og:site_name" content="时光  漫步">
+<meta property="og:description" content="Gulp基于流的自动化构建工具">
+<meta property="og:image" content="http://7xsgf8.com1.z0.glb.clouddn.com/image/5687ce6435155def8f79.jpg">
+<meta property="og:image" content="https://p.ssl.qhimg.com/d/inn/106d26c5/6c224f4a20a446230144a30f9822720e0df3d7d4.jpg">
+<meta property="og:image" content="https://p.ssl.qhimg.com/d/inn/657e563f/original_LFQk_5e4400003dc3125d.jpg">
+<meta property="og:updated_time" content="2016-05-27T14:20:09.370Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="使用Gulp构建网站的小白教程">
+<meta name="twitter:description" content="Gulp基于流的自动化构建工具">
+<meta name="twitter:image" content="http://7xsgf8.com1.z0.glb.clouddn.com/image/5687ce6435155def8f79.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"right","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> 使用Gulp构建网站的小白教程 | 时光  漫步 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?1bb8cb9144e28da63279255dadca25ce";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">时光  漫步</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">追求规范，讲究高效，符合标准</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-heartbeat fa-fw"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-guestbook">
+          <a href="/guestbook" rel="section">
+            
+              <i class="menu-item-icon fa fa-question-circle fa-fw"></i> <br />
+            
+            留言
+          </a>
+        </li>
+      
+
+      
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                使用Gulp构建网站的小白教程
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-05-28T21:31:00+08:00" content="2016-05-28">
+              2016-05-28
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/05/28/使用Gulp构建网站小白教程/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/28/使用Gulp构建网站小白教程/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+		  
+        
+      	 <span id="/2016/05/28/使用Gulp构建网站小白教程/"class="leancloud_visitors"  data-flag-title="使用Gulp构建网站的小白教程">
+              |   阅读次数
+            </span>
+      
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="http://7xsgf8.com1.z0.glb.clouddn.com/image/5687ce6435155def8f79.jpg" alt=""></p>
+<pre><code>Gulp基于流的自动化构建工具
+</code></pre><a id="more"></a>
+<p><a href="https://www.h5jun.com/" target="_blank" rel="external">月影</a>推荐，完成于2016年04月07日</p>
+<pre><code>原文：https://www.h5jun.com/post/functional-how-far.html
+</code></pre><p>行业里有一种批评，说前端太浮躁，总是追逐新技术，感觉 <a href="http://www.gruntjs.net/" target="_blank" rel="external">grunt</a> 还不熟悉，突然一夜之间满大街都在谈论 <a href="http://www.gulpjs.com.cn/" target="_blank" rel="external">gulp</a> 了。月影觉得不能怪技术发展太快，技术发展总是带来好处多于坏处，有时候我们确实需要鼓起勇气去“追求”技术潮流，当然理由是为了弄明白为什么有这些技术工具，而无关于什么浮躁之类的事儿。</p><br><p>也许是从业很多年有点累了，月影也对技术有些后知后觉，感觉 gulp 已经火了很久，才终于想起来写这篇文章，也许现在，很多工程师早已又去追求其他的什么类似的构建工具了。不管怎么样，如果你是一位前端工程师，你从来没有想过用构建工具优化网站这种事儿，或者你在工作中所在的团队和平台已经有成熟的工具，工作中不用自己再去琢磨 gulp 。你仍然可以暂时停下来阅读这篇文章，看看 gulp 这样的构建工具如何能帮你更简单地在构建的时候自动优化你的网站，也许你的个人博客也需要优化，也许你换了工作，要和之前熟悉不一样的构建工具，然而基本原理终归是“一招鲜吃遍天”的，不是吗？</p><br><!--more--><br><h2 id="toc-197">什么是 Gulp？</h2><br><p>Gulp 的官网title上对这个工具有一个比较准确的定义，叫做：<strong>基于流的自动化构建工具</strong>。如果你查看它的网页源代码，还会看到在<code>&lt;meta&gt;</code>标签里有一段更详细的描述：</p><br><blockquote><br><p> Gulp.js 是一个自动化构建工具，开发者可以使用它在项目开发过程中自动执行常见任务。Gulp.js 是基于 Node.js 构建的，利用 Node.js 流的威力，你可以快速构建项目并减少频繁的 IO 操作。Gulp.js 源文件和你用来定义任务的 Gulp 文件都是通过 JavaScript（或者 CoffeeScript ）源码来实现的。</p><br></blockquote><br><p>所以，Gulp 是在项目开发过程中自动执行任务的一个工具，通过它可以方便地在开发时（或者发布前），对目标文件的内容进行I/O操作。</p><br><p>由于 Gulp 是基于流的，所以 Gulp 对于文件内容的操作就像是水槽对于水流，水流流经水槽，水槽将水流塑造成不同的形状。</p><br><p>既然是基于流的，在进一步理解 Gulp 前，我们最好先来理解什么是流。</p><br><h2 id="toc-84a">Stream 流</h2><br><p>在计算机系统中文件的大小是变化很大的，有的文件内容非常多非常大，而 Node.js 里文件操作是异步的，如果用一个形象的比喻来形容将一个文件的内容读取出来并写入另一个文件中，可以将它想象成文件内容像是水流，从一个文件“流”入另一个文件。</p><br><p><img src="https://p.ssl.qhimg.com/d/inn/106d26c5/6c224f4a20a446230144a30f9822720e0df3d7d4.jpg" alt="stream"></p><br><p>在node里面，读写文件可以用“流”来描述：</p><br><pre><code class="hljs lang-js"><span class="hljs-meta">“use strict”</span>;<br><br><span class="hljs-keyword">let</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">“fs”</span>);<br><br>fs.createReadStream(<span class="hljs-string">“./in.txt”</span>)<br>  .pipe(fs.createWriteStream(<span class="hljs-string">“./out.txt”</span>));<br></code></pre><br><p>上面的代码除了将 in.txt 文件中的内容输出到 out.txt 之外，不做其他任何事情，相当于复制了一份数据，从语法形式上可以看到，“数据流”从 fs.createReadStream 创建然后经过 pipe 流出，最后到 fs.createWriteStream。</p><br><p>在这输入流到输出流的中间，我们可以对“流”做一些事情：</p><br><pre><code class="hljs lang-js"><span class="hljs-meta">“use strict”</span>;<br><br><span class="hljs-keyword">let</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">“fs”</span>);<br><span class="hljs-keyword">let</span> through = <span class="hljs-built_in">require</span>(<span class="hljs-string">“through2”</span>);<br><br>fs.createReadStream(<span class="hljs-string">“./in.txt”</span>)<br>  .pipe(through.obj(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">contents, enc, done</span>) </span>{<br>    <span class="hljs-keyword">if</span>(enc === <span class="hljs-string">“buffer”</span>){<br>      contents = contents.toString(<span class="hljs-string">“utf-8”</span>);<br>      enc = <span class="hljs-string">“utf-8”</span>;<br>    }<br>    done(<span class="hljs-literal">null</span>, contents, enc);<br>   }))<br>  .pipe(through.obj(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">contents, enc, done</span>) </span>{<br>    done(<span class="hljs-literal">null</span>, contents.toUpperCase(), enc);<br>   }))<br>  .pipe(through.obj(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">contents, enc, done</span>) </span>{<br>    contents = contents.split(<span class="hljs-string">“”</span>).reverse().join(<span class="hljs-string">“”</span>);<br>    done(<span class="hljs-literal">null</span>, contents, enc);<br>   }))<br>  .pipe(fs.createWriteStream(<span class="hljs-string">“./out.txt”</span>));<br></code></pre><br><p>在上面的代码里，我们通过 Node.js 的 <a href="https://github.com/rvagg/through2" target="_blank" rel="external">through2</a> 库（这是一个针对“流”的包装库），将输入流一步步转换成输出流，在中间的 pipes 中我们先是将 Buffer 转成 String，然后将它变成大写，最后再 reverse 然后传给输出流。</p><br><p>所以如果 in.txt 的文件内容是 <code>hello world~</code>，那么 out.txt 的文件内容将是： <code>~DLROW OLLEH</code>。</p><br><h2 id="toc-e10">基于流的 Gulp</h2><br><p>月影觉得 Gulp 的文档其实写得挺烂的，点中文文档页面除了让你看<a href="http://www.gulpjs.com.cn/docs/getting-started/" target="_blank" rel="external">入门指南</a>、<a href="http://www.gulpjs.com.cn/docs/api/" target="_blank" rel="external">API文档</a>、<a href="http://www.gulpjs.com.cn/docs/cli/" target="_blank" rel="external">CLI文档</a>、<a href="http://www.gulpjs.com.cn/docs/writing-a-plugin/" target="_blank" rel="external">编写插件文档</a>之外就没什么了，但实际上真要用 Gulp 的高级功能，这些文档简直就和教人如何画马一样：</p><br><p><img src="https://p.ssl.qhimg.com/d/inn/657e563f/original_LFQk_5e4400003dc3125d.jpg" alt="画马"></p><br><p>既然 Gulp 是基于流的，我们就要理解 Gulp 如何控制和操作流。</p><br><p>然而在这之前，我们还要先看最基础的（还没安装 Gulp 的同学可以照前面那个入门指南安装一下~）</p><br><pre><code class="hljs lang-js"><span class="hljs-keyword">var</span> gulp = <span class="hljs-built_in">require</span>(<span class="hljs-string">“gulp”</span>);<br><br>gulp.task(<span class="hljs-string">“sync1”</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{<br>  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">“我是一个同步任务”</span>);<br>});<br><br>gulp.task(<span class="hljs-string">“async”</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">done</span>) </span>{<br>  setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{<br>    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">“我是一个异步任务”</span>);<br>    done();<br>  }, <span class="hljs-number">2000</span>);<br>});<br></code></pre><br><p>我们可以看到 Gulp 是基于任务的，gulp.task 可以定义一个任务，这样的话，我们在命令行下就可以通过 <code>gulp 任务名</code> 的方式来执行命令了：</p><br><pre><code class="hljs lang-bash">$ gulp sync1<br>[18:27:12] Using gulpfile ~/Workspace/yuntu/myblog-master/item/photohome/gulpfile.js<br>[18:27:12] Starting <span class="hljs-string">“sync1”</span>…<br>我是一个同步任务<br>[18:27:12] Finished <span class="hljs-string">“sync1”</span> after 122 μs<br><br>$ gulp async<br>[18:27:48] Using gulpfile ~/Workspace/yuntu/myblog-master/item/photohome/gulpfile.js<br>[18:27:48] Starting <span class="hljs-string">“async”</span>…<br>我是一个异步任务<br>[18:27:50] Finished <span class="hljs-string">“async”</span> after 2 s<br></code></pre><br><p>Gulp 的任务可以是同步和异步，在异步任务中确定任务完成，可以通过调用函数参数 done 来实现。</p><br><p>Gulp 也允许我们将任务组合起来执行：</p><br><pre><code class="hljs lang-js"><span class="hljs-keyword">var</span> gulp = <span class="hljs-built_in">require</span>(<span class="hljs-string">“gulp”</span>);<br><span class="hljs-keyword">var</span> through = <span class="hljs-built_in">require</span>(<span class="hljs-string">“through2”</span>);<br><br>gulp.task(<span class="hljs-string">“sync1”</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{<br>  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">“我是一个同步任务”</span>);<br>});<br><br>gulp.task(<span class="hljs-string">“sync2”</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{<br>  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">“我是另一个同步任务”</span>);<br>});<br><br>gulp.task(<span class="hljs-string">“sync3”</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{<br>  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">“我是又一个同步任务”</span>);<br>});<br><br>gulp.task(<span class="hljs-string">“async”</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">done</span>) </span>{<br>  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">“老大喊我去搬砖”</span>);<br>  setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{<br>    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">“我是一个异步任务”</span>);<br>    done();<br>  }, <span class="hljs-number">2000</span>);<br>});<br><br>gulp.task(<span class="hljs-string">“syncs”</span>, [<span class="hljs-string">“async”</span>, <span class="hljs-string">“sync1”</span>, <span class="hljs-string">“sync2”</span>, <span class="hljs-string">“sync3”</span>],<br>  <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{<br>    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">“砖搬完了！”</span>);<br>  });<br></code></pre><br><pre><code class="hljs lang-bash">$ gulp syncs<br>[18:30:30] Using gulpfile ~/Workspace/yuntu/myblog-master/item/photohome/gulpfile.js<br>[18:30:30] Starting <span class="hljs-string">“async”</span>…<br>老大喊我去搬砖<br>[18:30:30] Starting <span class="hljs-string">“sync1”</span>…<br>我是一个同步任务<br>[18:30:30] Finished <span class="hljs-string">“sync1”</span> after 142 μs<br>[18:30:30] Starting <span class="hljs-string">“sync2”</span>…<br>我是另一个同步任务<br>[18:30:30] Finished <span class="hljs-string">“sync2”</span> after 55 μs<br>[18:30:30] Starting <span class="hljs-string">“sync3”</span>…<br>我是又一个同步任务<br>[18:30:30] Finished <span class="hljs-string">“sync3”</span> after 43 μs<br>我是一个异步任务<br>[18:30:32] Finished <span class="hljs-string">“async”</span> after 2 s<br>[18:30:32] Starting <span class="hljs-string">“syncs”</span>…<br>砖搬完了！<br>[18:30:32] Finished <span class="hljs-string">“syncs”</span> after 38 μs<br></code></pre><br><p>我们看到说 gulp.task 可以有依赖，只要第二个参数传一个数组，中间加上依赖的任务就行了，而数组里面的这些任务是<strong>并行处理</strong>的，不会一个执行完才执行另一个（同步任务的输出比异步任务的结束早）。</p><br><p>以上是 Gulp 基本的任务模型。对于每个 task，Gulp 通常用来操作文件输入和输出流，因此 Gulp 封装了批量操作文件流的 api：</p><br><pre><code class="hljs lang-js">gulp.task(<span class="hljs-string">“src-dist”</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{<br>  gulp.src(<span class="hljs-string">“./<em>.html”</em></span>)<br>      .pipe(gulp.dest(<span class="hljs-string">“./dist”</span>));<br>});<br></code></pre><br><p>上面的命令表示将当前目录下所有的 .html 文件匹配出来，依次输出到目标文件夹 ./dist 中去。</p><br><p>我们还可以用更高级的通配符：</p><br><pre><code class="hljs lang-js">gulp.task(<span class="hljs-string">“src-dist”</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{<br>  gulp.src(<span class="hljs-string">“./**/.html”</span>)<br>      .pipe(gulp.dest(<span class="hljs-string">“./dist”</span>));<br>});<br></code></pre><br><p>这样处理的 html 文件不仅仅匹配当前目录下的，还包括所有子目录里。关于输入这块，具体的用法还有很多，遵循的规范是glob模式，可以参考 <a href="https://github.com/isaacs/node-glob" target="_blank" rel="external">node-glob</a></p><br><h2 id="toc-246">处理文件的内容</h2><br><p>与上面说的 FileSystem 文件流类似，如果我们不做什么别的事情，那么我们就只是将文件从源 src，拷贝到了目的地 dest，其他的啥也没做，那么显然，我们可以做那么一些事情，在这里，我们尝试处理一下 index.html：</p><br><pre><code class="hljs lang-js">gulp.task(<span class="hljs-string">“build-index”</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{<br>  gulp.src(<span class="hljs-string">“./index.html”</span>)<br>    .pipe(through.obj(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">file, encode, cb</span>) </span>{<br>        <span class="hljs-keyword">var</span> contents = file.contents.toString(encode);<br><br>        <span class="hljs-keyword">var</span> HTMLMinifier = <span class="hljs-built_in">require</span>(<span class="hljs-string">“html-minifier”</span>).minify;<br><br>        <span class="hljs-keyword">var</span> minified = HTMLMinifier(contents, {<br>          minifyCSS: <span class="hljs-literal">true</span>,<br>          minifyJS: <span class="hljs-literal">true</span>,<br>          collapseWhitespace: <span class="hljs-literal">true</span>,<br>          removeAttributeQuotes: <span class="hljs-literal">true</span><br>        });<br><br>        <span class="hljs-comment">//console.log(minified);</span><br>        file.contents = <span class="hljs-keyword">new</span> Buffer(minified, encode);<br>        cb(<span class="hljs-literal">null</span>, file, encode);<br>      }))<br>    .pipe(gulp.dest(<span class="hljs-string">“./dist”</span>));<br>});<br></code></pre><br><p>gulp.src 的输入流和 fileReadStream 会有一点点不一样，它的第一个参数不是一个 Buffer，而是一个包含文件信息和文件内容的对象，第二个参数是文件的编码，因此我们可以通过</p><br><pre><code class="hljs lang-js"><span class="hljs-keyword">var</span> contents = file.contents.toString(encode);<br></code></pre><br><p>将文件内容转成字符串。之后，我们使用 <a href="https://github.com/search?utf8=%E2%9C%93&amp;q=html-minifier" target="_blank" rel="external">html-minifier</a> 对文件的HTML内容和内联的样式、脚本进行压缩，这样就简单完成了首页 index.html 的优化！</p><br><h2 id="toc-aea">进一步优化</h2><br><p>前面只完成了优化的第一步，我们还没考虑外链资源该怎么处理呢，外链资源包括 js、 css 和图片。在处理之前，我们来约定一些规范：</p><br><ul><br><li><p>页面 js 存放在 ./static/js 下，公共的库放在 ./static/js/lib 下，公共库只压缩不合并，页面 js 压缩并合并。</p><br></li><br><li><p>页面 css 存放在 ./static/css 下，公共的css放在 ./static/css/common 下，公共 css 只压缩不合并，页面 css 压缩并合并。</p><br></li><br><li><p>图片资源中小于3kb的图片以 base64 方式内联，图片放在 ./static/img 下。</p><br></li><br></ul><br><p><strong>压缩 js</strong></p><br><pre><code class="hljs lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">minifyAndComboJS</span>(<span class="hljs-params">name, encode, files</span>)</span>{<br>  <span class="hljs-keyword">var</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">“fs”</span>);<br>  <span class="hljs-keyword">var</span> UglifyJS = <span class="hljs-built_in">require</span>(<span class="hljs-string">“uglify-js”</span>);<br>  <span class="hljs-keyword">var</span> content = <span class="hljs-string">“”</span>;<br><br>  files.forEach(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">js</span>)</span>{<br>    <span class="hljs-keyword">var</span> minified = UglifyJS.minify(js).code;<br>    content += minified;<br>  });<br><br>  <span class="hljs-keyword">if</span>(content){<br>    <span class="hljs-keyword">var</span> combo = <span class="hljs-string">“static/js/“</span> + name;<br>  }<br>  fs.writeFileSync(combo, content);<br><br>  gulp.src(combo)<br>      .pipe(gulp.dest(<span class="hljs-string">“./dist/static/js”</span>));<br>}<br></code></pre><br><p><strong>压缩 js lib</strong></p><br><pre><code class="hljs lang-js">gulp.task(<span class="hljs-string">“build-js-lib”</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{<br>  gulp.src(<span class="hljs-string">“./static/js/lib/<strong>/*.js”</strong></span>)<br>      .pipe(through.obj(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">file, encode, cb</span>) </span>{<br>        <span class="hljs-keyword">var</span> UglifyJS = <span class="hljs-built_in">require</span>(<span class="hljs-string">“uglify-js”</span>);<br><br>        <span class="hljs-keyword">var</span> contents = file.contents.toString(encode);<br>        <span class="hljs-keyword">var</span> minified = UglifyJS.minify(contents,<br>          {fromString:<span class="hljs-literal">true</span>}).code;<br><br>        file.contents = <span class="hljs-keyword">new</span> Buffer(minified, encode);<br>        cb(<span class="hljs-literal">null</span>, file, encode);<br>      }))<br>      .pipe(gulp.dest(<span class="hljs-string">“./dist/static/js/lib”</span>));<br>});<br></code></pre><br><p><strong>压缩 css</strong></p><br><pre><code class="hljs lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">minifyAndComboCSS</span>(<span class="hljs-params">name, encode, files</span>)</span>{<br>  <span class="hljs-keyword">var</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">“fs”</span>);<br>  <span class="hljs-keyword">var</span> CleanCSS = <span class="hljs-built_in">require</span>(<span class="hljs-string">“clean-css”</span>);<br>  <span class="hljs-keyword">var</span> content = <span class="hljs-string">“”</span>;<br><br>  files.forEach(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">css</span>)</span>{<br>    <span class="hljs-keyword">var</span> contents = fs.readFileSync(css, encode);<br>    <span class="hljs-keyword">var</span> minified = <span class="hljs-keyword">new</span> CleanCSS().minify(contents).styles;<br>    content += minified;<br>  });<br><br>  <span class="hljs-keyword">if</span>(content){<br>    <span class="hljs-keyword">var</span> combo = <span class="hljs-string">“static/css/“</span> + name;<br>  }<br>  fs.writeFileSync(combo, content);<br><br>  gulp.src(combo)<br>      .pipe(gulp.dest(<span class="hljs-string">“./dist/static/css”</span>));<br>}<br></code></pre><br><p><strong>压缩公共 css</strong></p><br><pre><code class="hljs lang-js">gulp.task(<span class="hljs-string">“build-common-css”</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{<br>  gulp.src(<span class="hljs-string">“./static/css/common//<em>.css”</em></span>)<br>      .pipe(through.obj(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">file, encode, cb</span>) </span>{<br>        <span class="hljs-keyword">var</span> CleanCSS = <span class="hljs-built_in">require</span>(<span class="hljs-string">“clean-css”</span>);<br><br>        <span class="hljs-keyword">var</span> contents = file.contents.toString(encode);<br>        <span class="hljs-keyword">var</span> minified = <span class="hljs-keyword">new</span> CleanCSS().minify(contents).styles;<br><br>        file.contents = <span class="hljs-keyword">new</span> Buffer(minified, encode);<br>        cb(<span class="hljs-literal">null</span>, file, encode);<br>      }))<br>      .pipe(gulp.dest(<span class="hljs-string">“./dist/static/css/common”</span>));<br>});<br></code></pre><br><p><strong>处理图片</strong></p><br><pre><code class="hljs lang-js"><span class="hljs-comment">//内联小图片</span><br><span class="hljs-keyword">var</span> imgs = $(<span class="hljs-string">“img”</span>);<br><span class="hljs-keyword">for</span>(<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>; i &lt; imgs.length; i++){<br>  <span class="hljs-keyword">var</span> img = $(imgs[i]);<br>  <span class="hljs-keyword">var</span> src = img.attr(<span class="hljs-string">“src”</span>);<br>  <span class="hljs-keyword">if</span>(<span class="hljs-regexp">/^static\/img/</span>.test(src)){<br>    <span class="hljs-keyword">var</span> stat = fs.statSync(src);<br>    <span class="hljs-keyword">var</span> ext = <span class="hljs-built_in">require</span>(<span class="hljs-string">“path”</span>).parse(src).ext;<br><br>    <span class="hljs-keyword">if</span>(stat.size &lt;= <span class="hljs-number">3000</span>){<br>      <span class="hljs-keyword">var</span> head = ext === <span class="hljs-string">“.png”</span> ? <span class="hljs-string">“data:image/png;base64,”</span> : <span class="hljs-string">“data:image/jpeg;base64,”</span>;<br>      <span class="hljs-keyword">var</span> datauri = fs.readFileSync(src).toString(<span class="hljs-string">“base64”</span>);<br>      img.attr(<span class="hljs-string">“src”</span>, head + datauri);<br>    }<br>  }<br>}<br></code></pre><br><p><strong>压缩 HTML</strong></p><br><pre><code class="hljs lang-js">contents = $.html();<br><br><span class="hljs-comment">//压缩 HTML</span><br><span class="hljs-keyword">var</span> HTMLMinifier = <span class="hljs-built_in">require</span>(<span class="hljs-string">“html-minifier”</span>).minify;<br><br><span class="hljs-keyword">var</span> minified = HTMLMinifier(contents, {<br>  minifyCSS: <span class="hljs-literal">true</span>,<br>  minifyJS: <span class="hljs-literal">true</span>,<br>  collapseWhitespace: <span class="hljs-literal">true</span>,<br>  removeAttributeQuotes: <span class="hljs-literal">true</span><br>});<br></code></pre><br><p>然后，在处理 index.html 的时候，我们可以使用 <a href="https://github.com/cheeriojs/cheerio" target="_blank" rel="external">cheerio</a> 来解析文件，将要处理的外链从文档中提取出来。</p><br><p><strong>提取 js 和 css 外链处理</strong></p><br><pre><code class="hljs lang-js"><span class="hljs-keyword">var</span> $ = <span class="hljs-built_in">require</span>(<span class="hljs-string">“cheerio”</span>).load(contents, {decodeEntities: <span class="hljs-literal">false</span>});<br><br><span class="hljs-comment">//处理外链 css</span><br><span class="hljs-keyword">var</span> links = $(<span class="hljs-string">“link”</span>);<br><span class="hljs-keyword">var</span> cssToCombo = [];<br><br><span class="hljs-keyword">for</span>(<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>; i &lt; links.length; i++){<br>  <span class="hljs-keyword">var</span> link = $(links[i]);<br>  <span class="hljs-keyword">if</span>(link.attr(<span class="hljs-string">“rel”</span>) === <span class="hljs-string">“stylesheet”</span>){<br>    <span class="hljs-keyword">var</span> href = link.attr(<span class="hljs-string">“href”</span>);<br>    <span class="hljs-keyword">if</span>(<span class="hljs-regexp">/^static\/css\/(?!common)/</span>.test(href)){<br>      cssToCombo.push(href);<br>      <span class="hljs-keyword">if</span>(cssToCombo.length == <span class="hljs-number">1</span>){<br>        link.attr(<span class="hljs-string">“href”</span>, <span class="hljs-string">“static/css/index.min.css”</span>);<br>      }<span class="hljs-keyword">else</span>{<br>        link.remove();<br>      }<br>    }<br>  }<br>}<br>minifyAndComboCSS(<span class="hljs-string">“index.min.css”</span>, encode, cssToCombo);<br><br><span class="hljs-comment">//处理外链 js</span><br><span class="hljs-keyword">var</span> scripts = $(<span class="hljs-string">“script”</span>);<br><span class="hljs-keyword">var</span> jsToCombo = [];<br><span class="hljs-keyword">for</span>(<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>; i &lt; scripts.length; i++){<br>  <span class="hljs-keyword">var</span> s = $(scripts[i]);<br><br>  <span class="hljs-comment">//判断script标签确实是js</span><br>  <span class="hljs-keyword">if</span>(s.attr(<span class="hljs-string">“type”</span>) == <span class="hljs-literal">null</span><br>    || s.attr(<span class="hljs-string">“type”</span>) === <span class="hljs-string">“text/javascript”</span>){<br>    <span class="hljs-keyword">var</span> src = s.attr(<span class="hljs-string">“src”</span>);<br><br>    <span class="hljs-keyword">if</span>(src){<br>      <span class="hljs-comment">//外链的js，默认只处理以/static/开头的资源</span><br>      <span class="hljs-keyword">if</span>(<span class="hljs-regexp">/^static\/js\/(?!lib)/</span>.test(src)){<br>        jsToCombo.push(src);<br>        <span class="hljs-keyword">if</span>(jsToCombo.length == <span class="hljs-number">1</span>){<br>          s.attr(<span class="hljs-string">“src”</span>, <span class="hljs-string">“static/js/index.min.js”</span>);<br>        }<span class="hljs-keyword">else</span>{<br>          s.remove();<br>        }<br>      }<br>    }<br>  }<br>}<br>minifyAndComboJS(<span class="hljs-string">“index.min.js”</span>, encode, jsToCombo);<br></code></pre><br><p>最后是完整的代码：</p><br><pre><code class="hljs lang-js"><span class="hljs-keyword">var</span> gulp = <span class="hljs-built_in">require</span>(<span class="hljs-string">“gulp”</span>);<br><span class="hljs-keyword">var</span> through = <span class="hljs-built_in">require</span>(<span class="hljs-string">“through2”</span>);<br><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">minifyAndComboCSS</span>(<span class="hljs-params">name, encode, files</span>)</span>{<br>  <span class="hljs-keyword">var</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">“fs”</span>);<br>  <span class="hljs-keyword">var</span> CleanCSS = <span class="hljs-built_in">require</span>(<span class="hljs-string">“clean-css”</span>);<br>  <span class="hljs-keyword">var</span> content = <span class="hljs-string">“”</span>;<br><br>  files.forEach(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">css</span>)</span>{<br>    <span class="hljs-keyword">var</span> contents = fs.readFileSync(css, encode);<br>    <span class="hljs-keyword">var</span> minified = <span class="hljs-keyword">new</span> CleanCSS().minify(contents).styles;<br>    content += minified;<br>  });<br><br>  <span class="hljs-keyword">if</span>(content){<br>    <span class="hljs-keyword">var</span> combo = <span class="hljs-string">“static/css/“</span> + name;<br>  }<br>  fs.writeFileSync(combo, content);<br><br>  gulp.src(combo)<br>      .pipe(gulp.dest(<span class="hljs-string">“./dist/static/css”</span>));<br>}<br><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">minifyAndComboJS</span>(<span class="hljs-params">name, encode, files</span>)</span>{<br>  <span class="hljs-keyword">var</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">“fs”</span>);<br>  <span class="hljs-keyword">var</span> UglifyJS = <span class="hljs-built_in">require</span>(<span class="hljs-string">“uglify-js”</span>);<br>  <span class="hljs-keyword">var</span> content = <span class="hljs-string">“”</span>;<br><br>  files.forEach(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">js</span>)</span>{<br>    <span class="hljs-keyword">var</span> minified = UglifyJS.minify(js).code;<br>    content += minified;<br>  });<br><br>  <span class="hljs-keyword">if</span>(content){<br>    <span class="hljs-keyword">var</span> combo = <span class="hljs-string">“static/js/“</span> + name;<br>  }<br>  fs.writeFileSync(combo, content);<br><br>  gulp.src(combo)<br>      .pipe(gulp.dest(<span class="hljs-string">“./dist/static/js”</span>));<br>}<br><br><br>gulp.task(<span class="hljs-string">“build-index”</span>, [<span class="hljs-string">“build-js-lib”</span>, <span class="hljs-string">“build-common-css”</span>], <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{<br>  gulp.src(<span class="hljs-string">“./index.html”</span>)<br>    .pipe(through.obj(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">file, encode, cb</span>) </span>{<br>        <span class="hljs-keyword">var</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">“fs”</span>);<br>        <span class="hljs-keyword">var</span> contents = file.contents.toString(encode);<br><br>        <span class="hljs-keyword">var</span> $ = <span class="hljs-built_in">require</span>(<span class="hljs-string">“cheerio”</span>).load(contents, {decodeEntities: <span class="hljs-literal">false</span>});<br><br>        <span class="hljs-comment">//处理外链 css</span><br>        <span class="hljs-keyword">var</span> links = $(<span class="hljs-string">“link”</span>);<br>        <span class="hljs-keyword">var</span> cssToCombo = [];<br><br>        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>; i &lt; links.length; i++){<br>          <span class="hljs-keyword">var</span> link = $(links[i]);<br>          <span class="hljs-keyword">if</span>(link.attr(<span class="hljs-string">“rel”</span>) === <span class="hljs-string">“stylesheet”</span>){<br>            <span class="hljs-keyword">var</span> href = link.attr(<span class="hljs-string">“href”</span>);<br>            <span class="hljs-keyword">if</span>(<span class="hljs-regexp">/^static\/css\/(?!common)/</span>.test(href)){<br>              cssToCombo.push(href);<br>              <span class="hljs-keyword">if</span>(cssToCombo.length == <span class="hljs-number">1</span>){<br>                link.attr(<span class="hljs-string">“href”</span>, <span class="hljs-string">“static/css/index.min.css”</span>);<br>              }<span class="hljs-keyword">else</span>{<br>                link.remove();<br>              }<br>            }<br>          }<br>        }<br>        minifyAndComboCSS(<span class="hljs-string">“index.min.css”</span>, encode, cssToCombo);<br><br>        <span class="hljs-comment">//处理外链 js</span><br>        <span class="hljs-keyword">var</span> scripts = $(<span class="hljs-string">“script”</span>);<br>        <span class="hljs-keyword">var</span> jsToCombo = [];<br>        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>; i &lt; scripts.length; i++){<br>          <span class="hljs-keyword">var</span> s = $(scripts[i]);<br><br>          <span class="hljs-comment">//判断script标签确实是js</span><br>          <span class="hljs-keyword">if</span>(s.attr(<span class="hljs-string">“type”</span>) == <span class="hljs-literal">null</span><br>            || s.attr(<span class="hljs-string">“type”</span>) === <span class="hljs-string">“text/javascript”</span>){<br>            <span class="hljs-keyword">var</span> src = s.attr(<span class="hljs-string">“src”</span>);<br><br>            <span class="hljs-keyword">if</span>(src){<br>              <span class="hljs-comment">//外链的js，默认只处理以/static/开头的资源</span><br>              <span class="hljs-keyword">if</span>(<span class="hljs-regexp">/^static\/js\/(?!lib)/</span>.test(src)){<br>                jsToCombo.push(src);<br>                <span class="hljs-keyword">if</span>(jsToCombo.length == <span class="hljs-number">1</span>){<br>                  s.attr(<span class="hljs-string">“src”</span>, <span class="hljs-string">“static/js/index.min.js”</span>);<br>                }<span class="hljs-keyword">else</span>{<br>                  s.remove();<br>                }<br>              }<br>            }<br>          }<br>        }<br>        minifyAndComboJS(<span class="hljs-string">“index.min.js”</span>, encode, jsToCombo);<br><br>        <span class="hljs-comment">//处理内联图片</span><br>        <span class="hljs-keyword">var</span> imgs = $(<span class="hljs-string">“img”</span>);<br>        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>; i &lt; imgs.length; i++){<br>          <span class="hljs-keyword">var</span> img = $(imgs[i]);<br>          <span class="hljs-keyword">var</span> src = img.attr(<span class="hljs-string">“src”</span>);<br>          <span class="hljs-keyword">if</span>(<span class="hljs-regexp">/^static\/img/</span>.test(src)){<br>            <span class="hljs-keyword">var</span> stat = fs.statSync(src);<br>            <span class="hljs-keyword">var</span> ext = <span class="hljs-built_in">require</span>(<span class="hljs-string">“path”</span>).parse(src).ext;<br><br>            <span class="hljs-keyword">if</span>(stat.size &lt;= <span class="hljs-number">3000</span>){<br>              <span class="hljs-keyword">var</span> head = ext === <span class="hljs-string">“.png”</span> ? <span class="hljs-string">“data:image/png;base64,”</span> : <span class="hljs-string">“data:image/jpeg;base64,”</span>;<br>              <span class="hljs-keyword">var</span> datauri = fs.readFileSync(src).toString(<span class="hljs-string">“base64”</span>);<br>              img.attr(<span class="hljs-string">“src”</span>, head + datauri);<br>            }<br>          }<br>        }<br><br>        contents = $.html();<br><br>        <span class="hljs-comment">//压缩 HTML</span><br>        <span class="hljs-keyword">var</span> HTMLMinifier = <span class="hljs-built_in">require</span>(<span class="hljs-string">“html-minifier”</span>).minify;<br><br>        <span class="hljs-keyword">var</span> minified = HTMLMinifier(contents, {<br>          minifyCSS: <span class="hljs-literal">true</span>,<br>          minifyJS: <span class="hljs-literal">true</span>,<br>          collapseWhitespace: <span class="hljs-literal">true</span>,<br>          removeAttributeQuotes: <span class="hljs-literal">true</span><br>        });<br><br>        file.contents = <span class="hljs-keyword">new</span> Buffer(minified, encode);<br>        cb(<span class="hljs-literal">null</span>, file, encode);<br>      }))<br>    .pipe(gulp.dest(<span class="hljs-string">“./dist”</span>));<br>});<br><br>gulp.task(<span class="hljs-string">“build-js-lib”</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{<br>  gulp.src(<span class="hljs-string">“./static/js/lib/**/.js”</span>)<br>      .pipe(through.obj(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">file, encode, cb</span>) </span>{<br>        <span class="hljs-keyword">var</span> UglifyJS = <span class="hljs-built_in">require</span>(<span class="hljs-string">“uglify-js”</span>);<br><br>        <span class="hljs-keyword">var</span> contents = file.contents.toString(encode);<br>        <span class="hljs-keyword">var</span> minified = UglifyJS.minify(contents,<br>          {fromString:<span class="hljs-literal">true</span>}).code;<br><br>        file.contents = <span class="hljs-keyword">new</span> Buffer(minified, encode);<br>        cb(<span class="hljs-literal">null</span>, file, encode);<br>      }))<br>      .pipe(gulp.dest(<span class="hljs-string">“./dist/static/js/lib”</span>));<br>});<br><br>gulp.task(<span class="hljs-string">“build-common-css”</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{<br>  gulp.src(<span class="hljs-string">“./static/css/common/<em>*/</em>.css”</span>)<br>      .pipe(through.obj(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">file, encode, cb</span>) </span>{<br>        <span class="hljs-keyword">var</span> CleanCSS = <span class="hljs-built_in">require</span>(<span class="hljs-string">“clean-css”</span>);<br><br>        <span class="hljs-keyword">var</span> contents = file.contents.toString(encode);<br>        <span class="hljs-keyword">var</span> minified = <span class="hljs-keyword">new</span> CleanCSS().minify(contents).styles;<br><br>        file.contents = <span class="hljs-keyword">new</span> Buffer(minified, encode);<br>        cb(<span class="hljs-literal">null</span>, file, encode);<br>      }))<br>      .pipe(gulp.dest(<span class="hljs-string">“./dist/static/css/common”</span>));<br>});<br></code></pre><br><h2 id="toc-25f">总结</h2><br><p>我们用 Gulp 创建了一个非常简单的构建脚本，它可以压缩合并我们项目的 js 和 css 并处理小图片，我们还可以给它进一步增加其他功能，例如给压缩的文件添加版本号，或者根据内容计算签名以实现更新后不被缓存，我们还可以用 CDN 服务的 sdk 将资源发布到 CDN 并替换原始链接，同时，我们可以不用每次发布所有的文件，我们可以在开发的时候用 gulp.watch 来监控文件的修改，以实现增量的编译发布。</p><br><p>总之，我们可以用 gulp 来做许多有用的事情，来完善我们的构建脚本，而这一切都因为 gulp 基于流的构建以及 NPM 丰富的库变得非常简单。最后的最后，由于我们从头使用 through2 来处理任务，所以我们在具体实现功能的时候还是略微繁琐，事实上 gulp 提供了不少有用的<a href="http://www.gulpjs.com.cn/docs/writing-a-plugin/" target="_blank" rel="external">插件</a>，这些插件直接返回 stream 对象，可以让构建过程变得更简单，具体的可以多研究官方的文档。</p><br>  <p>本文链接：<a href="https://www.h5jun.com/post/gulp-build.html" target="_blank" rel="external">https://www.h5jun.com/post/gulp-build.html</a></p> <p>– <acronym title="End of File">EOF</acronym> –</p> 
+      
+    </div>
+
+    <div>
+      
+        
+<div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton", disable="enable", onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}", style="cursor: pointer; border: 0; outline: 0; border-radius: 100%; padding: 0; margin: 0; letter-spacing: normal; text-transform: none; text-indent: 0px; text-shadow: none">
+    <span onmouseover="this.style.color='rgb(236,96,0)';this.style.background='rgb(204,204,204)'" onMouseOut="this.style.color='#fff';this.style.background='rgb(236,96,0)'" style="display: inline-block; width: 70px; height: 70px; border-radius: 100%; line-height: 81px; color: #fff; font: 400 35px/75px 'microsofty'; background: rgb(236,96,0)">赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="http://7xsgf8.com1.z0.glb.clouddn.com/image/bg%E5%BE%AE%E4%BF%A1%E4%BA%8C%E7%BB%B4%E7%A0%81.png" alt="小栋同学 WeChat Pay" style="width: 200px; max-width: 100%; display: inline-block"/>
+        <p>微信打赏</p>
+      </div>
+    
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="http://7xsgf8.com1.z0.glb.clouddn.com/image/bg%E6%94%AF%E4%BB%98%E5%AE%9D%E4%BA%8C%E7%BB%B4%E7%A0%81.png" alt="小栋同学 Alipay" style="width: 200px; max-width: 100%; display: inline-block"/>
+        <p>支付宝打赏</p>
+      </div>
+    
+  </div>
+<div>
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Gulp/" rel="tag">#Gulp</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/05/26/寻找头绪：编写可维护的 JavaScript/" rel="next" title="编写可维护的 JavaScript">
+                <i class="fa fa-chevron-left"></i> 编写可维护的 JavaScript
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/05/28/使用Gulp构建网站小白教程/"
+           data-title="使用Gulp构建网站的小白教程" data-url="http://yoursite.com/2016/05/28/使用Gulp构建网站小白教程/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/touxiang.png"
+               alt="小栋同学" />
+          <p class="site-author-name" itemprop="name">小栋同学</p>
+          <p class="site-description motion-element" itemprop="description">You are the owner of your career.</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">25</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/Pillar-Zhang" target="_blank">
+                  
+                    <i class="fa fa-github"></i> GitHub
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/henuxiaodong/profile" target="_blank">
+                  
+                    <i class="fa fa-weibo"></i> Weibo
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/xiaodongtongxue" target="_blank">
+                  
+                    <i class="fa fa-zhihu"></i> zhihu
+                  
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        <div class="links-of-blogroll motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#toc-197"><span class="nav-number">1.</span> <span class="nav-text">什么是 Gulp？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#toc-84a"><span class="nav-number">2.</span> <span class="nav-text">Stream 流</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#toc-e10"><span class="nav-number">3.</span> <span class="nav-text">基于流的 Gulp</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#toc-246"><span class="nav-number">4.</span> <span class="nav-text">处理文件的内容</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#toc-aea"><span class="nav-number">5.</span> <span class="nav-text">进一步优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#toc-25f"><span class="nav-number">6.</span> <span class="nav-text">总结</span></a></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">小栋同学</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+
+  
+
+
+
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=0.5.0"></script>
+
+
+
+  
+  
+
+  
+  
+<script type="text/javascript" src="/js/src/scrollspy.js?v=0.5.0"></script>
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 1 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = NexT.utils.escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    NexT.motion.middleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+
+      if (CONFIG.sidebar.display === 'post' || CONFIG.sidebar.display === 'always') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          NexT.utils.displaySidebar();
+        }
+      }
+    };
+  });
+</script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.5.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"xiaodongtongxue"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("giQcON1aYKcTH2HFEhsWqeIk-gzGzoHsz", "vNDXtDvpDvfvc3GbxFeTKkWu");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+  
+  
+  	 <!-- custom analytics part create by xiamo -->
+<script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+<script>AV.initialize("giQcON1aYKcTH2HFEhsWqeIk-gzGzoHsz", "vNDXtDvpDvfvc3GbxFeTKkWu");</script>
+<script>
+function showTime(Counter) {
+  var query = new AV.Query(Counter);
+  $(".leancloud_visitors").each(function() {
+    var url = $(this).attr("id").trim();
+    query.equalTo("url", url);
+    query.find({
+      success: function(results) {
+        if (results.length == 0) {
+          var content = $(document.getElementById(url)).text() + ': 0';
+          $(document.getElementById(url)).text(content);
+          return;
+        }
+        for (var i = 0; i < results.length; i++) {
+          var object = results[i];
+          var content = $(document.getElementById(url)).text() + ': ' + object.get('time');
+          $(document.getElementById(url)).text(content);
+        }
+      },
+      error: function(object, error) {
+        console.log("Error: " + error.code + " " + error.message);
+      }
+    });
+
+  });
+}
+
+function addCount(Counter) {
+  var Counter = AV.Object.extend("Counter");
+  url = $(".leancloud_visitors").attr('id').trim();
+  title = $(".leancloud_visitors").attr('data-flag-title').trim();
+  var query = new AV.Query(Counter);
+  query.equalTo("url", url);
+  query.find({
+    success: function(results) {
+      if (results.length > 0) {
+        var counter = results[0];
+        counter.fetchWhenSave(true);
+        counter.increment("time");
+        counter.save(null, {
+          success: function(counter) {
+            var content = $(document.getElementById(url)).text() + ': ' + counter.get('time');
+            $(document.getElementById(url)).text(content);
+          },
+          error: function(counter, error) {
+            console.log('Failed to save Visitor num, with error message: ' + error.message);
+          }
+        });
+      } else {
+        var newcounter = new Counter();
+        newcounter.set("title", title);
+        newcounter.set("url", url);
+        newcounter.set("time", 1);
+        newcounter.save(null, {
+          success: function(newcounter) {
+              console.log("newcounter.get('time')="+newcounter.get('time'));
+            var content = $(document.getElementById(url)).text() + ': ' + newcounter.get('time');
+            $(document.getElementById(url)).text(content);
+          },
+          error: function(newcounter, error) {
+            console.log('Failed to create');
+          }
+        });
+      }
+    },
+    error: function(error) {
+      console.log('Error:' + error.code + " " + error.message);
+    }
+  });
+}
+$(function() {
+  var Counter = AV.Object.extend("Counter");
+  if ($('.leancloud_visitors').length == 1) {
+    addCount(Counter);
+  } else if ($('.post-title-link').length > 1) {
+    showTime(Counter);
+  }
+}); 
+</script>
+  
+
+</body>
+</html>
